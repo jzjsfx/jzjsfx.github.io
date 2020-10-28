@@ -1,6 +1,5 @@
 /* Here is your custom css styles. */
-
-/* 修改博客标题的字体大小 */
+/* 修改博客标题的字体大小   这是我自己改的,只要有空格，改不改都一样,这里存在一个小Bug */
 @media only screen and (max-width: 601px) {
     header .brand-logo .logo-span {
         font-size: 1.5rem;
