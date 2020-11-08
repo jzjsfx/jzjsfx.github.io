@@ -2,11 +2,10 @@
 <html lang="zh-CN">
 
 
-
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="关于, Junzheng">
-    <meta name="description" content="">
+    <meta name="description" content="分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -145,7 +144,7 @@
         <div class="logo-name">Junzheng</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            分享生活,分享知识
             
         </div>
     </div>
@@ -320,7 +319,7 @@
         <div class="brand">
             <div class="title center-align">
                 
-                人生若只如初见
+                以梦为马，不负韶华
                 
             </div>
 
@@ -355,7 +354,6 @@
     </div>
 </div>
 
-
 <main class="content">
 
     <div id="aboutme" class="container about-container">
@@ -372,7 +370,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/jzjsfx/categories">1</a></span>
+    <span class="count"><a href="/jzjsfx/categories">2</a></span>
     <span class="name">分类</span>
 </div>
 
@@ -402,7 +400,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/jzjsfx/categories">1</a></span>
+    <span class="count"><a href="/jzjsfx/categories">2</a></span>
     <span class="name">分类</span>
 </div>
 
@@ -435,7 +433,7 @@
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=182378275" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1823782755" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1823782755" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1823782755" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -473,7 +471,7 @@
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=182378275" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1823782755" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1823782755" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1823782755" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -543,7 +541,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10"]
+            data: ["2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11"]
         },
         yAxis: {
             type: 'value',
@@ -553,7 +551,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,0,2],
+                data: [0,0,0,0,0,0,0,0,0,0,0,2,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -595,7 +593,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Markdown","value":2}],
+                data: [{"name":"诗歌","value":1},{"name":"名言警句","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -876,6 +874,7 @@
     </div>
 </main>
 
+
     <footer class="page-footer bg-color">
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">
@@ -972,7 +971,7 @@
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=182378275" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1823782755" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1823782755" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1823782755" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -991,6 +990,7 @@
 </footer>
 
 <div class="progress-bar"></div>
+
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -1018,12 +1018,14 @@ $(function () {
     </a>
 </div>
 
+
     <script src="/jzjsfx/libs/materialize/materialize.min.js"></script>
     <script src="/jzjsfx/libs/masonry/masonry.pkgd.min.js"></script>
     <script src="/jzjsfx/libs/aos/aos.js"></script>
     <script src="/jzjsfx/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="/jzjsfx/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/jzjsfx/js/matery.js"></script>
+
     <!-- Baidu Analytics -->
 
     <!-- Baidu Push -->
@@ -1046,14 +1048,10 @@ $(function () {
     <script src="/jzjsfx/libs/others/clicklove.js" async="async"></script>
     
     
-
-
     <script async src="/jzjsfx/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
-
-
 
     
 
@@ -1070,4 +1068,3 @@ $(function () {
 <script src="/jzjsfx/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>
-
