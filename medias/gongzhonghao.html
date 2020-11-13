@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>公众号</title>
+<style type="text/css">
+body {
+	background-color: #ECE8E8;
+	font-size: 36px;
+}
+</style>
+</head>
+
+<body>
+<p style="text-align: center"><span style="font-size: 36px">欢迎大家关注微信公众号&quot;IT互联网科技知识共享&quot;</span></p>
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td><div id="showtimes">
+
+<script language="javascript">show_cur_times();</script>
+
+</div>
+<script type="text/javascript" language="javascript">
+
+function show_cur_times(){
+//获取当前日期
+ var date_time = new Date();
+ //定义星期
+ var week;
+ //switch判断
+ switch (date_time.getDay()){
+
+case 1: week="星期一"; break;
+
+case 2: week="星期二"; break;
+
+case 3: week="星期三"; break;
+
+case 4: week="星期四"; break;
+
+case 5: week="星期五"; break;
+
+case 6: week="星期六"; break;
+
+default:week="星期天"; break;
+}//年
+var year = date_time.getFullYear();
+//判断小于10，前面补0
+if(year<10){
+year="0"+year;
+ }//月
+var month = date_time.getMonth()+1;
+//判断小于10，前面补0
+if(month<10){
+month="0"+month;
+}//日
+var day = date_time.getDate();
+//判断小于10，前面补0
+if(day<10){
+day="0"+day;
+ }//时
+var hours =date_time.getHours();
+//判断小于10，前面补0
+if(hours<10){
+hours="0"+hours;
+ }//分
+var minutes =date_time.getMinutes();
+//判断小于10，前面补0
+if(minutes<10){
+minutes="0"+minutes;
+ }//秒
+var seconds=date_time.getSeconds();
+//判断小于10，前面补0
+if(seconds<10){
+seconds="0"+seconds;
+ }//拼接年月日时分秒
+ var date_str = year+"年"+month+"月"+day+"日 "+hours+":"+minutes+":"+seconds+" "+week;
+//显示在id为showtimes的容器里
+document.getElementById("showtimes").innerHTML= date_str;
+}//设置1秒调用一次show_cur_times函数
+setInterval("show_cur_times()",100);
+</script>
+</p>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<p>欢迎大家关注微信公众号“IT互联网科技知识共享”，此公众号是我自己申请的，准备在里面分享一些
+  关于计算的一些知识，通过分享知识也让以我让学到一些知识并加深对于我所学习的知识的记忆。</p>
+<p>该公众号现在很简便，但我会努力去经营它，把它做的更好。在公众号里我已经加入了一些小技术，例如用户只要关注了它，并在里面发送“视频”即可观看免费的最新电影电视剧。更多功能我会继续研究。</p>
+<p>下面是该公众号，欢迎大家关注</p>
+<p style="font-size: 16px; text-align: center;"><img src="image/02.jpg" width="258" height="258" alt=""/></p>
+<audio controls autoplay >
+  <source src="歌曲/张镐哲 - 路太远.mp3" type="audio/mp3">
+</audio>
+<p>&nbsp;</p>
+<p style="font-size: 24px; text-align: center;">| <a href="http://www.whsw.net/">武汉生物工程学院</a> | <a href="#">计算机与信息工程学院17级软件五班</a> | <a href="1823782755@qq.com">联系作者</a>| 邮箱1823782755@qq.com</p>
+</body>
+</html>
