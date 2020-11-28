@@ -6,7 +6,7 @@
   <link href="http://jzjsfx.gitee.io/atom.xml" rel="self"/>
   
   <link href="http://jzjsfx.gitee.io/"/>
-  <updated>2020-11-21T10:32:21.183Z</updated>
+  <updated>2020-11-28T10:59:35.175Z</updated>
   <id>http://jzjsfx.gitee.io/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算器小程序</title>
+    <link href="http://jzjsfx.gitee.io/year/11/28/f/"/>
+    <id>http://jzjsfx.gitee.io/year/11/28/f/</id>
+    <published>2020-11-28T10:11:29.000Z</published>
+    <updated>2020-11-28T10:59:35.175Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;  该程序是一个图形界面的简单 Java 计算器，具有良好的界面，使用人员能快捷简单的进行加、减、 乘、除、操作。其程序要求为设计一个图形界面（GUI）的计算器应用程序，完成简单的加法、减法、乘</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="http://jzjsfx.gitee.io/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="http://jzjsfx.gitee.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>酒店管理系统</title>
+    <link href="http://jzjsfx.gitee.io/year/11/28/d/"/>
+    <id>http://jzjsfx.gitee.io/year/11/28/d/</id>
+    <published>2020-11-28T09:50:43.000Z</published>
+    <updated>2020-11-28T11:00:12.198Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;编写一个Java项目：&lt;/p&gt;
+&lt;p&gt;为某个酒店编写程序：酒店管理系统，模拟订房、退房、打印所有房间状态等功能。&lt;br&gt;问题描述：&lt;br&gt;为某个酒店编写程序：酒店管理系统，模拟订房、退房、打印所有房间状态等功能。&lt;br&gt;1、该系统的用户是：酒店前台。&lt;br&gt;2、酒店使用一个</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="http://jzjsfx.gitee.io/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="http://jzjsfx.gitee.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>既然选择了远方,便只顾风雨兼程</title>
@@ -75,7 +126,7 @@
     <link href="http://jzjsfx.gitee.io/year/10/26/c/"/>
     <id>http://jzjsfx.gitee.io/year/10/26/c/</id>
     <published>2020-10-26T11:02:34.000Z</published>
-    <updated>2020-11-21T11:33:14.853Z</updated>
+    <updated>2020-11-28T10:08:30.705Z</updated>
     
     
       
