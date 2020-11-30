@@ -6,7 +6,7 @@
   <link href="http://jzjsfx.gitee.io/atom.xml" rel="self"/>
   
   <link href="http://jzjsfx.gitee.io/"/>
-  <updated>2020-11-28T10:59:35.175Z</updated>
+  <updated>2020-11-30T06:35:25.886Z</updated>
   <id>http://jzjsfx.gitee.io/</id>
   
   <author>
@@ -15,6 +15,87 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring简介</title>
+    <link href="http://jzjsfx.gitee.io/year/11/30/h/"/>
+    <id>http://jzjsfx.gitee.io/year/11/30/h/</id>
+    <published>2020-11-30T06:00:46.000Z</published>
+    <updated>2020-11-30T06:35:25.886Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="JavaEE" scheme="http://jzjsfx.gitee.io/categories/JavaEE/"/>
+    
+    
+    <category term="Java" scheme="http://jzjsfx.gitee.io/tags/Java/"/>
+    
+    <category term="JavaEE" scheme="http://jzjsfx.gitee.io/tags/JavaEE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>贪吃蛇游戏</title>
+    <link href="http://jzjsfx.gitee.io/year/11/30/g/"/>
+    <id>http://jzjsfx.gitee.io/year/11/30/g/</id>
+    <published>2020-11-30T05:43:47.000Z</published>
+    <updated>2020-11-30T05:58:02.735Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;使用 Java 语言编写一个贪吃蛇游戏，代码如下：&lt;/p&gt;
+&lt;p&gt;GreedSnake .java&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-java&quot; data-language=&quot;java&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="http://jzjsfx.gitee.io/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="http://jzjsfx.gitee.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>仿Windows下的记事本程序</title>
+    <link href="http://jzjsfx.gitee.io/year/11/30/e/"/>
+    <id>http://jzjsfx.gitee.io/year/11/30/e/</id>
+    <published>2020-11-30T04:29:00.000Z</published>
+    <updated>2020-11-30T05:06:58.665Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在 Windows 操作系统中，记事本是一个小的应用程序，采用一个简单的文本编辑器进行文字信息的记 &lt;/p&gt;
+&lt;p&gt;录和存储。请仿照 Windows 的记事本，开发一个属于自己的记事本（Notepad）功能&lt;/p&gt;
+&lt;p&gt;记事本的应该具备的功能，基本要求如下：</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="http://jzjsfx.gitee.io/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="http://jzjsfx.gitee.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>计算器小程序</title>
