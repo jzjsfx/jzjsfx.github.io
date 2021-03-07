@@ -1,0 +1,27 @@
+<p>Java Web服务器的介绍</p>
+<p>Web服务器：是指能够为发出请求的浏览器提供文档的程序。服务器是一</p>
+<p>种被动程序，只有浏览器发出请求的时候才会响应。</p>
+<p>主流的Web服务器有：</p>
+<p>1.WebLogic：Bea公司开发的一个收费的大型服务器软件，后被Oracle收购，支持Java EE 所有规范。</p>
+<p>2.Tomcat：由Apache、Sun和其他一些公司及个人共同开发而成。该服务器支持全部 JSP以及Servlet规范。因为Tomcat技术先进、性能稳定，而且开源免费，因而深受Java爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web服务器。学习JavaWeb开发一般都使用Tomcat服务器。</p>
+<p>3.JBoss：一个开源的支持Java  EE规范的应用服务器，但是其核心服务不包含Servlet和 JSP,所以一般情况下，它会与Tomcat等服务器绑定使用</p>
+<p>Tomcat的下载与使用</p>
+<p>下载地址为：<a href="http://tomcat.apache.org/download-80.cgi">http://tomcat.apache.org/download-80.cgi</a></p>
+<p>可根据自己的电脑选择软件版本。</p>
+<p>打开下载好的Tomcat,其目录为</p>
+<p>接下来我们打开bin目录，找到startup.bat,双击打开它，此时服务器已启动</p>
+<p>接下来我们访问浏览器，我们输入localhost:8080回车，我们可以看到如图，就说明Tomcat服务已经开启成功了</p>
+<p>想要关闭它就在bin目录下找到shutdown.bat,双击一下就可关闭Tomcat服务器。</p>
+<p>Tomcat的目录结构：</p>
+<p>bin   脚本目录(启动和停止：(startup.bat, shutdown.bat)</p>
+<p>conf  配置目录(server.xml、web.xml)</p>
+<p> lib   存放jar包</p>
+<p>logs    日志文件存放的位置(程序运行时操作系统)</p>
+<p>temp   临时文件</p>
+<p>webapps  用于存放web项目的</p>
+<p> work       Tomcat处理 jsp 页面工作目录</p>
+<p>Tomcat服务器使用浏览器打开txt文件乱码问题</p>
+<ol>
+<li>Tomcat文件设置编码格式为utf-8</li>
+<li>txt文件本身如果使用Notepad++编译编码格式。需要设置为UTF-8-BOM才好使,将utf-8格式另存为UTF-8-BOM格式乱码解决。</li>
+</ol>
