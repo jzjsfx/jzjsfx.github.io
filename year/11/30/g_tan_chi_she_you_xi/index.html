@@ -31,7 +31,7 @@
     <script src="/jzjsfx/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/jzjsfx/atom.xml" title="Junzheng" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/jzjsfx/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -827,14 +827,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    9 分
                 </div>
                 
 
@@ -851,375 +851,375 @@
             <div id="articleContent">
                 <p>使用 Java 语言编写一个贪吃蛇游戏，代码如下：</p>
 <p>GreedSnake .java</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">jzjsfx</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">package jzjsfx;
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GreedSnake</span> <span class="token punctuation">&#123;</span>
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token class-name">SnakeModel</span> model <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SnakeModel</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">SnakeControl</span> control <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SnakeControl</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">SnakeView</span> view <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SnakeView</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span> control<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token comment">// 添加一个观察者，让view成为model的观察者</span>
-		model<span class="token punctuation">.</span><span class="token function">addObserver</span><span class="token punctuation">(</span>view<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+public class GreedSnake &#123;
+	public static void main(String[] args) &#123;
+		SnakeModel model &#x3D; new SnakeModel(20, 30);
+		SnakeControl control &#x3D; new SnakeControl(model);
+		SnakeView view &#x3D; new SnakeView(model, control);
+		&#x2F;&#x2F; 添加一个观察者，让view成为model的观察者
+		model.addObserver(view);
+		new Thread(model).start();
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>SnakeControl.java</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">jzjsfx</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>event<span class="token punctuation">.</span></span><span class="token class-name">KeyEvent</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>event<span class="token punctuation">.</span></span><span class="token class-name">KeyListener</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">package jzjsfx;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SnakeControl</span>  <span class="token keyword">implements</span> <span class="token class-name">KeyListener</span><span class="token punctuation">&#123;</span>
-    <span class="token class-name">SnakeModel</span> model<span class="token punctuation">;</span>
+public class SnakeControl  implements KeyListener&#123;
+    SnakeModel model;
 
-    <span class="token keyword">public</span> <span class="token class-name">SnakeControl</span><span class="token punctuation">(</span><span class="token class-name">SnakeModel</span> model<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>model <span class="token operator">=</span> model<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+    public SnakeControl(SnakeModel model)&#123;
+        this.model &#x3D; model;
+    &#125;
 
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">keyPressed</span><span class="token punctuation">(</span><span class="token class-name">KeyEvent</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> keyCode <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token function">getKeyCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>model<span class="token punctuation">.</span>running<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>                <span class="token comment">// 运行状态下，处理的按键</span>
-            <span class="token keyword">switch</span> <span class="token punctuation">(</span>keyCode<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">case</span> <span class="token class-name">KeyEvent</span><span class="token punctuation">.</span>VK_UP<span class="token operator">:</span>
-                    model<span class="token punctuation">.</span><span class="token function">changeDirection</span><span class="token punctuation">(</span><span class="token class-name">SnakeModel</span><span class="token punctuation">.</span>UP<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token keyword">case</span> <span class="token class-name">KeyEvent</span><span class="token punctuation">.</span>VK_DOWN<span class="token operator">:</span>
-                    model<span class="token punctuation">.</span><span class="token function">changeDirection</span><span class="token punctuation">(</span><span class="token class-name">SnakeModel</span><span class="token punctuation">.</span>DOWN<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token keyword">case</span> <span class="token class-name">KeyEvent</span><span class="token punctuation">.</span>VK_LEFT<span class="token operator">:</span>
-                    model<span class="token punctuation">.</span><span class="token function">changeDirection</span><span class="token punctuation">(</span><span class="token class-name">SnakeModel</span><span class="token punctuation">.</span>LEFT<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token keyword">case</span> <span class="token class-name">KeyEvent</span><span class="token punctuation">.</span>VK_RIGHT<span class="token operator">:</span>
-                    model<span class="token punctuation">.</span><span class="token function">changeDirection</span><span class="token punctuation">(</span><span class="token class-name">SnakeModel</span><span class="token punctuation">.</span>RIGHT<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token keyword">case</span> <span class="token class-name">KeyEvent</span><span class="token punctuation">.</span>VK_ADD<span class="token operator">:</span>
-                <span class="token keyword">case</span> <span class="token class-name">KeyEvent</span><span class="token punctuation">.</span>VK_PAGE_UP<span class="token operator">:</span>
-                    model<span class="token punctuation">.</span><span class="token function">speedUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token keyword">case</span> <span class="token class-name">KeyEvent</span><span class="token punctuation">.</span>VK_SUBTRACT<span class="token operator">:</span>
-                <span class="token keyword">case</span> <span class="token class-name">KeyEvent</span><span class="token punctuation">.</span>VK_PAGE_DOWN<span class="token operator">:</span>
-                    model<span class="token punctuation">.</span><span class="token function">speedDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token keyword">case</span> <span class="token class-name">KeyEvent</span><span class="token punctuation">.</span>VK_SPACE<span class="token operator">:</span>
-                <span class="token keyword">case</span> <span class="token class-name">KeyEvent</span><span class="token punctuation">.</span>VK_P<span class="token operator">:</span>
-                    model<span class="token punctuation">.</span><span class="token function">changePauseState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token keyword">default</span><span class="token operator">:</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
+    public void keyPressed(KeyEvent e) &#123;
+        int keyCode &#x3D; e.getKeyCode();
+        if (model.running)&#123;                &#x2F;&#x2F; 运行状态下，处理的按键
+            switch (keyCode) &#123;
+                case KeyEvent.VK_UP:
+                    model.changeDirection(SnakeModel.UP);
+                    break;
+                case KeyEvent.VK_DOWN:
+                    model.changeDirection(SnakeModel.DOWN);
+                    break;
+                case KeyEvent.VK_LEFT:
+                    model.changeDirection(SnakeModel.LEFT);
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    model.changeDirection(SnakeModel.RIGHT);
+                    break;
+                case KeyEvent.VK_ADD:
+                case KeyEvent.VK_PAGE_UP:
+                    model.speedUp();
+                    break;
+                case KeyEvent.VK_SUBTRACT:
+                case KeyEvent.VK_PAGE_DOWN:
+                    model.speedDown();
+                    break;
+                case KeyEvent.VK_SPACE:
+                case KeyEvent.VK_P:
+                    model.changePauseState();
+                    break;
+                default:
+            &#125;
+        &#125;
 
-        <span class="token comment">// 任何情况下处理的按键，按键导致重新启动游戏</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>keyCode <span class="token operator">==</span> <span class="token class-name">KeyEvent</span><span class="token punctuation">.</span>VK_R <span class="token operator">||</span>
-                keyCode <span class="token operator">==</span> <span class="token class-name">KeyEvent</span><span class="token punctuation">.</span>VK_S <span class="token operator">||</span>
-                keyCode <span class="token operator">==</span> <span class="token class-name">KeyEvent</span><span class="token punctuation">.</span>VK_ENTER<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            model<span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
+        &#x2F;&#x2F; 任何情况下处理的按键，按键导致重新启动游戏
+        if (keyCode &#x3D;&#x3D; KeyEvent.VK_R ||
+                keyCode &#x3D;&#x3D; KeyEvent.VK_S ||
+                keyCode &#x3D;&#x3D; KeyEvent.VK_ENTER) &#123;
+            model.reset();
+        &#125;
+    &#125;
 
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">keyReleased</span><span class="token punctuation">(</span><span class="token class-name">KeyEvent</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token punctuation">&#125;</span>
+    public void keyReleased(KeyEvent e) &#123;
+    &#125;
 
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">keyTyped</span><span class="token punctuation">(</span><span class="token class-name">KeyEvent</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    public void keyTyped(KeyEvent e) &#123;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>SnakeModel.java</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">jzjsfx</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">package jzjsfx;
 
-<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Arrays</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">LinkedList</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Observable</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Random</span><span class="token punctuation">;</span>
-<span class="token keyword">class</span> <span class="token class-name">SnakeModel</span> <span class="token keyword">extends</span> <span class="token class-name">Observable</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> matrix<span class="token punctuation">;</span>                         <span class="token comment">// 指示位置上有没蛇体或食物</span>
-    <span class="token class-name">LinkedList</span> nodeArray <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 蛇体</span>
-    <span class="token class-name">Node</span> food<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> maxX<span class="token punctuation">;</span>									<span class="token comment">//横列</span>
-    <span class="token keyword">int</span> maxY<span class="token punctuation">;</span>									<span class="token comment">//纵列</span>
-    <span class="token keyword">int</span> direction <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>                          <span class="token comment">// 蛇运行的方向</span>
-    <span class="token keyword">boolean</span> running <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>                    <span class="token comment">// 运行状态</span>
+import javax.swing.*;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Observable;
+import java.util.Random;
+class SnakeModel extends Observable implements Runnable &#123;
+    boolean[][] matrix;                         &#x2F;&#x2F; 指示位置上有没蛇体或食物
+    LinkedList nodeArray &#x3D; new LinkedList();    &#x2F;&#x2F; 蛇体
+    Node food;
+    int maxX;									&#x2F;&#x2F;横列
+    int maxY;									&#x2F;&#x2F;纵列
+    int direction &#x3D; 2;                          &#x2F;&#x2F; 蛇运行的方向
+    boolean running &#x3D; false;                    &#x2F;&#x2F; 运行状态
 
-    <span class="token keyword">int</span> timeInterval <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span>                     <span class="token comment">// 时间间隔，毫秒</span>
-    <span class="token keyword">double</span> speedChangeRate <span class="token operator">=</span> <span class="token number">0.75</span><span class="token punctuation">;</span>              <span class="token comment">// 每次得速度变化率</span>
-    <span class="token keyword">boolean</span> paused <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>                     <span class="token comment">// 暂停标志</span>
+    int timeInterval &#x3D; 200;                     &#x2F;&#x2F; 时间间隔，毫秒
+    double speedChangeRate &#x3D; 0.75;              &#x2F;&#x2F; 每次得速度变化率
+    boolean paused &#x3D; false;                     &#x2F;&#x2F; 暂停标志
 
-    <span class="token keyword">int</span> score <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>                              <span class="token comment">// 得分</span>
-    <span class="token keyword">int</span> countMove <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>                          <span class="token comment">// 吃到食物前移动的次数</span>
+    int score &#x3D; 0;                              &#x2F;&#x2F; 得分
+    int countMove &#x3D; 0;                          &#x2F;&#x2F; 吃到食物前移动的次数
 
-    <span class="token comment">// UP and DOWN should be even</span>
-    <span class="token comment">// RIGHT and LEFT should be odd</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> UP <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> DOWN <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> LEFT <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> RIGHT <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    &#x2F;&#x2F; UP and DOWN should be even
+    &#x2F;&#x2F; RIGHT and LEFT should be odd
+    public static final int UP &#x3D; 2;
+    public static final int DOWN &#x3D; 4;
+    public static final int LEFT &#x3D; 1;
+    public static final int RIGHT &#x3D; 3;
 
-    <span class="token keyword">public</span> <span class="token class-name">SnakeModel</span><span class="token punctuation">(</span> <span class="token keyword">int</span> maxX<span class="token punctuation">,</span> <span class="token keyword">int</span> maxY<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>maxX <span class="token operator">=</span> maxX<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>maxY <span class="token operator">=</span> maxY<span class="token punctuation">;</span>
-        <span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+    public SnakeModel( int maxX, int maxY) &#123;
+        this.maxX &#x3D; maxX;
+        this.maxY &#x3D; maxY;
+        reset();
+    &#125;
 
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        direction <span class="token operator">=</span> <span class="token class-name">SnakeModel</span><span class="token punctuation">.</span>UP<span class="token punctuation">;</span>              <span class="token comment">// 蛇运行的方向</span>
-        timeInterval <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span>                     <span class="token comment">// 时间间隔，毫秒</span>
-        paused <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>                         <span class="token comment">// 暂停标志</span>
-        score <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>                              <span class="token comment">// 得分</span>
-        countMove <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>                          <span class="token comment">// 吃到食物前移动的次数</span>
+    public void reset()&#123;
+        direction &#x3D; SnakeModel.UP;              &#x2F;&#x2F; 蛇运行的方向
+        timeInterval &#x3D; 200;                     &#x2F;&#x2F; 时间间隔，毫秒
+        paused &#x3D; false;                         &#x2F;&#x2F; 暂停标志
+        score &#x3D; 0;                              &#x2F;&#x2F; 得分
+        countMove &#x3D; 0;                          &#x2F;&#x2F; 吃到食物前移动的次数
 
-        <span class="token comment">// initial matirx, 全部清0</span>
-        matrix <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span>maxX<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> maxX<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span>maxY<span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
+        &#x2F;&#x2F; initial matirx, 全部清0
+        matrix &#x3D; new boolean[maxX][];
+        for (int i &#x3D; 0; i &lt; maxX; ++i) &#123;
+            matrix[i] &#x3D; new boolean[maxY];
+            Arrays.fill(matrix[i], false);
+        &#125;
 
-        <span class="token comment">// initial the snake</span>
-        <span class="token comment">// 初始化蛇体，如果横向位置超过20个，长度为10，否则为横向位置的一半</span>
-        <span class="token keyword">int</span> initArrayLength <span class="token operator">=</span> maxX <span class="token operator">></span> <span class="token number">20</span> <span class="token operator">?</span> <span class="token number">10</span> <span class="token operator">:</span> maxX <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
-        nodeArray<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> initArrayLength<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">int</span> x <span class="token operator">=</span> maxX <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">+</span> i<span class="token punctuation">;</span><span class="token comment">//maxX被初始化为20</span>
-            <span class="token keyword">int</span> y <span class="token operator">=</span> maxY <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>    <span class="token comment">//maxY被初始化为30</span>
-            <span class="token comment">//nodeArray[x,y]: [10,15]-[11,15]-[12，15]~~[20,15]</span>
-            <span class="token comment">//默认的运行方向向上，所以游戏一开始nodeArray就变为：</span>
-            <span class="token comment">//       [10，14]-[10，15]-[11，15]-[12，15]~~[19，15]</span>
-            nodeArray<span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            matrix<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
+        &#x2F;&#x2F; initial the snake
+        &#x2F;&#x2F; 初始化蛇体，如果横向位置超过20个，长度为10，否则为横向位置的一半
+        int initArrayLength &#x3D; maxX &gt; 20 ? 10 : maxX &#x2F; 2;
+        nodeArray.clear();
+        for (int i &#x3D; 0; i &lt; initArrayLength; ++i) &#123;
+            int x &#x3D; maxX &#x2F; 2 + i;&#x2F;&#x2F;maxX被初始化为20
+            int y &#x3D; maxY &#x2F; 2;    &#x2F;&#x2F;maxY被初始化为30
+            &#x2F;&#x2F;nodeArray[x,y]: [10,15]-[11,15]-[12，15]~~[20,15]
+            &#x2F;&#x2F;默认的运行方向向上，所以游戏一开始nodeArray就变为：
+            &#x2F;&#x2F;       [10，14]-[10，15]-[11，15]-[12，15]~~[19，15]
+            nodeArray.addLast(new Node(x, y));
+            matrix[x][y] &#x3D; true;
+        &#125;
 
-        <span class="token comment">// 创建食物</span>
-        food <span class="token operator">=</span> <span class="token function">createFood</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        matrix<span class="token punctuation">[</span>food<span class="token punctuation">.</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>food<span class="token punctuation">.</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+        &#x2F;&#x2F; 创建食物
+        food &#x3D; createFood();
+        matrix[food.x][food.y] &#x3D; true;
+    &#125;
 
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">changeDirection</span><span class="token punctuation">(</span><span class="token keyword">int</span> newDirection<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">// 改变的方向不能与原来方向同向或反向</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>direction <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">!=</span> newDirection <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            direction <span class="token operator">=</span> newDirection<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
+    public void changeDirection(int newDirection) &#123;
+        &#x2F;&#x2F; 改变的方向不能与原来方向同向或反向
+        if (direction % 2 !&#x3D; newDirection % 2) &#123;
+            direction &#x3D; newDirection;
+        &#125;
+    &#125;
    
-    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">moveOn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">Node</span> n <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">)</span> nodeArray<span class="token punctuation">.</span><span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> x <span class="token operator">=</span> n<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
-        <span class="token keyword">int</span> y <span class="token operator">=</span> n<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+    public boolean moveOn() &#123;
+        Node n &#x3D; (Node) nodeArray.getFirst();
+        int x &#x3D; n.x;
+        int y &#x3D; n.y;
 
-        <span class="token comment">// 根据方向增减坐标值</span>
-        <span class="token keyword">switch</span> <span class="token punctuation">(</span>direction<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">case</span> UP<span class="token operator">:</span>
-                y<span class="token operator">--</span><span class="token punctuation">;</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> DOWN<span class="token operator">:</span>
-                y<span class="token operator">++</span><span class="token punctuation">;</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> LEFT<span class="token operator">:</span>
-                x<span class="token operator">--</span><span class="token punctuation">;</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> RIGHT<span class="token operator">:</span>
-                x<span class="token operator">++</span><span class="token punctuation">;</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
+        &#x2F;&#x2F; 根据方向增减坐标值
+        switch (direction) &#123;
+            case UP:
+                y--;
+                break;
+            case DOWN:
+                y++;
+                break;
+            case LEFT:
+                x--;
+                break;
+            case RIGHT:
+                x++;
+                break;
+        &#125;
 
-        <span class="token comment">// 如果新坐标落在有效范围内，则进行处理</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">&lt;=</span> x <span class="token operator">&amp;&amp;</span> x <span class="token operator">&lt;</span> maxX<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">&lt;=</span> y <span class="token operator">&amp;&amp;</span> y <span class="token operator">&lt;</span> maxY<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        &#x2F;&#x2F; 如果新坐标落在有效范围内，则进行处理
+        if ((0 &lt;&#x3D; x &amp;&amp; x &lt; maxX) &amp;&amp; (0 &lt;&#x3D; y &amp;&amp; y &lt; maxY)) &#123;
         
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>matrix<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>        <span class="token comment">// 如果新坐标的点上有东西（蛇体或者食物）</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">==</span> food<span class="token punctuation">.</span>x <span class="token operator">&amp;&amp;</span> y <span class="token operator">==</span> food<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>       <span class="token comment">// 吃到食物，成功</span>
-                    nodeArray<span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span>food<span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// 从蛇头赠长</span>
+            if (matrix[x][y]) &#123;        &#x2F;&#x2F; 如果新坐标的点上有东西（蛇体或者食物）
+                if (x &#x3D;&#x3D; food.x &amp;&amp; y &#x3D;&#x3D; food.y) &#123;       &#x2F;&#x2F; 吃到食物，成功
+                    nodeArray.addFirst(food);           &#x2F;&#x2F; 从蛇头赠长
 
-                    <span class="token comment">// 分数规则，与移动改变方向的次数和速度两个元素有关</span>
-                    <span class="token keyword">int</span> scoreGet <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">10000</span> <span class="token operator">-</span> <span class="token number">200</span> <span class="token operator">*</span> countMove<span class="token punctuation">)</span> <span class="token operator">/</span> timeInterval<span class="token punctuation">;</span>
-                    score <span class="token operator">+=</span> scoreGet <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">?</span> scoreGet <span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">;</span>
-                    countMove <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                    &#x2F;&#x2F; 分数规则，与移动改变方向的次数和速度两个元素有关
+                    int scoreGet &#x3D; (10000 - 200 * countMove) &#x2F; timeInterval;
+                    score +&#x3D; scoreGet &gt; 0 ? scoreGet : 10;
+                    countMove &#x3D; 0;
 
-                    food <span class="token operator">=</span> <span class="token function">createFood</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment">// 创建新的食物</span>
-                    matrix<span class="token punctuation">[</span>food<span class="token punctuation">.</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>food<span class="token punctuation">.</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>      <span class="token comment">// 设置食物所在位置</span>
-                    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span>                                  <span class="token comment">// 吃到蛇体自身，失败</span>
-                    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    food &#x3D; createFood();                &#x2F;&#x2F; 创建新的食物
+                    matrix[food.x][food.y] &#x3D; true;      &#x2F;&#x2F; 设置食物所在位置
+                    return true;
+                &#125; else                                  &#x2F;&#x2F; 吃到蛇体自身，失败
+                    return false;
                
-            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>                 <span class="token comment">// 如果新坐标的点上没有东西（蛇体），移动蛇体</span>
-                nodeArray<span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                matrix<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-                n <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">)</span> nodeArray<span class="token punctuation">.</span><span class="token function">removeLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                matrix<span class="token punctuation">[</span>n<span class="token punctuation">.</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">.</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-                countMove<span class="token operator">++</span><span class="token punctuation">;</span>
-                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>                                   <span class="token comment">// 触到边线，失败</span>
-    <span class="token punctuation">&#125;</span>
+            &#125; else &#123;                 &#x2F;&#x2F; 如果新坐标的点上没有东西（蛇体），移动蛇体
+                nodeArray.addFirst(new Node(x, y));
+                matrix[x][y] &#x3D; true;
+                n &#x3D; (Node) nodeArray.removeLast();
+                matrix[n.x][n.y] &#x3D; false;
+                countMove++;
+                return true;
+            &#125;
+        &#125;
+        return false;                                   &#x2F;&#x2F; 触到边线，失败
+    &#125;
 
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        running <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>running<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
-                <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span>timeInterval<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
+    public void run() &#123;
+        running &#x3D; true;
+        while (running) &#123;
+            try &#123;
+                Thread.sleep(timeInterval);
+            &#125; catch (Exception e) &#123;
+                break;
+            &#125;
 
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>paused<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">moveOn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                    <span class="token function">setChanged</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// Model通知View数据已经更新</span>
-                    <span class="token function">notifyObservers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-                    <span class="token class-name">JOptionPane</span><span class="token punctuation">.</span><span class="token function">showMessageDialog</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span>
-                            <span class="token string">"you failed"</span><span class="token punctuation">,</span>
-                            <span class="token string">"Game Over"</span><span class="token punctuation">,</span>
-                            <span class="token class-name">JOptionPane</span><span class="token punctuation">.</span>INFORMATION_MESSAGE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
-        running <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+            if (!paused) &#123;
+                if (moveOn()) &#123;
+                    setChanged();           &#x2F;&#x2F; Model通知View数据已经更新
+                    notifyObservers();
+                &#125; else &#123;
+                    JOptionPane.showMessageDialog(null,
+                            &quot;you failed&quot;,
+                            &quot;Game Over&quot;,
+                            JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                &#125;
+            &#125;
+        &#125;
+        running &#x3D; false;
+    &#125;
 
-    <span class="token keyword">private</span> <span class="token class-name">Node</span> <span class="token function">createFood</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token comment">// 随机获取一个有效区域内的与蛇体和食物不重叠的位置</span>
-        <span class="token keyword">do</span> <span class="token punctuation">&#123;</span>
-            <span class="token class-name">Random</span> r <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            x <span class="token operator">=</span> r<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span>maxX<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            y <span class="token operator">=</span> r<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span>maxY<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>matrix<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    private Node createFood() &#123;
+        int x &#x3D; 0;
+        int y &#x3D; 0;
+        &#x2F;&#x2F; 随机获取一个有效区域内的与蛇体和食物不重叠的位置
+        do &#123;
+            Random r &#x3D; new Random();
+            x &#x3D; r.nextInt(maxX);
+            y &#x3D; r.nextInt(maxY);
+        &#125; while (matrix[x][y]);
 
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+        return new Node(x, y);
+    &#125;
 
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">speedUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        timeInterval <span class="token operator">*=</span> speedChangeRate<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+    public void speedUp() &#123;
+        timeInterval *&#x3D; speedChangeRate;
+    &#125;
 
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">speedDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        timeInterval <span class="token operator">/=</span> speedChangeRate<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+    public void speedDown() &#123;
+        timeInterval &#x2F;&#x3D; speedChangeRate;
+    &#125;
 
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">changePauseState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        paused <span class="token operator">=</span> <span class="token operator">!</span>paused<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+    public void changePauseState() &#123;
+        paused &#x3D; !paused;
+    &#125;
 
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">String</span> result <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nodeArray<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token class-name">Node</span> n <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">)</span> nodeArray<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            result <span class="token operator">+=</span> <span class="token string">"["</span> <span class="token operator">+</span> n<span class="token punctuation">.</span>x <span class="token operator">+</span> <span class="token string">","</span> <span class="token operator">+</span> n<span class="token punctuation">.</span>y <span class="token operator">+</span> <span class="token string">"]"</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
+    public String toString() &#123;
+        String result &#x3D; &quot;&quot;;
+        for (int i &#x3D; 0; i &lt; nodeArray.size(); ++i) &#123;
+            Node n &#x3D; (Node) nodeArray.get(i);
+            result +&#x3D; &quot;[&quot; + n.x + &quot;,&quot; + n.y + &quot;]&quot;;
+        &#125;
+        return result;
+    &#125;
+&#125;
 
-<span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> x<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> y<span class="token punctuation">;</span>
+class Node &#123;
+    int x;
+    int y;
 
-    <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    Node(int x, int y) &#123;
+        this.x &#x3D; x;
+        this.y &#x3D; y;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>SnakeView.java</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">jzjsfx</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">package jzjsfx;
 
-<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Iterator</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">LinkedList</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Observable</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Observer</span><span class="token punctuation">;</span>
+import javax.swing.*;
+import java.awt.*;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Observable;
+import java.util.Observer;
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SnakeView</span> <span class="token keyword">implements</span> <span class="token class-name">Observer</span> <span class="token punctuation">&#123;</span>
-	<span class="token class-name">SnakeControl</span> control <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-	<span class="token class-name">SnakeModel</span> model <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+public class SnakeView implements Observer &#123;
+	SnakeControl control &#x3D; null;
+	SnakeModel model &#x3D; null;
 
-	<span class="token class-name">JFrame</span> mainFrame<span class="token punctuation">;</span>
-	<span class="token class-name">Canvas</span> paintCanvas<span class="token punctuation">;</span>
-	<span class="token class-name">JLabel</span> labelScore<span class="token punctuation">;</span>
+	JFrame mainFrame;
+	Canvas paintCanvas;
+	JLabel labelScore;
 
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> canvasWidth <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span>
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> canvasHeight <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span>
+	public static final int canvasWidth &#x3D; 200;
+	public static final int canvasHeight &#x3D; 300;
 
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> nodeWidth <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> nodeHeight <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+	public static final int nodeWidth &#x3D; 10;
+	public static final int nodeHeight &#x3D; 10;
 
-	<span class="token keyword">public</span> <span class="token class-name">SnakeView</span><span class="token punctuation">(</span><span class="token class-name">SnakeModel</span> model<span class="token punctuation">,</span> <span class="token class-name">SnakeControl</span> control<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token keyword">this</span><span class="token punctuation">.</span>model <span class="token operator">=</span> model<span class="token punctuation">;</span>
-		<span class="token keyword">this</span><span class="token punctuation">.</span>control <span class="token operator">=</span> control<span class="token punctuation">;</span>
+	public SnakeView(SnakeModel model, SnakeControl control) &#123;
+		this.model &#x3D; model;
+		this.control &#x3D; control;
 
-		mainFrame <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JFrame</span><span class="token punctuation">(</span><span class="token string">"贪吃蛇"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		mainFrame &#x3D; new JFrame(&quot;贪吃蛇&quot;);
 
-		<span class="token class-name">Container</span> cp <span class="token operator">=</span> mainFrame<span class="token punctuation">.</span><span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		Container cp &#x3D; mainFrame.getContentPane();
 
-		<span class="token comment">// 创建顶部的分数显示</span>
-		labelScore <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JLabel</span><span class="token punctuation">(</span><span class="token string">"Score:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		cp<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>labelScore<span class="token punctuation">,</span> <span class="token class-name">BorderLayout</span><span class="token punctuation">.</span>NORTH<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		&#x2F;&#x2F; 创建顶部的分数显示
+		labelScore &#x3D; new JLabel(&quot;Score:&quot;);
+		cp.add(labelScore, BorderLayout.NORTH);
 
-		<span class="token comment">// 创建中间的游戏显示区域</span>
-		paintCanvas <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Canvas</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		paintCanvas<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span>canvasWidth <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> canvasHeight <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		paintCanvas<span class="token punctuation">.</span><span class="token function">addKeyListener</span><span class="token punctuation">(</span>control<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		cp<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>paintCanvas<span class="token punctuation">,</span> <span class="token class-name">BorderLayout</span><span class="token punctuation">.</span>CENTER<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		&#x2F;&#x2F; 创建中间的游戏显示区域
+		paintCanvas &#x3D; new Canvas();
+		paintCanvas.setSize(canvasWidth + 1, canvasHeight + 1);
+		paintCanvas.addKeyListener(control);
+		cp.add(paintCanvas, BorderLayout.CENTER);
 
-		<span class="token comment">// 创建底下的帮助栏</span>
-		<span class="token class-name">JPanel</span> panelButtom <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JPanel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		panelButtom<span class="token punctuation">.</span><span class="token function">setLayout</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BorderLayout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">JLabel</span> labelHelp<span class="token punctuation">;</span>
-		labelHelp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JLabel</span><span class="token punctuation">(</span><span class="token string">"PageUp, PageDown for speed;"</span><span class="token punctuation">,</span> <span class="token class-name">JLabel</span><span class="token punctuation">.</span>CENTER<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		panelButtom<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>labelHelp<span class="token punctuation">,</span> <span class="token class-name">BorderLayout</span><span class="token punctuation">.</span>NORTH<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		labelHelp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JLabel</span><span class="token punctuation">(</span><span class="token string">"ENTER or R or S for restart;"</span><span class="token punctuation">,</span> <span class="token class-name">JLabel</span><span class="token punctuation">.</span>CENTER<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		panelButtom<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>labelHelp<span class="token punctuation">,</span> <span class="token class-name">BorderLayout</span><span class="token punctuation">.</span>CENTER<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		labelHelp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JLabel</span><span class="token punctuation">(</span><span class="token string">"SPACE or P for pause"</span><span class="token punctuation">,</span> <span class="token class-name">JLabel</span><span class="token punctuation">.</span>CENTER<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		panelButtom<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>labelHelp<span class="token punctuation">,</span> <span class="token class-name">BorderLayout</span><span class="token punctuation">.</span>SOUTH<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		cp<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>panelButtom<span class="token punctuation">,</span> <span class="token class-name">BorderLayout</span><span class="token punctuation">.</span>SOUTH<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		&#x2F;&#x2F; 创建底下的帮助栏
+		JPanel panelButtom &#x3D; new JPanel();
+		panelButtom.setLayout(new BorderLayout());
+		JLabel labelHelp;
+		labelHelp &#x3D; new JLabel(&quot;PageUp, PageDown for speed;&quot;, JLabel.CENTER);
+		panelButtom.add(labelHelp, BorderLayout.NORTH);
+		labelHelp &#x3D; new JLabel(&quot;ENTER or R or S for restart;&quot;, JLabel.CENTER);
+		panelButtom.add(labelHelp, BorderLayout.CENTER);
+		labelHelp &#x3D; new JLabel(&quot;SPACE or P for pause&quot;, JLabel.CENTER);
+		panelButtom.add(labelHelp, BorderLayout.SOUTH);
+		cp.add(panelButtom, BorderLayout.SOUTH);
 
-		mainFrame<span class="token punctuation">.</span><span class="token function">addKeyListener</span><span class="token punctuation">(</span>control<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		mainFrame<span class="token punctuation">.</span><span class="token function">pack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		mainFrame<span class="token punctuation">.</span><span class="token function">setResizable</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		mainFrame<span class="token punctuation">.</span><span class="token function">setDefaultCloseOperation</span><span class="token punctuation">(</span><span class="token class-name">JFrame</span><span class="token punctuation">.</span>EXIT_ON_CLOSE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		mainFrame<span class="token punctuation">.</span><span class="token function">setVisible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
+		mainFrame.addKeyListener(control);
+		mainFrame.pack();
+		mainFrame.setResizable(false);
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.setVisible(true);
+	&#125;
 
-	<span class="token keyword">void</span> <span class="token function">repaint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token class-name">Graphics</span> g <span class="token operator">=</span> paintCanvas<span class="token punctuation">.</span><span class="token function">getGraphics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	void repaint() &#123;
+		Graphics g &#x3D; paintCanvas.getGraphics();
 
-		<span class="token comment">// draw background</span>
-		g<span class="token punctuation">.</span><span class="token function">setColor</span><span class="token punctuation">(</span><span class="token class-name">Color</span><span class="token punctuation">.</span>WHITE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		g<span class="token punctuation">.</span><span class="token function">fillRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> canvasWidth<span class="token punctuation">,</span> canvasHeight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		&#x2F;&#x2F; draw background
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, canvasWidth, canvasHeight);
 
-		<span class="token comment">// draw the snake</span>
-		g<span class="token punctuation">.</span><span class="token function">setColor</span><span class="token punctuation">(</span><span class="token class-name">Color</span><span class="token punctuation">.</span>BLACK<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">LinkedList</span> na <span class="token operator">=</span> model<span class="token punctuation">.</span>nodeArray<span class="token punctuation">;</span>
-		<span class="token class-name">Iterator</span> it <span class="token operator">=</span> na<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">while</span> <span class="token punctuation">(</span>it<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			<span class="token class-name">Node</span> n <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">)</span> it<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token function">drawNode</span><span class="token punctuation">(</span>g<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span>
+		&#x2F;&#x2F; draw the snake
+		g.setColor(Color.BLACK);
+		LinkedList na &#x3D; model.nodeArray;
+		Iterator it &#x3D; na.iterator();
+		while (it.hasNext()) &#123;
+			Node n &#x3D; (Node) it.next();
+			drawNode(g, n);
+		&#125;
 
-		<span class="token comment">// draw the food</span>
-		g<span class="token punctuation">.</span><span class="token function">setColor</span><span class="token punctuation">(</span><span class="token class-name">Color</span><span class="token punctuation">.</span>RED<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">Node</span> n <span class="token operator">=</span> model<span class="token punctuation">.</span>food<span class="token punctuation">;</span>
-		<span class="token function">drawNode</span><span class="token punctuation">(</span>g<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		&#x2F;&#x2F; draw the food
+		g.setColor(Color.RED);
+		Node n &#x3D; model.food;
+		drawNode(g, n);
 
-		<span class="token function">updateScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
+		updateScore();
+	&#125;
 
-	<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">drawNode</span><span class="token punctuation">(</span><span class="token class-name">Graphics</span> g<span class="token punctuation">,</span> <span class="token class-name">Node</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		g<span class="token punctuation">.</span><span class="token function">fillRect</span><span class="token punctuation">(</span>n<span class="token punctuation">.</span>x <span class="token operator">*</span> nodeWidth<span class="token punctuation">,</span> n<span class="token punctuation">.</span>y <span class="token operator">*</span> nodeHeight<span class="token punctuation">,</span> nodeWidth <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span>
-				nodeHeight <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
+	private void drawNode(Graphics g, Node n) &#123;
+		g.fillRect(n.x * nodeWidth, n.y * nodeHeight, nodeWidth - 1,
+				nodeHeight - 1);
+	&#125;
 
-	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">updateScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"Score: "</span> <span class="token operator">+</span> model<span class="token punctuation">.</span>score<span class="token punctuation">;</span>
-		labelScore<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
+	public void updateScore() &#123;
+		String s &#x3D; &quot;Score: &quot; + model.score;
+		labelScore.setText(s);
+	&#125;
 
-	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token class-name">Observable</span> o<span class="token punctuation">,</span> <span class="token class-name">Object</span> arg<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token function">repaint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	public void update(Observable o, Object arg) &#123;
+		repaint();
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1918,7 +1918,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.5k</span>&nbsp;字
+                class="white-color">23.1k</span>&nbsp;字
             
             
             

@@ -31,7 +31,7 @@
     <script src="/jzjsfx/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/jzjsfx/atom.xml" title="Junzheng" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/jzjsfx/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -827,14 +827,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    15 分
                 </div>
                 
 
@@ -853,447 +853,447 @@
 <p>一、需求分析 根据项目简介中的项目要求，我们将其具体需求做如下分析： 1. 要使用 java 的 GUI 设计出计算器界面。 2. 通过界面按钮，可以进行加减乘除运算，并能将结果显示在界面中。 3. 计算可以有小数点，和正负整数的计算。 4. 要有清零功能。 </p>
 <p>二、设计思路： 分析完项目需求后，接下来让我们看一下项目的设计思路。 1.本应用程序继承自框架类（Frame），此程序使用 Frame 布局管理器 BorderLayout，将包含单行文本 框和清零按钮的 Panel2 加入到“North”区域，包含各种按钮的面板 Panel1 加入到”Center”区域。包 含各种按钮的面板 Panel1 采用 4 行 4 列的网格布局，然后将数字按钮和运算符按钮以及控制按钮添加到 面板中。 2.项目中要注册按钮事件监听器 ActionListener；事件监听器中的事件处理方法 public void actionPerformed(ActionEvent evt)完成主要的按钮事件的处理。 3.事件处理分以下几种情况：数字按钮事件（”0”，”1”，”2”„”8”，”9”）、运算符按钮事件（”+”，” －“，”*”，”/”）小数点按钮事件（”.”）、等号按钮事件（”＝”）、清楚按钮事件(“CE”)。 4.计算器完成的是一个数学表达式，里面涉及到的就是加、减、乘、除的基本操作，仅需定义一个变 量来保存运算操作的前一个数字，与当前在计算器上的显示数字进行计算即可。</p>
 <p> 代码如下：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">jzjsfx</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>event<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
-<span class="token keyword">class</span> <span class="token class-name">Calculator</span> <span class="token keyword">implements</span> <span class="token class-name">ActionListener</span> <span class="token punctuation">&#123;</span>
-	<span class="token class-name">JButton</span> b1<span class="token punctuation">,</span> b2<span class="token punctuation">,</span> b3<span class="token punctuation">,</span> b4<span class="token punctuation">,</span> b5<span class="token punctuation">,</span> b6<span class="token punctuation">,</span> b7<span class="token punctuation">,</span> b8<span class="token punctuation">,</span> b9<span class="token punctuation">,</span> b10<span class="token punctuation">,</span> b11<span class="token punctuation">,</span> b12<span class="token punctuation">,</span> b13<span class="token punctuation">,</span> b14<span class="token punctuation">,</span> b15<span class="token punctuation">,</span>
-			b16<span class="token punctuation">;</span>
-	<span class="token class-name">JFrame</span> f<span class="token punctuation">;</span>
-	<span class="token class-name">GridLayout</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GridLayout</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token class-name">JTextField</span> tf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JTextField</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JFrame</span><span class="token punctuation">(</span><span class="token string">"CardLayout testing"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token class-name">Container</span> ct <span class="token operator">=</span> f<span class="token punctuation">.</span><span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	tf<span class="token punctuation">.</span><span class="token function">setHorizontalAlignment</span><span class="token punctuation">(</span><span class="token class-name">JTextField</span><span class="token punctuation">.</span>RIGHT<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	ct<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>tf<span class="token punctuation">,</span> <span class="token string">"North"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token class-name">JPanel</span> p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JPanel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	ct<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>p2<span class="token punctuation">,</span> <span class="token string">"Center"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token class-name">GridLayout</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GridLayout</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">setLayout</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token class-name">JButton</span> b1<span class="token punctuation">,</span> b2<span class="token punctuation">,</span> b3<span class="token punctuation">,</span> b4<span class="token punctuation">,</span> b5<span class="token punctuation">,</span> b6<span class="token punctuation">,</span> b7<span class="token punctuation">,</span> b8<span class="token punctuation">,</span> b9<span class="token punctuation">,</span> b10<span class="token punctuation">,</span> b11<span class="token punctuation">,</span> b12<span class="token punctuation">,</span> b13<span class="token punctuation">,</span> b14<span class="token punctuation">,</span> b15<span class="token punctuation">,</span> b16<span class="token punctuation">;</span>
-	b1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b4 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"4"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b5 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"5"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b6 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"6"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b7 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"7"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b8 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b9 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"9"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b10 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b11 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b12 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b13 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b14 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b15 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b16 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b1<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b2<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b3<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b3<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b13<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b13<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b4<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b4<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b5<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b5<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b6<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b6<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b14<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b14<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b7<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b7<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b8<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b8<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b9<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b9<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b15<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b15<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b10<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b10<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b11<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b11<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b12<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b12<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	p2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b16<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	b16<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">package jzjsfx;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.util.*;
+class Calculator implements ActionListener &#123;
+	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15,
+			b16;
+	JFrame f;
+	GridLayout c &#x3D; new GridLayout(4, 4);
+	JTextField tf &#x3D; new JTextField();
+public void init() &#123;
+	f &#x3D; new JFrame(&quot;CardLayout testing&quot;);
+	Container ct &#x3D; f.getContentPane();
+	tf.setHorizontalAlignment(JTextField.RIGHT);
+	ct.add(tf, &quot;North&quot;);
+	JPanel p2 &#x3D; new JPanel();
+	ct.add(p2, &quot;Center&quot;);
+	GridLayout c &#x3D; new GridLayout(4, 4);
+	p2.setLayout(c);
+	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16;
+	b1 &#x3D; new JButton(&quot;1&quot;);
+	b2 &#x3D; new JButton(&quot;2&quot;);
+	b3 &#x3D; new JButton(&quot;3&quot;);
+	b4 &#x3D; new JButton(&quot;4&quot;);
+	b5 &#x3D; new JButton(&quot;5&quot;);
+	b6 &#x3D; new JButton(&quot;6&quot;);
+	b7 &#x3D; new JButton(&quot;7&quot;);
+	b8 &#x3D; new JButton(&quot;8&quot;);
+	b9 &#x3D; new JButton(&quot;9&quot;);
+	b10 &#x3D; new JButton(&quot;0&quot;);
+	b11 &#x3D; new JButton(&quot;.&quot;);
+	b12 &#x3D; new JButton(&quot;&#x3D;&quot;);
+	b13 &#x3D; new JButton(&quot;+&quot;);
+	b14 &#x3D; new JButton(&quot;-&quot;);
+	b15 &#x3D; new JButton(&quot;x&quot;);
+	b16 &#x3D; new JButton(&quot;&#x2F;&quot;);
+	p2.add(b1);
+	b1.addActionListener(this);
+	p2.add(b2);
+	b2.addActionListener(this);
+	p2.add(b3);
+	b3.addActionListener(this);
+	p2.add(b13);
+	b13.addActionListener(this);
+	p2.add(b4);
+	b4.addActionListener(this);
+	p2.add(b5);
+	b5.addActionListener(this);
+	p2.add(b6);
+	b6.addActionListener(this);
+	p2.add(b14);
+	b14.addActionListener(this);
+	p2.add(b7);
+	b7.addActionListener(this);
+	p2.add(b8);
+	b8.addActionListener(this);
+	p2.add(b9);
+	b9.addActionListener(this);
+	p2.add(b15);
+	b15.addActionListener(this);
+	p2.add(b10);
+	b10.addActionListener(this);
+	p2.add(b11);
+	b11.addActionListener(this);
+	p2.add(b12);
+	b12.addActionListener(this);
+	p2.add(b16);
+	b16.addActionListener(this);
 
-	f<span class="token punctuation">.</span><span class="token function">addWindowListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">WindowAdapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">windowClosing</span><span class="token punctuation">(</span><span class="token class-name">WindowEvent</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			<span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span>
-	<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	f<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">180</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	f<span class="token punctuation">.</span><span class="token function">setVisible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+	f.addWindowListener(new WindowAdapter() &#123;
+		public void windowClosing(WindowEvent e) &#123;
+			System.exit(0);
+		&#125;
+	&#125;);
+	f.setSize(200, 180);
+	f.setVisible(true);
+&#125;
 
-<span class="token keyword">double</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token class-name">Vector</span> v <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vector</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">Vector</span> v2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vector</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+double sum &#x3D; 0;
+Vector v &#x3D; new Vector(1, 1);
+Vector v2 &#x3D; new Vector(1, 1);
 
-<span class="token keyword">public</span> <span class="token class-name">Calculator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	v2<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"init"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	v<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"init"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+public Calculator() &#123;
+	v2.addElement(new String(&quot;init&quot;));
+	v.addElement(new String(&quot;init&quot;));
+&#125;
 
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">actionPerformed</span><span class="token punctuation">(</span><span class="token class-name">ActionEvent</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token class-name">String</span> str <span class="token operator">=</span> tf<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token comment">// 加号的实现</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"+"</span><span class="token punctuation">)</span> 
-	<span class="token punctuation">&#123;</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"init"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			v2<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-			<span class="token keyword">double</span> d <span class="token operator">=</span> <span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">parseDouble</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">-</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">*</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">/</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span>
-		<span class="token punctuation">&#125;</span>
-		v<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		v2<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
+public void actionPerformed(ActionEvent e) &#123;
+	String str &#x3D; tf.getText();
+	&#x2F;&#x2F; 加号的实现
+	if (e.getActionCommand() &#x3D;&#x3D; &quot;+&quot;) 
+	&#123;
+		if ((&quot;+&quot;).equals((String) v2.lastElement())
+				|| (&quot;-&quot;).equals((String) v2.lastElement())
+				|| (&quot;x&quot;).equals((String) v2.lastElement())
+				|| (&quot;&#x2F;&quot;).equals((String) v2.lastElement())
+				|| (&quot;&#x3D;&quot;).equals((String) v2.lastElement())) &#123;
+			tf.setText(String.valueOf(sum));
+		&#125; else if ((&quot;init&quot;).equals((String) v2.lastElement())) &#123;
+			tf.setText(String.valueOf(sum));
+			v2.addElement(new String(&quot;&#x3D;&quot;));
+		&#125; else &#123;
+			double d &#x3D; Double.parseDouble(str);
+			if ((&quot;+&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;-&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum - d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;x&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum * d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;&#x2F;&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum &#x2F; d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;&#x3D;&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125; else &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125;
+		&#125;
+		v.addElement(new String(&quot;+&quot;));
+		v2.addElement(new String(&quot;+&quot;));
+	&#125;
 
-	<span class="token comment">// 减号的实现</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"-"</span><span class="token punctuation">)</span> 
-	<span class="token punctuation">&#123;</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"init"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			v2<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-			<span class="token keyword">double</span> d <span class="token operator">=</span> <span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">parseDouble</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">-</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">*</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">/</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span>
-		<span class="token punctuation">&#125;</span>
-		v<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		v2<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
+	&#x2F;&#x2F; 减号的实现
+	if (e.getActionCommand() &#x3D;&#x3D; &quot;-&quot;) 
+	&#123;
+		if ((&quot;+&quot;).equals((String) v2.lastElement())
+				|| (&quot;-&quot;).equals((String) v2.lastElement())
+				|| (&quot;x&quot;).equals((String) v2.lastElement())
+				|| (&quot;&#x2F;&quot;).equals((String) v2.lastElement())
+				|| (&quot;&#x3D;&quot;).equals((String) v2.lastElement())) &#123;
+			tf.setText(String.valueOf(sum));
+		&#125; else if ((&quot;init&quot;).equals((String) v2.lastElement())) &#123;
+			tf.setText(String.valueOf(sum));
+			v2.addElement(new String(&quot;&#x3D;&quot;));
+		&#125; else &#123;
+			double d &#x3D; Double.parseDouble(str);
+			if ((&quot;+&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;-&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum - d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;x&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum * d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;&#x2F;&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum &#x2F; d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;&#x3D;&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125; else &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125;
+		&#125;
+		v.addElement(new String(&quot;-&quot;));
+		v2.addElement(new String(&quot;-&quot;));
+	&#125;
 
-	<span class="token comment">// 乘号的实现</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"x"</span><span class="token punctuation">)</span> 
-	<span class="token punctuation">&#123;</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"init"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			v2<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-			<span class="token keyword">double</span> d <span class="token operator">=</span> <span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">parseDouble</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">-</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">*</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">/</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span>
-		<span class="token punctuation">&#125;</span>
-		v<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		v2<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
+	&#x2F;&#x2F; 乘号的实现
+	if (e.getActionCommand() &#x3D;&#x3D; &quot;x&quot;) 
+	&#123;
+		if ((&quot;+&quot;).equals((String) v2.lastElement())
+				|| (&quot;-&quot;).equals((String) v2.lastElement())
+				|| (&quot;x&quot;).equals((String) v2.lastElement())
+				|| (&quot;&#x2F;&quot;).equals((String) v2.lastElement())
+				|| (&quot;&#x3D;&quot;).equals((String) v2.lastElement())) &#123;
+			tf.setText(String.valueOf(sum));
+		&#125; else if ((&quot;init&quot;).equals((String) v2.lastElement())) &#123;
+			tf.setText(String.valueOf(sum));
+			v2.addElement(new String(&quot;&#x3D;&quot;));
+		&#125; else &#123;
+			double d &#x3D; Double.parseDouble(str);
+			if ((&quot;+&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;-&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum - d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;x&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum * d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;&#x2F;&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum &#x2F; d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;&#x3D;&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125; else &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125;
+		&#125;
+		v.addElement(new String(&quot;x&quot;));
+		v2.addElement(new String(&quot;x&quot;));
+	&#125;
 
-	<span class="token comment">// 除号的实现</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"/"</span><span class="token punctuation">)</span> 
-	<span class="token punctuation">&#123;</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"init"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			v2<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-			<span class="token keyword">double</span> d <span class="token operator">=</span> <span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">parseDouble</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">-</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">*</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">/</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span>
-		<span class="token punctuation">&#125;</span>
-		v<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		v2<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
+	&#x2F;&#x2F; 除号的实现
+	if (e.getActionCommand() &#x3D;&#x3D; &quot;&#x2F;&quot;) 
+	&#123;
+		if ((&quot;+&quot;).equals((String) v2.lastElement())
+				|| (&quot;-&quot;).equals((String) v2.lastElement())
+				|| (&quot;x&quot;).equals((String) v2.lastElement())
+				|| (&quot;&#x2F;&quot;).equals((String) v2.lastElement())
+				|| (&quot;&#x3D;&quot;).equals((String) v2.lastElement())) &#123;
+			tf.setText(String.valueOf(sum));
+		&#125; else if ((&quot;init&quot;).equals((String) v2.lastElement())) &#123;
+			tf.setText(String.valueOf(sum));
+			v2.addElement(new String(&quot;&#x3D;&quot;));
+		&#125; else &#123;
+			double d &#x3D; Double.parseDouble(str);
+			if ((&quot;+&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;-&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum - d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;x&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum * d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;&#x2F;&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum &#x2F; d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;&#x3D;&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125; else &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125;
+		&#125;
+		v.addElement(new String(&quot;&#x2F;&quot;));
+		v2.addElement(new String(&quot;&#x2F;&quot;));
+	&#125;
 
-	<span class="token comment">// 等号实现</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"="</span><span class="token punctuation">)</span> 
-	<span class="token punctuation">&#123;</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"init"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-			<span class="token keyword">double</span> d <span class="token operator">=</span> <span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">parseDouble</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">-</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">*</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">/</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-				<span class="token comment">// tf.setText(String.valueOf(sum));</span>
-			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-				sum <span class="token operator">=</span> sum <span class="token operator">+</span> d<span class="token punctuation">;</span>
-				tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">&#125;</span>
-		<span class="token punctuation">&#125;</span>
-		v<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		v2<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
+	&#x2F;&#x2F; 等号实现
+	if (e.getActionCommand() &#x3D;&#x3D; &quot;&#x3D;&quot;) 
+	&#123;
+		if ((&quot;+&quot;).equals((String) v2.lastElement())
+				|| (&quot;-&quot;).equals((String) v2.lastElement())
+				|| (&quot;x&quot;).equals((String) v2.lastElement())
+				|| (&quot;&#x2F;&quot;).equals((String) v2.lastElement())
+				|| (&quot;&#x3D;&quot;).equals((String) v2.lastElement())) &#123;
+			tf.setText(String.valueOf(sum));
+		&#125; else if ((&quot;init&quot;).equals((String) v2.lastElement())) &#123;
+			tf.setText(String.valueOf(sum));
+		&#125; else &#123;
+			double d &#x3D; Double.parseDouble(str);
+			if ((&quot;+&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;-&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum - d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;x&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum * d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;&#x2F;&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum &#x2F; d;
+				tf.setText(String.valueOf(sum));
+			&#125; else if ((&quot;&#x3D;&quot;).equals((String) v.lastElement())) &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+				&#x2F;&#x2F; tf.setText(String.valueOf(sum));
+			&#125; else &#123;
+				sum &#x3D; sum + d;
+				tf.setText(String.valueOf(sum));
+			&#125;
+		&#125;
+		v.addElement(new String(&quot;&#x3D;&quot;));
+		v2.addElement(new String(&quot;&#x3D;&quot;));
+	&#125;
 
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"1"</span> <span class="token operator">||</span> e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"2"</span>
-			<span class="token operator">||</span> e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"3"</span> <span class="token operator">||</span> e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"4"</span>
-			<span class="token operator">||</span> e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"5"</span> <span class="token operator">||</span> e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"6"</span>
-			<span class="token operator">||</span> e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"7"</span> <span class="token operator">||</span> e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"8"</span>
-			<span class="token operator">||</span> e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"9"</span> <span class="token operator">||</span> e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"0"</span>
-			<span class="token operator">||</span> e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"."</span><span class="token punctuation">)</span> <span class="token comment">// 1，2，3，4，5，6，7，8，9，0，.的实现；</span>
-	<span class="token punctuation">&#123;</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-				<span class="token operator">||</span> <span class="token punctuation">(</span><span class="token string">"init"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> v2<span class="token punctuation">.</span><span class="token function">lastElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-			sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-			tf<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>tf<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 调用其父类中的getText()方法</span>
-		<span class="token punctuation">&#125;</span>
-		v2<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
+	if (e.getActionCommand() &#x3D;&#x3D; &quot;1&quot; || e.getActionCommand() &#x3D;&#x3D; &quot;2&quot;
+			|| e.getActionCommand() &#x3D;&#x3D; &quot;3&quot; || e.getActionCommand() &#x3D;&#x3D; &quot;4&quot;
+			|| e.getActionCommand() &#x3D;&#x3D; &quot;5&quot; || e.getActionCommand() &#x3D;&#x3D; &quot;6&quot;
+			|| e.getActionCommand() &#x3D;&#x3D; &quot;7&quot; || e.getActionCommand() &#x3D;&#x3D; &quot;8&quot;
+			|| e.getActionCommand() &#x3D;&#x3D; &quot;9&quot; || e.getActionCommand() &#x3D;&#x3D; &quot;0&quot;
+			|| e.getActionCommand() &#x3D;&#x3D; &quot;.&quot;) &#x2F;&#x2F; 1，2，3，4，5，6，7，8，9，0，.的实现；
+	&#123;
+		if ((&quot;+&quot;).equals((String) v2.lastElement())
+				|| (&quot;-&quot;).equals((String) v2.lastElement())
+				|| (&quot;x&quot;).equals((String) v2.lastElement())
+				|| (&quot;&#x2F;&quot;).equals((String) v2.lastElement())
+				|| (&quot;init&quot;).equals((String) v2.lastElement())) &#123;
+			tf.setText(&quot;&quot;);
+			tf.setText(e.getActionCommand());
+		&#125; else if ((&quot;&#x3D;&quot;).equals((String) v2.lastElement())) &#123;
+			sum &#x3D; 0;
+			tf.setText(&quot;&quot;);
+			tf.setText(e.getActionCommand());
+		&#125; else &#123;
+			tf.setText(tf.getText() + e.getActionCommand());&#x2F;&#x2F; 调用其父类中的getText()方法
+		&#125;
+		v2.addElement(new String(e.getActionCommand()));
+	&#125;
+&#125;
 
-<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span> args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token keyword">new</span> <span class="token class-name">Calculator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+public static void main(String args[]) &#123;
+	new Calculator().init();
+&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">jzjsfx</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>event<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JCalculator</span> <span class="token keyword">extends</span> <span class="token class-name">JFrame</span> <span class="token keyword">implements</span> <span class="token class-name">ActionListener</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">/**
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">package jzjsfx;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class JCalculator extends JFrame implements ActionListener &#123;
+    &#x2F;**
 	 * 
-	 */</span>
-	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">6675736133730301893L</span><span class="token punctuation">;</span>
-<span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">WindowCloser</span> <span class="token keyword">extends</span> <span class="token class-name">WindowAdapter</span> <span class="token punctuation">&#123;</span>
-   <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">windowClosing</span><span class="token punctuation">(</span><span class="token class-name">WindowEvent</span> we<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-       <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
+	 *&#x2F;
+	private static final long serialVersionUID &#x3D; -6675736133730301893L;
+private class WindowCloser extends WindowAdapter &#123;
+   public void windowClosing(WindowEvent we) &#123;
+       System.exit(0);
+   &#125;
+&#125;
  
-<span class="token keyword">int</span> i<span class="token punctuation">;</span>
-<span class="token comment">// Strings for Digit &amp; Operator buttons.</span>
-<span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> str <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token string">"7"</span><span class="token punctuation">,</span> <span class="token string">"8"</span><span class="token punctuation">,</span> <span class="token string">"9"</span><span class="token punctuation">,</span> <span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token string">"4"</span><span class="token punctuation">,</span> <span class="token string">"5"</span><span class="token punctuation">,</span> <span class="token string">"6"</span><span class="token punctuation">,</span> <span class="token string">"*"</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
-       <span class="token string">"2"</span><span class="token punctuation">,</span> <span class="token string">"3"</span><span class="token punctuation">,</span> <span class="token string">"-"</span><span class="token punctuation">,</span> <span class="token string">"."</span><span class="token punctuation">,</span> <span class="token string">"0"</span><span class="token punctuation">,</span> <span class="token string">"="</span><span class="token punctuation">,</span> <span class="token string">"+"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token comment">// Build buttons.</span>
-<span class="token class-name">JButton</span><span class="token punctuation">[</span><span class="token punctuation">]</span> buttons <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">[</span>str<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token comment">// For cancel or reset.</span>
-<span class="token class-name">JButton</span> reset <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"CE"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// Build the text field to show the result.</span>
-<span class="token class-name">JTextField</span> display <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JTextField</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+int i;
+&#x2F;&#x2F; Strings for Digit &amp; Operator buttons.
+private final String[] str &#x3D; &#123; &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;&#x2F;&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;*&quot;, &quot;1&quot;,
+       &quot;2&quot;, &quot;3&quot;, &quot;-&quot;, &quot;.&quot;, &quot;0&quot;, &quot;&#x3D;&quot;, &quot;+&quot; &#125;;
+&#x2F;&#x2F; Build buttons.
+JButton[] buttons &#x3D; new JButton[str.length];
+&#x2F;&#x2F; For cancel or reset.
+JButton reset &#x3D; new JButton(&quot;CE&quot;);
+&#x2F;&#x2F; Build the text field to show the result.
+JTextField display &#x3D; new JTextField(&quot;0&quot;);
    
-<span class="token comment">/**
+&#x2F;**
  * Constructor without parameters.
- */</span>
-<span class="token keyword">public</span> <span class="token class-name">JCalculator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-   <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token string">"计算器"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment">// Add a panel.</span>
-   <span class="token class-name">JPanel</span> panel1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JPanel</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">GridLayout</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment">// panel1.setLayout(new GridLayout(4,4));</span>
-   <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-       buttons<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       panel1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>buttons<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
-   <span class="token class-name">JPanel</span> panel2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JPanel</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BorderLayout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment">// panel2.setLayout(new BorderLayout());</span>
-   panel2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Center"</span><span class="token punctuation">,</span> display<span class="token punctuation">)</span><span class="token punctuation">;</span>
-   panel2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"East"</span><span class="token punctuation">,</span> reset<span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment">// JPanel panel3 = new Panel();</span>
-   <span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setLayout</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BorderLayout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"North"</span><span class="token punctuation">,</span> panel2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Center"</span><span class="token punctuation">,</span> panel1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment">// Add action listener for each digit &amp; operator button.</span>
-   <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-       buttons<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment">// Add listener for "reset" button.</span>
-   reset<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment">// Add listener for "display" button.</span>
-   display<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment">// The "close" button "X".</span>
-   <span class="token function">addWindowListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">WindowCloser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment">// Initialize the window size.</span>
-   <span class="token function">setSize</span><span class="token punctuation">(</span><span class="token number">800</span><span class="token punctuation">,</span> <span class="token number">800</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment">// Show the window.</span>
-   <span class="token comment">// show(); Using show() while JDK version is below 1.5.</span>
-   <span class="token function">setVisible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment">// Fit the certain size.</span>
-   <span class="token function">pack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>  
+ *&#x2F;
+public JCalculator() &#123;
+   super(&quot;计算器&quot;);
+   &#x2F;&#x2F; Add a panel.
+   JPanel panel1 &#x3D; new JPanel(new GridLayout(4, 4));
+   &#x2F;&#x2F; panel1.setLayout(new GridLayout(4,4));
+   for (i &#x3D; 0; i &lt; str.length; i++) &#123;
+       buttons[i] &#x3D; new JButton(str[i]);
+       panel1.add(buttons[i]);
+   &#125;
+   JPanel panel2 &#x3D; new JPanel(new BorderLayout());
+   &#x2F;&#x2F; panel2.setLayout(new BorderLayout());
+   panel2.add(&quot;Center&quot;, display);
+   panel2.add(&quot;East&quot;, reset);
+   &#x2F;&#x2F; JPanel panel3 &#x3D; new Panel();
+   getContentPane().setLayout(new BorderLayout());
+   getContentPane().add(&quot;North&quot;, panel2);
+   getContentPane().add(&quot;Center&quot;, panel1);
+   &#x2F;&#x2F; Add action listener for each digit &amp; operator button.
+   for (i &#x3D; 0; i &lt; str.length; i++)
+       buttons[i].addActionListener(this);
+   &#x2F;&#x2F; Add listener for &quot;reset&quot; button.
+   reset.addActionListener(this);
+   &#x2F;&#x2F; Add listener for &quot;display&quot; button.
+   display.addActionListener(this);
+   &#x2F;&#x2F; The &quot;close&quot; button &quot;X&quot;.
+   addWindowListener(new WindowCloser());
+   &#x2F;&#x2F; Initialize the window size.
+   setSize(800, 800);
+   &#x2F;&#x2F; Show the window.
+   &#x2F;&#x2F; show(); Using show() while JDK version is below 1.5.
+   setVisible(true);
+   &#x2F;&#x2F; Fit the certain size.
+   pack();
+&#125;  
    
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">actionPerformed</span><span class="token punctuation">(</span><span class="token class-name">ActionEvent</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-   <span class="token class-name">Object</span> target <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token function">getSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token class-name">String</span> label <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token function">getActionCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>target <span class="token operator">==</span> reset<span class="token punctuation">)</span>
-       <span class="token function">handleReset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">"0123456789."</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>label<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
-       <span class="token function">handleNumber</span><span class="token punctuation">(</span>label<span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">else</span>
-       <span class="token function">handleOperator</span><span class="token punctuation">(</span>label<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">// Is the first digit pressed?</span>
-<span class="token keyword">boolean</span> isFirstDigit <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token comment">/**
+public void actionPerformed(ActionEvent e) &#123;
+   Object target &#x3D; e.getSource();
+   String label &#x3D; e.getActionCommand();
+   if (target &#x3D;&#x3D; reset)
+       handleReset();
+   else if (&quot;0123456789.&quot;.indexOf(label) &gt; 0)
+       handleNumber(label);
+   else
+       handleOperator(label);
+&#125;
+&#x2F;&#x2F; Is the first digit pressed?
+boolean isFirstDigit &#x3D; true;
+&#x2F;**
  * Number handling.
  * @param key the key of the button.
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handleNumber</span><span class="token punctuation">(</span><span class="token class-name">String</span> key<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>isFirstDigit<span class="token punctuation">)</span>
-       display<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>display<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-       display<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>display<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>key<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-       display<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>display<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
-   isFirstDigit <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+ *&#x2F;
+public void handleNumber(String key) &#123;
+   if (isFirstDigit)
+       display.setText(key);
+   else if ((key.equals(&quot;.&quot;)) &amp;&amp; (display.getText().indexOf(&quot;.&quot;) &lt; 0))
+       display.setText(display.getText() + &quot;.&quot;);
+   else if (!key.equals(&quot;.&quot;))
+       display.setText(display.getText() + key);
+   isFirstDigit &#x3D; false;
+&#125;
    
-<span class="token comment">/**
+&#x2F;**
  * Reset the calculator.
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handleReset</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-   display<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   isFirstDigit <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-   operator <span class="token operator">=</span> <span class="token string">"="</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+ *&#x2F;
+public void handleReset() &#123;
+   display.setText(&quot;0&quot;);
+   isFirstDigit &#x3D; true;
+   operator &#x3D; &quot;&#x3D;&quot;;
+&#125;
  
-<span class="token keyword">double</span> number <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> operator <span class="token operator">=</span> <span class="token string">"="</span><span class="token punctuation">;</span>
+double number &#x3D; 0.0;
+String operator &#x3D; &quot;&#x3D;&quot;;
    
-<span class="token comment">/**
+&#x2F;**
  * Handling the operation.
- * @param key pressed operator's key.
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handleOperator</span><span class="token punctuation">(</span><span class="token class-name">String</span> key<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>operator<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-       number <span class="token operator">+=</span> <span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>display<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>operator<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-       number <span class="token operator">-=</span> <span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>display<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>operator<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-       number <span class="token operator">*=</span> <span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>display<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>operator<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-       number <span class="token operator">/=</span> <span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>display<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>operator<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-       number <span class="token operator">=</span> <span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>display<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   display<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   operator <span class="token operator">=</span> key<span class="token punctuation">;</span>
-   isFirstDigit <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+ * @param key pressed operator&#39;s key.
+ *&#x2F;
+public void handleOperator(String key) &#123;
+   if (operator.equals(&quot;+&quot;))
+       number +&#x3D; Double.valueOf(display.getText());
+   else if (operator.equals(&quot;-&quot;))
+       number -&#x3D; Double.valueOf(display.getText());
+   else if (operator.equals(&quot;*&quot;))
+       number *&#x3D; Double.valueOf(display.getText());
+   else if (operator.equals(&quot;&#x2F;&quot;))
+       number &#x2F;&#x3D; Double.valueOf(display.getText());
+   else if (operator.equals(&quot;&#x3D;&quot;))
+       number &#x3D; Double.valueOf(display.getText());
+   display.setText(String.valueOf(number));
+   operator &#x3D; key;
+   isFirstDigit &#x3D; true;
+&#125;
    
-<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-   <span class="token keyword">new</span> <span class="token class-name">JCalculator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+public static void main(String[] args) &#123;
+   new JCalculator();
+&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p> 程序运行结果为：</p>
 <p><img src="%E5%9B%BE%E7%89%871.png"></p>
 <p>更多知识关注微信公众号“IT互联网科技知识分享”</p>
@@ -1984,7 +1984,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.5k</span>&nbsp;字
+                class="white-color">23.1k</span>&nbsp;字
             
             
             

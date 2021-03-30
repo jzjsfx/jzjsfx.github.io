@@ -31,7 +31,7 @@
     <script src="/jzjsfx/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/jzjsfx/atom.xml" title="Junzheng" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/jzjsfx/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -901,8 +901,8 @@
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zyskr/p/10609288.html">https://www.cnblogs.com/zyskr/p/10609288.html</a></p>
 <h4 id="四、安装饿了么UI前端框架"><a href="#四、安装饿了么UI前端框架" class="headerlink" title="四、安装饿了么UI前端框架"></a>四、安装饿了么UI前端框架</h4><p>cnpm i element-ui -S</p>
 <p><img src="%E5%AE%89%E8%A3%85%E9%A5%BF%E4%BA%86UI.png"></p>
-<h4 id="五、安装less和sass预处理"><a href="#五、安装less和sass预处理" class="headerlink" title="五、安装less和sass预处理"></a>五、安装less和sass预处理</h4><p>（1）：cnpm install <a href="mailto:&#x6c;&#101;&#x73;&#115;&#x40;&#51;&#x2e;&#57;&#46;&#48;">&#x6c;&#101;&#x73;&#115;&#x40;&#51;&#x2e;&#57;&#46;&#48;</a> -s  </p>
-<p>（2）：cnpm install <a href="mailto:&#x6c;&#x65;&#x73;&#115;&#45;&#108;&#x6f;&#97;&#x64;&#101;&#114;&#64;&#x35;&#x2e;&#48;&#x2e;&#48;">&#x6c;&#x65;&#x73;&#115;&#45;&#108;&#x6f;&#97;&#x64;&#101;&#114;&#64;&#x35;&#x2e;&#48;&#x2e;&#48;</a> -s</p>
+<h4 id="五、安装less和sass预处理"><a href="#五、安装less和sass预处理" class="headerlink" title="五、安装less和sass预处理"></a>五、安装less和sass预处理</h4><p>（1）：cnpm install <a href="mailto:&#x6c;&#101;&#x73;&#x73;&#x40;&#x33;&#46;&#x39;&#x2e;&#x30;">&#x6c;&#101;&#x73;&#x73;&#x40;&#x33;&#46;&#x39;&#x2e;&#x30;</a> -s  </p>
+<p>（2）：cnpm install <a href="mailto:&#108;&#x65;&#115;&#x73;&#45;&#x6c;&#111;&#x61;&#100;&#101;&#114;&#x40;&#53;&#x2e;&#x30;&#46;&#48;">&#108;&#x65;&#115;&#x73;&#45;&#x6c;&#111;&#x61;&#100;&#101;&#114;&#x40;&#53;&#x2e;&#x30;&#46;&#48;</a> -s</p>
 <p><span style="color:red">注意：一定要写版本号，否则less自动安装最新版本，会和vue-cli不兼容一直报错。</span></p>
 <p><span style="color:red">解决报错的话使用cnpm install重新安装一遍！</span></p>
 <p>六、安装axios</p>
@@ -911,7 +911,7 @@
 <p><span style="color:red">注意：不安装axios的话，不能使用post/get等提交方式，会报错！</span></p>
 <p><span style="color:red">文字高亮：Vetur</span></p>
 <h1 id="登录页面功能"><a href="#登录页面功能" class="headerlink" title="登录页面功能"></a>登录页面功能</h1><h4 id="一、新建登录页面"><a href="#一、新建登录页面" class="headerlink" title="一、新建登录页面"></a>一、新建登录页面</h4><p><img src="%E6%96%B0%E5%BB%BA%E7%99%BB%E5%BD%95.png"></p>
-<h4 id="二、页面样式以及布局"><a href="#二、页面样式以及布局" class="headerlink" title="二、页面样式以及布局"></a>二、页面样式以及布局</h4><pre class="line-numbers language-none"><code class="language-none">&lt;style scoped lang&#x3D;&quot;less&quot;&gt;
+<h4 id="二、页面样式以及布局"><a href="#二、页面样式以及布局" class="headerlink" title="二、页面样式以及布局"></a>二、页面样式以及布局</h4><pre class="line-numbers language-vue.js" data-language="vue.js"><code class="language-vue.js">&lt;style scoped lang&#x3D;&quot;less&quot;&gt;
 .login-box &#123;
   border: 1px solid #dcdfe6;
   width: 350px;
@@ -932,7 +932,7 @@
 &lt;&#x2F;style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>（1）：初始化表单</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;template&gt;
+<pre class="line-numbers language-vue.js" data-language="vue.js"><code class="language-vue.js">&lt;template&gt;
 &lt;div class&#x3D;&quot;login-box&quot;&gt;
 &lt;!-- 声明表单 --&gt;
  &lt;el-form&gt;
@@ -961,7 +961,7 @@
 &lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>（2）：Vue双向绑定和ajax提交</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;script&gt;
+<pre class="line-numbers language-vue.js" data-language="vue.js"><code class="language-vue.js">&lt;script&gt;
 &#x2F;&#x2F; export default:导出模块，可以给其他组件使用
 &#x2F;&#x2F; name:组件名字，其他直接调用此名字就可以使用
 export default &#123;
@@ -998,12 +998,12 @@ export default &#123;
 
 <p><span style="color:blue">（3）：修改路由</span></p>
 <p><span style="color:red">①：在route/index.js路由文件中添加页面路径地址</span></p>
-<pre class="line-numbers language-none"><code class="language-none">import Login from &#39;..&#x2F;components&#x2F;Login.vue&#39;
+<pre class="line-numbers language-vue.js" data-language="vue.js"><code class="language-vue.js">import Login from &#39;..&#x2F;components&#x2F;Login.vue&#39;
 
 Vue.use(Router)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><span style="color:red">②：在路由中设置主页面</span></p>
-<pre class="line-numbers language-none"><code class="language-none">export default new Router(&#123;
+<pre class="line-numbers language-vue.js" data-language="vue.js"><code class="language-vue.js">export default new Router(&#123;
   routes: [
     &#123;
       path: &#39;&#x2F;&#39;,
@@ -1015,7 +1015,7 @@ Vue.use(Router)<span aria-hidden="true" class="line-numbers-rows"><span></span><
 
 <p><span style="color:red">注意：component: Login中的Login，要和import中的一致</span></p>
 <p><span style="color:blue">（4）：在main.js文件中添加饿了么UI引用</span></p>
-<pre class="line-numbers language-none"><code class="language-none">import ElementUI from &#39;element-ui&#39;;
+<pre class="line-numbers language-vue.js" data-language="vue.js"><code class="language-vue.js">import ElementUI from &#39;element-ui&#39;;
 import &#39;element-ui&#x2F;lib&#x2F;theme-chalk&#x2F;index.css&#39;;
 &#x2F;&#x2F;把饿了么UI定义成全局组件，在任何地方都能使用
 Vue.use(ElementUI);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1027,10 +1027,10 @@ Vue.use(ElementUI);<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <p><img src="%E6%96%B0%E5%BB%BA%E4%B8%BB%E9%A1%B5%E9%9D%A2.png"></p>
 <p>（3）：点击登录按钮，进行跳转</p>
 <p><span style="color:red">提示以下错误：</span></p>
-<pre class="line-numbers language-none"><code class="language-none">TypeError: Cannot read property &#39;post&#39; of undefined<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-vue.js" data-language="vue.js"><code class="language-vue.js">TypeError: Cannot read property &#39;post&#39; of undefined<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><span style="color:blue">需要在main.js中添加axios的引用</span></p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;引入axios
+<pre class="line-numbers language-vue.js" data-language="vue.js"><code class="language-vue.js">&#x2F;&#x2F;引入axios
 &#x2F;&#x2F;类似于ajax
 import axios from &quot;axios&quot;
 Vue.prototype.$http &#x3D; axios
@@ -1706,7 +1706,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.5k</span>&nbsp;字
+                class="white-color">23.1k</span>&nbsp;字
             
             
             
