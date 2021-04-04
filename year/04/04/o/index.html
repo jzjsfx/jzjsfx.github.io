@@ -5,7 +5,7 @@
 <head>
     <script src="//code.tidio.co/fcmvyqcsy3bvzzrgbvwttjy0toizj18a.js" async></script>
     <meta charset="utf-8">
-    <meta name="keywords" content="酒店管理系统, Junzheng">
+    <meta name="keywords" content="css动画案例-西游记, Junzheng">
     <meta name="description" content="分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>酒店管理系统 | Junzheng</title>
+    <title>css动画案例-西游记 | Junzheng</title>
     <link rel="icon" type="image/png" href="/jzjsfx/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/jzjsfx/libs/awesome/css/all.css">
@@ -799,12 +799,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/jzjsfx/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/jzjsfx/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">酒店管理系统</h1>
+                    <h1 class="description center-align post-title">css动画案例-西游记</h1>
                 </div>
             </div>
         </div>
@@ -826,8 +826,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/jzjsfx/tags/Java/">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/jzjsfx/tags/html-css/">
+                                <span class="chip bg-color">html css</span>
                             </a>
                         
                     </div>
@@ -838,8 +838,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/jzjsfx/categories/Java/" class="post-category">
-                                Java
+                            <a href="/jzjsfx/categories/css%E5%8A%A8%E7%94%BB/" class="post-category">
+                                css动画
                             </a>
                         
                     </div>
@@ -851,28 +851,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-28
+                    2021-04-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-07
+                    2021-04-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -887,158 +887,248 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>编写一个Java项目：</p>
-<p>为某个酒店编写程序：酒店管理系统，模拟订房、退房、打印所有房间状态等功能。<br>问题描述：<br>为某个酒店编写程序：酒店管理系统，模拟订房、退房、打印所有房间状态等功能。<br>1、该系统的用户是：酒店前台。<br>2、酒店使用一个二维数组来模拟。“Room[][] rooms;”<br>3、酒店中的每一个房间应该是一个java对象：Room<br>4、每一个房间Room应该有：房间编号、房间类型、房间是否空闲.<br>5、系统应该对外提供的功能：<br>可以预定房间：用户输入房间编号，订房。<br>可以退房：用户输入房间编号，退房。<br>可以查看所有房间的状态：用户输入某个指令应该可以查看所有房间状态。</p>
-<p>酒店管理系统：模拟订房、退房、打印所有房间状态的功能</p>
-<p>​     功能需求:</p>
-<p>​              1,订房：用户可以输入房间编号可以订房<br>​              2,退房：用户可以输入房间编号进行退房<br>​              3,查看所有房间的状态：用户输入某些指令查看所有房间的状态</p>
-<p>问题分析：<br>定义Room和Hotel类，Hotel里面包含一个Room类的二维数组用来模拟每一个不同楼层的房间号。依次实现相应要求。<br>代码实现：<br>Room类：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Room &#123;
-    &#x2F;&#x2F;房间编号
-    private int no;
-    &#x2F;&#x2F;房间类型
-    private String type;
-    &#x2F;&#x2F;房间状态，true表示可以被预定，false表示不可被预定
-    private boolean status;
+                <h3 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h3><ol>
+<li><p>素材准备，本次案例我们将使用西游记的素材，并且会介绍一个新的图片格式（精灵图）</p>
+<p>什么是精灵图：就是一个张图片上面有多个图像区域</p>
+</li>
+<li><p>知识点准备</p>
+<p>本次案例我们采用HTML+CSS的方式去完成，基本知识点要准备如下</p>
+<ul>
+<li>HTML语言基础</li>
+<li>CSS语言基础，class选择器，基础CSS样式</li>
+<li>定义动画<code>@keyframes</code>，使用动画<code>animation</code></li>
+</ul>
+</li>
+</ol>
+<p>本次课程主要是对动画做了扩展，讲解了两种类型的动画 </p>
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">graph TD
+A[动画类型]--&gt;B[流畅动画]
+A--&gt;C[帧动画]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-    public int getNo() &#123;
-        return no;
-    &#125;
-    &#x2F;&#x2F;构造方法
+<p>背景实现的是流畅动画，而人物的行走是帧动画</p>
+<h3 id="项目创建"><a href="#项目创建" class="headerlink" title="项目创建"></a>项目创建</h3><ol>
+<li>在桌面上面创建一个<code>bgg_xyj</code>的文件夹，然后打开我们的开发工具<code>HBuilderX</code>，最后将刚刚创建好的文件夹拖入进去</li>
+<li>将之前准备好的素材<code>img</code>文件夹拖入到刚刚创建的项目文件夹当中</li>
+<li>在当前的项目下面新建一个<code>index.html</code>的文件</li>
+</ol>
+<p><img src="image-20210321102528396.png"></p>
+<h3 id="开发过程"><a href="#开发过程" class="headerlink" title="开发过程"></a>开发过程</h3><p>在整个项目的开发过程当中，我们先从基础开始学起，我们本来是有师徒4个人，我们只用先完成一个人的就可以了的，后面的我们可以参照完成</p>
+<p><img src="image-20210321102907913.png" alt="image-20210321102907913"></p>
+<p>我们得到的上面的这种素材图，我们要将这样的素材转换成一个可以行走的动画效果，所以我们可以把这样的素材图片看成是一个“胶卷”，这个胶卷在不停的放电影 </p>
+<p>一个胶卷不可能在放映的时候同时展示这么多图片，只能一张一张的展示，所以我们要用设置一个人物大小就行了</p>
+<p><img src="image-20210321103058295.png" alt="image-20210321103058295"></p>
+<p>我们通过属性可以看到整个图片的宽度是<code>1600px</code>，高度则是<code>180px</code>，而这个图片里面8个人物，所以每个人物的宽度是<code>1600px/8=200px</code></p>
+<p><strong>首先，我们先完成孙悟空的</strong></p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+    <span class="token comment">/* .monkey_sun就相当于class="monkey_sun" */</span>
+    <span class="token selector">.monkey_sun</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 180px<span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 2px solid red<span class="token punctuation">;</span>
+        <span class="token comment">/* 相对定位 */</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">.img_sun</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">/* 绝对定位 */</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!-- 第一步：先在网页上面创建一个盒子 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>monkey_sun<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!-- 在这里需要插入孙悟空的图片 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/1.png<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img_sun<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>经过我们的实例分析以后，我们发现，这个图片需要经过8个阶段去完成，每个阶段都显示对象的一张图片，这样我们会引出我们的动画的另一种形式**阶段型动画</p>
+<p>什么是阶段型动画？就是我们的动画是有阶段进行的</p>
+<p><img src="image-20210321114148431.png" alt="image-20210321114148431"></p>
+<h4 id="定义阶段型动画"><a href="#定义阶段型动画" class="headerlink" title="定义阶段型动画"></a>定义阶段型动画</h4><p>之前在上一次的周末班里面，我们已经知道定义动画使用<code>@keyframes</code>来进行，所以我们也通过关键来定义今天的动画</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>开始时间</th>
+<th>结束时间</th>
+<th>图片位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>0</td>
+<td>12.5</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>12.6</td>
+<td>25</td>
+<td>-200</td>
+</tr>
+<tr>
+<td>3</td>
+<td>25.1</td>
+<td>37.5</td>
+<td>-400</td>
+</tr>
+<tr>
+<td>4</td>
+<td>37.6</td>
+<td>50</td>
+<td>-600</td>
+</tr>
+<tr>
+<td>5</td>
+<td>50.1</td>
+<td>62.5</td>
+<td>-800</td>
+</tr>
+<tr>
+<td>6</td>
+<td>62.6</td>
+<td>75</td>
+<td>-1000</td>
+</tr>
+<tr>
+<td>7</td>
+<td>75.1</td>
+<td>87.5</td>
+<td>-1200</td>
+</tr>
+<tr>
+<td>8</td>
+<td>87.6</td>
+<td>100</td>
+<td>-1400</td>
+</tr>
+</tbody></table>
+<p>根据上面的图表，我们可以定义出如下的阶段型动画</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* 定义了一个动画 */</span>
+<span class="token atrule"><span class="token rule">@keyframes</span> ani_sun</span><span class="token punctuation">&#123;</span>
+    <span class="token selector">0%,12.5%</span><span class="token punctuation">&#123;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">12.6%,25%</span><span class="token punctuation">&#123;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> -200px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">25.1%,37.5%</span><span class="token punctuation">&#123;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> -400px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">37.6%,50%</span><span class="token punctuation">&#123;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> -600px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">50.1%,62.5%</span><span class="token punctuation">&#123;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> -800px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">62.6%,75%</span><span class="token punctuation">&#123;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> -1000px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">75.1%,87.5%</span><span class="token punctuation">&#123;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> -1200px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">87.6%,100%</span><span class="token punctuation">&#123;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> -1400px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    public Room() &#123;
-    &#125;
+<p>当上面的动画定义好了以后，我们还需要去调用这个动画</p>
+<h4 id="帧动画"><a href="#帧动画" class="headerlink" title="帧动画"></a>帧动画</h4><p>我们如果采用上面的方式去完成的时候，发现计算阶段的时候很麻烦，同时有的阶段时间不是等分的</p>
+<p>为了更好的解决这个问题，在CSS的动画当中，演变出了一个新的东西，叫<strong>帧动画</strong>（顾名思义就是一帧一帧的动画）</p>
+<p><strong>定义动画</strong></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token atrule"><span class="token rule">@keyframes</span> ani_sun</span> <span class="token punctuation">&#123;</span>
+    <span class="token selector">0%</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">100%</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">/*这里的值变成了-1600px*/</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> -1600px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    public Room(int no, String type, boolean status) &#123;
-        this.no &#x3D; no;
-        this.type &#x3D; type;
-        this.status &#x3D; status;
-    &#125;
+<p><strong>调用动画</strong></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.img_sun</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+    <span class="token property">animation-name</span><span class="token punctuation">:</span> ani_sun<span class="token punctuation">;</span>
+    <span class="token property">animation-duration</span><span class="token punctuation">:</span> 0.8s<span class="token punctuation">;</span> 
+    <span class="token property">animation-iteration-count</span><span class="token punctuation">:</span> infinite<span class="token punctuation">;</span>
+    <span class="token comment">/* steps(8)代表把动画拆分成8帧去运行 */</span>
+    <span class="token property">animation-timing-function</span><span class="token punctuation">:</span> <span class="token function">steps</span><span class="token punctuation">(</span>8<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    &#x2F;&#x2F;封装
-    public void setNo(int no) &#123;
-        this.no &#x3D; no;
-    &#125;
+<p>在上面的代码当中，我们让系统自动的从0%~100%拆分成了8个步骤（拆分成8帧去运行）</p>
+<p>当我们通过上面的代码完成了孙悟空的效果以后，其它的动画效果也是一样的</p>
+<h4 id="动画的视觉差"><a href="#动画的视觉差" class="headerlink" title="动画的视觉差"></a>动画的视觉差</h4><p>所谓动画的视觉差其实就是利用特殊的素材图片实现一个循环动画的效果，在本次的案例当中我们可以看到背景图片是在不停的滚动，它其实就是一个特殊的背景图片</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>西游记背景<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+			<span class="token selector">.bg-box</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">width</span><span class="token punctuation">:</span> 1920px<span class="token punctuation">;</span>
+				<span class="token property">height</span><span class="token punctuation">:</span> 786px<span class="token punctuation">;</span>
+				<span class="token property">border</span><span class="token punctuation">:</span> 5px solid deeppink<span class="token punctuation">;</span>
+				<span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+				<span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span> <span class="token comment">/*相对定位*/</span>
+				<span class="token comment">/* 溢出隐藏 */</span>
+				<span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token selector">.img-box</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">width</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>1920px * 2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token property">height</span><span class="token punctuation">:</span> 786px<span class="token punctuation">;</span>
+				<span class="token comment">/* 设置背景图片，图片只有1920px,但是盒子有3840px ，
+					如果图片小于盒子，则会自动的重复平铺*/</span>
+				<span class="token property">background-image</span><span class="token punctuation">:</span><span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>img/bg.jpg<span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+				<span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>  <span class="token comment">/*绝对定位*/</span>
+				<span class="token property">left</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+				<span class="token property">top</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+				<span class="token property">animation-name</span><span class="token punctuation">:</span> ani_bg<span class="token punctuation">;</span>
+				<span class="token property">animation-duration</span><span class="token punctuation">:</span> 15s<span class="token punctuation">;</span>
+				<span class="token property">animation-iteration-count</span><span class="token punctuation">:</span> infinite<span class="token punctuation">;</span>
+				<span class="token property">animation-timing-function</span><span class="token punctuation">:</span> linear<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token atrule"><span class="token rule">@keyframes</span> ani_bg</span><span class="token punctuation">&#123;</span>
+				<span class="token selector">0%</span><span class="token punctuation">&#123;</span>
+					<span class="token property">left</span><span class="token punctuation">:</span> -1920px<span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span>
+				<span class="token selector">100%</span><span class="token punctuation">&#123;</span>
+					<span class="token property">left</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span>
+			<span class="token punctuation">&#125;</span>
+		</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bg-box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img-box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    public String getType() &#123;
-        return type;
-    &#125;
-
-    public void setType(String type) &#123;
-        this.type &#x3D; type;
-    &#125;
-
-    public boolean getStatus() &#123;
-        return status;
-    &#125;
-
-    public void setStatus(boolean status) &#123;
-        this.status &#x3D; status;
-    &#125;
-
-    &#x2F;&#x2F;toString方法重写
-
-    @Override
-    public String toString() &#123;
-        return &quot;[&quot; + no + &quot;,&quot; + type + &quot;,&quot; + (status ? &quot;可预订&quot;:&quot;不可预定&quot;) + &quot;]&quot;;
-    &#125;
-
-
-    &#x2F;&#x2F;equals方法重写
-
-    @Override
-    public boolean equals(Object obj) &#123;
-        if(obj &#x3D;&#x3D; null || !(obj instanceof Room)) return false;&#x2F;&#x2F;传来的为空或不是Room类直接返回false
-        if (this &#x3D;&#x3D; obj) return true;&#x2F;&#x2F;如果内存地址一样，直接返回true
-        Room r &#x3D; (Room)obj;&#x2F;&#x2F;强制类型转换
-        return this.getNo() &#x3D;&#x3D; r.getNo();
-     &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>Hotel类：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Hotel &#123;
-    private Room[][] rooms;
-
-    &#x2F;&#x2F;构造方法
-
-    public Hotel() &#123;
-        &#x2F;&#x2F;一共三层，一层单人间，二层双人间，三层豪华间
-        &#x2F;&#x2F;动态初始化
-        rooms &#x3D; new Room[4][10];
-        for (int i &#x3D; 0; i &lt; rooms.length; i++) &#123;
-            for (int j &#x3D; 0; j &lt; rooms[i].length; j++) &#123;
-                if (i &#x3D;&#x3D; 0) rooms[i][j] &#x3D; new Room((i+1) * 100 + j + 1,&quot;单人间&quot;,true);
-                else if (i &#x3D;&#x3D; 1) rooms[i][j] &#x3D; new Room((i+1) * 100 + j + 1,&quot;双人间&quot;,true);
-                else if (i &#x3D;&#x3D; 2) rooms[i][j] &#x3D; new Room((i+1) * 100 + j + 1,&quot;豪华间&quot;,true);
-                else if (i &#x3D;&#x3D; 3) rooms[i][j] &#x3D; new Room((i+1) * 100 + j + 1,&quot;情侣间&quot;,true);
-            &#125;
-        &#125;
-    &#125;
-
-    public void print()&#123;
-        for (int i &#x3D; 0; i &lt; rooms.length; i++) &#123;
-            for (int j &#x3D; 0; j &lt; rooms[i].length; j++) &#123;
-                System.out.print(rooms[i][j]);
-
-            &#125;
-            System.out.println();
-        &#125;
-    &#125;
-
-    &#x2F;&#x2F;订房间方法
-    public void order(int roomNo)&#123;
-        &#x2F;&#x2F;根据房间编号计算在数组中的坐标
-        Room room &#x3D; rooms[roomNo &#x2F; 100 - 1][roomNo % 10 - 1];
-        room.setStatus(false);
-        System.out.println(roomNo + &quot;房间,已成功预订！&quot;);
-    &#125;
-
-    &#x2F;&#x2F;退房
-    public void exit(int roomNo)&#123;
-        Room room &#x3D; rooms[roomNo &#x2F; 100 -1][roomNo % 10 - 1];
-        room.setStatus(true);
-        System.out.println(roomNo + &quot;房间,已成功退房！&quot;);
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>HotelMgtSystem类：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.Scanner;
-public class HotelMgtSystem &#123;
-    public static void main(String[] args) &#123;
-        Hotel h &#x3D; new Hotel();
-        System.out.println(&quot;欢迎使用酒店管理系统，请认真阅读以下使用说明：&quot;);
-        System.out.println(&quot;请输入对应的功能编号：[1]表示查看房间状况；[2]表示订房；[3]表示退房；[0]表示退出&quot;);
-        System.out.println(&quot;请输入功能编号：&quot;);
-
-        while (true) &#123;
-            Scanner s &#x3D; new Scanner(System.in);
-            int i &#x3D; s.nextInt();
-            if (i &#x3D;&#x3D; 1) &#123;
-                h.print();
-            &#125; else if (i &#x3D;&#x3D; 2) &#123;
-                System.out.println(&quot;请输入要预定的房间编号：&quot;);
-                Scanner n &#x3D; new Scanner(System.in);
-                int roomNo &#x3D; n.nextInt();
-                h.order(roomNo);
-            &#125; else if (i &#x3D;&#x3D; 3) &#123;
-                System.out.println(&quot;请输入要退房的房间编号：&quot;);
-                Scanner n &#x3D; new Scanner(System.in);
-                int roomNo &#x3D; n.nextInt();
-                h.exit(roomNo);
-            &#125; else if (i &#x3D;&#x3D; 0) &#123;
-                System.out.println(&quot;欢迎下次光临&quot;);
-                return;
-            &#125; else System.out.println(&quot;输入的功能编号有误，请重新输入：&quot;);
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>运行结果为：</p>
-<p><img src="%E5%9B%BE%E7%89%871.png"></p>
-<p><img src="%E5%9B%BE%E7%89%873.png"></p>
-<p><img src="%E5%9B%BE%E7%89%875.png"></p>
-<p>更多知识关注微信公众号“IT互联网科技知识分享”</p>
-<p><img src="%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7.jpg"></p>
+<p>这里背景的动画视觉差其实就是两个图片的首尾相连</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li><p><code>overflow</code>是盒子的溢出处理，当一个小的容器里面放一个大的元素，就会存在溢出的情况，<code>overflow:hidden</code>就是溢出隐藏</p>
+</li>
+<li><p>关于<code>margin:auto</code>居中</p>
+<p><a target="_blank" rel="noopener" href="http://www.softeem.xin:8090/archives/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B#%E5%85%83%E7%B4%A0%E7%B1%BB%E5%9E%8B">http://www.softeem.xin:8090/archives/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B#%E5%85%83%E7%B4%A0%E7%B1%BB%E5%9E%8B</a></p>
+</li>
+<li><p>关于定位以后的Z轴问题（脱流问题），请参考</p>
+<p><a target="_blank" rel="noopener" href="http://www.softeem.xin:8090/archives/%E5%AE%9A%E4%BD%8D#%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D">http://www.softeem.xin:8090/archives/%E5%AE%9A%E4%BD%8D#%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D</a></p>
+</li>
+<li><p>合理的使用CSS的分组选择器可以提供开发效率，关于CSS的分组选择器，请参考</p>
+<p><a target="_blank" rel="noopener" href="http://www.softeem.xin:8090/archives/CSS%E5%9F%BA%E7%A1%80#css%E9%80%89%E6%8B%A9%E5%99%A8">http://www.softeem.xin:8090/archives/CSS%E5%9F%BA%E7%A1%80#css%E9%80%89%E6%8B%A9%E5%99%A8</a></p>
+</li>
+<li><p>关于元素里面的<strong>块级元素</strong>与<strong>行内块级</strong>元素，请参考</p>
+<p><a target="_blank" rel="noopener" href="http://www.softeem.xin:8090/archives/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B#%E5%85%83%E7%B4%A0%E7%B1%BB%E5%9E%8B">http://www.softeem.xin:8090/archives/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B#%E5%85%83%E7%B4%A0%E7%B1%BB%E5%9E%8B</a></p>
+</li>
+<li><p>关于如果让元素居中的问题，还请参考第2点</p>
+</li>
+<li><p>关于元素的垂直居中，一直是一个痛点，这个后面会开专题讲解</p>
+</li>
+</ol>
+<p>​     教程来源：软帝标哥</p>
 
             </div>
             <hr/>
@@ -1064,7 +1154,7 @@ public class HotelMgtSystem &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jzjsfx.gitee.io/jzjsfx/year/11/28/d_jiu_dian_guan_li_xi_tong_xiao_cheng_xu/">http://jzjsfx.gitee.io/jzjsfx/year/11/28/d_jiu_dian_guan_li_xi_tong_xiao_cheng_xu/</a>
+                    <a href="http://jzjsfx.gitee.io/jzjsfx/year/04/04/o/">http://jzjsfx.gitee.io/jzjsfx/year/04/04/o/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1102,8 +1192,8 @@ public class HotelMgtSystem &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/jzjsfx/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
+                                <a href="/jzjsfx/tags/html-css/">
+                                    <span class="chip bg-color">html css</span>
                                 </a>
                             
                         </div>
@@ -1580,45 +1670,47 @@ public class HotelMgtSystem &#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/jzjsfx/year/11/28/f_ji_suan_qi_xiao_cheng_xu/">
+                <a href="/jzjsfx/year/04/04/o/">
                     <div class="card-image">
                         
-                        <img src="/jzjsfx/medias/featureimages/9.jpg" class="responsive-img" alt="计算器小程序">
+                        <img src="/jzjsfx/medias/featureimages/21.jpg" class="responsive-img" alt="css动画案例-西游记">
                         
-                        <span class="card-title">计算器小程序</span>
+                        <span class="card-title">css动画案例-西游记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            计算器小程序
+                            css动画
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/jzjsfx/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/jzjsfx/categories/css%E5%8A%A8%E7%94%BB/" class="post-category">
+                                    css动画
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/jzjsfx/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/jzjsfx/tags/html-css/">
+                        <span class="chip bg-color">html css</span>
                     </a>
                     
                 </div>
@@ -1632,30 +1724,30 @@ public class HotelMgtSystem &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/jzjsfx/year/10/29/a_re_ai_sheng_ming/">
+                <a href="/jzjsfx/year/04/04/n/">
                     <div class="card-image">
                         
-                        <img src="/jzjsfx/medias/featureimages/32.jpg" class="responsive-img" alt="既然选择了远方,便只顾风雨兼程">
+                        <img src="/jzjsfx/medias/featureimages/20.jpg" class="responsive-img" alt="css动画案例-3D相册">
                         
-                        <span class="card-title">既然选择了远方,便只顾风雨兼程</span>
+                        <span class="card-title">css动画案例-3D相册</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            既然钟情于玫瑰，就勇敢地吐露真诚
+                            css动画
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/jzjsfx/categories/%E8%AF%97%E6%AD%8C/" class="post-category">
-                                    诗歌
+                            <a href="/jzjsfx/categories/css%E5%8A%A8%E7%94%BB/" class="post-category">
+                                    css动画
                                 </a>
                             
                             
@@ -1665,12 +1757,8 @@ public class HotelMgtSystem &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/jzjsfx/tags/%E7%BB%8F%E5%85%B8%E8%AF%AD%E5%8F%A5/">
-                        <span class="chip bg-color">经典语句</span>
-                    </a>
-                    
-                    <a href="/jzjsfx/tags/%E8%AF%97%E6%AD%8C/">
-                        <span class="chip bg-color">诗歌</span>
+                    <a href="/jzjsfx/tags/html-css/">
+                        <span class="chip bg-color">html css</span>
                     </a>
                     
                 </div>

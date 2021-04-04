@@ -5,7 +5,7 @@
 <head>
     <script src="//code.tidio.co/fcmvyqcsy3bvzzrgbvwttjy0toizj18a.js" async></script>
     <meta charset="utf-8">
-    <meta name="keywords" content="酒店管理系统, Junzheng">
+    <meta name="keywords" content="css动画案例-3D相册, Junzheng">
     <meta name="description" content="分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>酒店管理系统 | Junzheng</title>
+    <title>css动画案例-3D相册 | Junzheng</title>
     <link rel="icon" type="image/png" href="/jzjsfx/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/jzjsfx/libs/awesome/css/all.css">
@@ -799,12 +799,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/jzjsfx/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/jzjsfx/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">酒店管理系统</h1>
+                    <h1 class="description center-align post-title">css动画案例-3D相册</h1>
                 </div>
             </div>
         </div>
@@ -826,8 +826,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/jzjsfx/tags/Java/">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/jzjsfx/tags/html-css/">
+                                <span class="chip bg-color">html css</span>
                             </a>
                         
                     </div>
@@ -838,8 +838,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/jzjsfx/categories/Java/" class="post-category">
-                                Java
+                            <a href="/jzjsfx/categories/css%E5%8A%A8%E7%94%BB/" class="post-category">
+                                css动画
                             </a>
                         
                     </div>
@@ -851,28 +851,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-28
+                    2021-04-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-07
+                    2021-04-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    7 分
                 </div>
                 
 
@@ -887,158 +887,280 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>编写一个Java项目：</p>
-<p>为某个酒店编写程序：酒店管理系统，模拟订房、退房、打印所有房间状态等功能。<br>问题描述：<br>为某个酒店编写程序：酒店管理系统，模拟订房、退房、打印所有房间状态等功能。<br>1、该系统的用户是：酒店前台。<br>2、酒店使用一个二维数组来模拟。“Room[][] rooms;”<br>3、酒店中的每一个房间应该是一个java对象：Room<br>4、每一个房间Room应该有：房间编号、房间类型、房间是否空闲.<br>5、系统应该对外提供的功能：<br>可以预定房间：用户输入房间编号，订房。<br>可以退房：用户输入房间编号，退房。<br>可以查看所有房间的状态：用户输入某个指令应该可以查看所有房间状态。</p>
-<p>酒店管理系统：模拟订房、退房、打印所有房间状态的功能</p>
-<p>​     功能需求:</p>
-<p>​              1,订房：用户可以输入房间编号可以订房<br>​              2,退房：用户可以输入房间编号进行退房<br>​              3,查看所有房间的状态：用户输入某些指令查看所有房间的状态</p>
-<p>问题分析：<br>定义Room和Hotel类，Hotel里面包含一个Room类的二维数组用来模拟每一个不同楼层的房间号。依次实现相应要求。<br>代码实现：<br>Room类：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Room &#123;
-    &#x2F;&#x2F;房间编号
-    private int no;
-    &#x2F;&#x2F;房间类型
-    private String type;
-    &#x2F;&#x2F;房间状态，true表示可以被预定，false表示不可被预定
-    private boolean status;
+                <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>本次项目我们使用开发工具为<code>HBuilderX</code>来进行</p>
+<ol>
+<li>设置开发软件的主题为你自己合适的主题</li>
+<li>设置快捷键为<code>VS Code</code>的快捷</li>
+<li>本次项目需要准备素材图片</li>
+</ol>
+<h3 id="项目创建"><a href="#项目创建" class="headerlink" title="项目创建"></a>项目创建</h3><p>使用HbuilderX 来创建项目，我们可以采取一种<strong>最简单</strong>的方式来创建项目</p>
+<ol>
+<li>在电脑的桌面上面创建一个英文的文件夹，如<code>bgg</code></li>
+<li>将之前准备好的素材文件夹<code>img</code>剪切到<code>bgg</code>的文件夹里面</li>
+<li>将<code>bgg</code>文件夹拖入到<code>HBuilderX</code>这个开发工具里面去</li>
+</ol>
+<h3 id="开始项目"><a href="#开始项目" class="headerlink" title="开始项目"></a>开始项目</h3><ol>
+<li><p>在当前项目下面新建一个<code>index.html</code>的文件，这是一个网页文件，新的项目当中，代码如下</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>开始设置中间的盒子</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-    public int getNo() &#123;
-        return no;
-    &#125;
-    &#x2F;&#x2F;构造方法
+<p>接下来设置样式</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* .box相当于class="box" */</span>
+<span class="token selector">.box</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 280px<span class="token punctuation">;</span>
+    <span class="token comment">/* 设置了一个2px的实线的白色边框 */</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 2px solid white<span class="token punctuation">;</span>
+    <span class="token comment">/* 固定定位，固定的定在浏览器的某一个地方 */</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+    <span class="token comment">/* calc是CSS属性当中计算的使用 */</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>50% - 100px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>50% - 140px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<blockquote>
+<p><strong>代码说明</strong>：</p>
+<ol>
+<li><code>.box</code>相当于html标签中的<code>class=&quot;box&quot;</code></li>
+<li><code>border</code>代表设置元素的边框,<code>solid</code>是实线</li>
+<li><code>position:fixed</code>是固定定位，具体可能参照<a target="_blank" rel="noopener" href="http://www.softeem.xin:8090/archives/%E5%AE%9A%E4%BD%8D#%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D">http://www.softeem.xin:8090/archives/%E5%AE%9A%E4%BD%8D#%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D</a></li>
+<li><code>calc</code>代表CSS中的计算</li>
+</ol>
+</blockquote>
+</li>
+<li><p>开始设置里面的第1张图片</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+	<span class="token comment">/* .box相当于class="box" */</span>
+    <span class="token selector">.box</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 280px<span class="token punctuation">;</span>
+        <span class="token comment">/* 设置了一个2px的实线的白色边框 */</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 2px solid white<span class="token punctuation">;</span>
+        <span class="token comment">/* 固定定位，固定的定在浏览器的某一个地方 */</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+        <span class="token comment">/* calc是CSS属性当中计算的使用 */</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>50% - 100px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>50% - 140px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">/* 把平面的盒子变成一个3D的盒子 */</span>
+        <span class="token property">transform-style</span><span class="token punctuation">:</span> preserve-3d<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
 
-    public Room() &#123;
-    &#125;
+    <span class="token selector">.box>img</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">/* 把图片的宽度与高度设置成与外边的盒子相同 */</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">/* 选中class="box"下边的第1张图片 */</span>
+    <span class="token selector">.box>img:nth-child(1)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">/* 我要让这一张图片沿着Y轴去旋转30度 ,并且在Z轴上面向前走300px*/</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>30deg<span class="token punctuation">)</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>300px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/2014.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    public Room(int no, String type, boolean status) &#123;
-        this.no &#x3D; no;
-        this.type &#x3D; type;
-        this.status &#x3D; status;
-    &#125;
+<p>在上面的代码里面，我们用到了CSS3当中的变换属性<code>transform</code>，这一块可以参考<a target="_blank" rel="noopener" href="http://www.softeem.xin:8090/archives/%E5%8F%98%E6%8D%A2">http://www.softeem.xin:8090/archives/%E5%8F%98%E6%8D%A2</a></p>
+<p>其中还用到了3D变换</p>
+</li>
+<li><p>按照第1张图片的思路，我们把剩下的11张图片也放进去</p>
+<p>当我们按照我们的思维进行代码完成，在里面添加了剩下的图片代码</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/2014.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/2015.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/2016.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/2017.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/2018上.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w01.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w02.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w03.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w04.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w05.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w06.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w07.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    &#x2F;&#x2F;封装
-    public void setNo(int no) &#123;
-        this.no &#x3D; no;
-    &#125;
+<p>我们发现一个问题，这个图片是从上向下在排列，并没有符合我们的要求，<strong>那么，我们怎么样让片都从于同一个位置开始呢？</strong></p>
+<p>这个时候我们要让所有的图片都以<code>box</code>盒子的左上角为开始，这怎么办呢？</p>
+<p>针对于这一种，在前端布局里面，有一个思路叫<font style="color:red;font-size:22px;text-decoration:wavy blue underline">子绝父相</font></p>
+<p><a target="_blank" rel="noopener" href="http://www.softeem.xin:8090/archives/%E5%AE%9A%E4%BD%8D#%E5%85%B3%E4%BA%8E%E5%AD%90%E7%BB%9D%E7%88%B6%E7%9B%B8">http://www.softeem.xin:8090/archives/%E5%AE%9A%E4%BD%8D#%E5%85%B3%E4%BA%8E%E5%AD%90%E7%BB%9D%E7%88%B6%E7%9B%B8</a></p>
+<p><strong>子绝父相：</strong>当一个元素如果要以另一外元素为标准进行位置布局的时候，最好的办法就是在父级元素上面设置<code>相对定位</code>,而在所有的子级元素上面设置<code>绝对定位</code>，这样就实现了子绝父相的布局</p>
+</li>
+</ol>
+<h3 id="CSS动画的应用"><a href="#CSS动画的应用" class="headerlink" title="CSS动画的应用"></a>CSS动画的应用</h3><p>在CSS里面，如果要使用动画，必须经历下面两个阶段</p>
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">graph LR
+A[定义动画]--&gt;B[调用动画]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-    public String getType() &#123;
-        return type;
-    &#125;
+<h4 id="动画的定义"><a href="#动画的定义" class="headerlink" title="动画的定义"></a>动画的定义</h4><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token atrule"><span class="token rule">@keyframes</span> 动画名称</span> <span class="token punctuation">&#123;</span>
+    <span class="token selector">from</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">/*动画开始*/</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">to</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">/*动画结束*/</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    public void setType(String type) &#123;
-        this.type &#x3D; type;
-    &#125;
+<p>下面我们就使用语法定义了一个旋转360度的动画 </p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* 在CSS里面，我们可以定义一个动画 */</span>
+<span class="token atrule"><span class="token rule">@keyframes</span> zhuan</span> <span class="token punctuation">&#123;</span>
+    <span class="token selector">from</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>0deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
 
-    public boolean getStatus() &#123;
-        return status;
-    &#125;
+    <span class="token selector">to</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>360deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    public void setStatus(boolean status) &#123;
-        this.status &#x3D; status;
-    &#125;
+<h4 id="动画的调用"><a href="#动画的调用" class="headerlink" title="动画的调用"></a>动画的调用</h4><p>在调用动画的时候，要使用CSS的属性去调用，这个属性就是<code>animation</code></p>
+<ol>
+<li><code>animation-name</code>动画的名称</li>
+<li><code>animation-duration</code>动画的时间 </li>
+<li><code>animation-iteration-count</code>动画执行的次数</li>
+<li><code>animation-timing-function</code>动画执行的时间函数（动画的效果）</li>
+</ol>
+<p>目前我们使用的就是上面的四个</p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>标哥最帅<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+			<span class="token selector">body</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">background-color</span><span class="token punctuation">:</span> black<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-    &#x2F;&#x2F;toString方法重写
+			<span class="token selector">.box</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+				<span class="token property">height</span><span class="token punctuation">:</span> 280px<span class="token punctuation">;</span>
+				<span class="token property">border</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+				<span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+				<span class="token property">left</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>50% - 100px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token property">top</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>50% - 140px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token property">transform-style</span><span class="token punctuation">:</span> preserve-3d<span class="token punctuation">;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateX</span><span class="token punctuation">(</span>-20deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token comment">/* 调用动画 */</span>
+				<span class="token property">animation-name</span><span class="token punctuation">:</span> zhuan<span class="token punctuation">;</span>
+				<span class="token comment">/* 设置动画执行一次需要10s */</span>
+				<span class="token property">animation-duration</span><span class="token punctuation">:</span> 10s<span class="token punctuation">;</span>
+				<span class="token comment">/* 设置动画无限次循环 */</span>
+				<span class="token property">animation-iteration-count</span><span class="token punctuation">:</span> infinite<span class="token punctuation">;</span>
+				<span class="token comment">/* 设置动画匀速播放 */</span>
+				<span class="token property">animation-timing-function</span><span class="token punctuation">:</span> linear<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-    @Override
-    public String toString() &#123;
-        return &quot;[&quot; + no + &quot;,&quot; + type + &quot;,&quot; + (status ? &quot;可预订&quot;:&quot;不可预定&quot;) + &quot;]&quot;;
-    &#125;
+			<span class="token selector">.box>img</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+				<span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+				<span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+				<span class="token property">left</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+				<span class="token property">top</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+				<span class="token property">border-radius</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+				<span class="token property">box-shadow</span><span class="token punctuation">:</span> 0px 0px 15px white<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
+			<span class="token selector">.box>img:nth-child(1)</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>30deg<span class="token punctuation">)</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>500px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-    &#x2F;&#x2F;equals方法重写
+			<span class="token selector">.box>img:nth-child(2)</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>60deg<span class="token punctuation">)</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>500px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-    @Override
-    public boolean equals(Object obj) &#123;
-        if(obj &#x3D;&#x3D; null || !(obj instanceof Room)) return false;&#x2F;&#x2F;传来的为空或不是Room类直接返回false
-        if (this &#x3D;&#x3D; obj) return true;&#x2F;&#x2F;如果内存地址一样，直接返回true
-        Room r &#x3D; (Room)obj;&#x2F;&#x2F;强制类型转换
-        return this.getNo() &#x3D;&#x3D; r.getNo();
-     &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+			<span class="token selector">.box>img:nth-child(3)</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>90deg<span class="token punctuation">)</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>500px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-<p>Hotel类：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Hotel &#123;
-    private Room[][] rooms;
+			<span class="token selector">.box>img:nth-child(4)</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>120deg<span class="token punctuation">)</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>500px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-    &#x2F;&#x2F;构造方法
+			<span class="token selector">.box>img:nth-child(5)</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>150deg<span class="token punctuation">)</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>500px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-    public Hotel() &#123;
-        &#x2F;&#x2F;一共三层，一层单人间，二层双人间，三层豪华间
-        &#x2F;&#x2F;动态初始化
-        rooms &#x3D; new Room[4][10];
-        for (int i &#x3D; 0; i &lt; rooms.length; i++) &#123;
-            for (int j &#x3D; 0; j &lt; rooms[i].length; j++) &#123;
-                if (i &#x3D;&#x3D; 0) rooms[i][j] &#x3D; new Room((i+1) * 100 + j + 1,&quot;单人间&quot;,true);
-                else if (i &#x3D;&#x3D; 1) rooms[i][j] &#x3D; new Room((i+1) * 100 + j + 1,&quot;双人间&quot;,true);
-                else if (i &#x3D;&#x3D; 2) rooms[i][j] &#x3D; new Room((i+1) * 100 + j + 1,&quot;豪华间&quot;,true);
-                else if (i &#x3D;&#x3D; 3) rooms[i][j] &#x3D; new Room((i+1) * 100 + j + 1,&quot;情侣间&quot;,true);
-            &#125;
-        &#125;
-    &#125;
+			<span class="token selector">.box>img:nth-child(6)</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>180deg<span class="token punctuation">)</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>500px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-    public void print()&#123;
-        for (int i &#x3D; 0; i &lt; rooms.length; i++) &#123;
-            for (int j &#x3D; 0; j &lt; rooms[i].length; j++) &#123;
-                System.out.print(rooms[i][j]);
+			<span class="token selector">.box>img:nth-child(7)</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>210deg<span class="token punctuation">)</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>500px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-            &#125;
-            System.out.println();
-        &#125;
-    &#125;
+			<span class="token selector">.box>img:nth-child(8)</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>240deg<span class="token punctuation">)</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>500px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-    &#x2F;&#x2F;订房间方法
-    public void order(int roomNo)&#123;
-        &#x2F;&#x2F;根据房间编号计算在数组中的坐标
-        Room room &#x3D; rooms[roomNo &#x2F; 100 - 1][roomNo % 10 - 1];
-        room.setStatus(false);
-        System.out.println(roomNo + &quot;房间,已成功预订！&quot;);
-    &#125;
+			<span class="token selector">.box>img:nth-child(9)</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>270deg<span class="token punctuation">)</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>500px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-    &#x2F;&#x2F;退房
-    public void exit(int roomNo)&#123;
-        Room room &#x3D; rooms[roomNo &#x2F; 100 -1][roomNo % 10 - 1];
-        room.setStatus(true);
-        System.out.println(roomNo + &quot;房间,已成功退房！&quot;);
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>HotelMgtSystem类：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.Scanner;
-public class HotelMgtSystem &#123;
-    public static void main(String[] args) &#123;
-        Hotel h &#x3D; new Hotel();
-        System.out.println(&quot;欢迎使用酒店管理系统，请认真阅读以下使用说明：&quot;);
-        System.out.println(&quot;请输入对应的功能编号：[1]表示查看房间状况；[2]表示订房；[3]表示退房；[0]表示退出&quot;);
-        System.out.println(&quot;请输入功能编号：&quot;);
+			<span class="token selector">.box>img:nth-child(10)</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>300deg<span class="token punctuation">)</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>500px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-        while (true) &#123;
-            Scanner s &#x3D; new Scanner(System.in);
-            int i &#x3D; s.nextInt();
-            if (i &#x3D;&#x3D; 1) &#123;
-                h.print();
-            &#125; else if (i &#x3D;&#x3D; 2) &#123;
-                System.out.println(&quot;请输入要预定的房间编号：&quot;);
-                Scanner n &#x3D; new Scanner(System.in);
-                int roomNo &#x3D; n.nextInt();
-                h.order(roomNo);
-            &#125; else if (i &#x3D;&#x3D; 3) &#123;
-                System.out.println(&quot;请输入要退房的房间编号：&quot;);
-                Scanner n &#x3D; new Scanner(System.in);
-                int roomNo &#x3D; n.nextInt();
-                h.exit(roomNo);
-            &#125; else if (i &#x3D;&#x3D; 0) &#123;
-                System.out.println(&quot;欢迎下次光临&quot;);
-                return;
-            &#125; else System.out.println(&quot;输入的功能编号有误，请重新输入：&quot;);
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+			<span class="token selector">.box>img:nth-child(11)</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>330deg<span class="token punctuation">)</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>500px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-<p>运行结果为：</p>
-<p><img src="%E5%9B%BE%E7%89%871.png"></p>
-<p><img src="%E5%9B%BE%E7%89%873.png"></p>
-<p><img src="%E5%9B%BE%E7%89%875.png"></p>
-<p>更多知识关注微信公众号“IT互联网科技知识分享”</p>
-<p><img src="%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7.jpg"></p>
+			<span class="token selector">.box>img:nth-child(12)</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>360deg<span class="token punctuation">)</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>500px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+
+			<span class="token comment">/* 在CSS里面，我们可以定义一个动画 */</span>
+			<span class="token atrule"><span class="token rule">@keyframes</span> zhuan</span> <span class="token punctuation">&#123;</span>
+				<span class="token selector">from</span> <span class="token punctuation">&#123;</span>
+					<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateX</span><span class="token punctuation">(</span>-20deg<span class="token punctuation">)</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>0deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span>
+
+				<span class="token selector">to</span> <span class="token punctuation">&#123;</span>
+					<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateX</span><span class="token punctuation">(</span>-20deg<span class="token punctuation">)</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>360deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span>
+			<span class="token punctuation">&#125;</span>
+		</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/2014.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/2015.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/2016.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/2017.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/2018上.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w01.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w02.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w03.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w04.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w05.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w06.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/w07.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本次项目当中用到了技术点</p>
+<ol>
+<li><code>transform</code>变换</li>
+<li><code>trasnform-style</code>:变换的方式，里面有3D变换</li>
+<li><code>rotate</code>旋转</li>
+<li><code>translate</code>位移</li>
+<li><code>@keyframe</code>定义动画</li>
+<li><code>animation</code>使用动画 </li>
+<li>“子绝父相”的使用</li>
+</ol>
+<p>​     教程来源：软帝标哥</p>
 
             </div>
             <hr/>
@@ -1064,7 +1186,7 @@ public class HotelMgtSystem &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jzjsfx.gitee.io/jzjsfx/year/11/28/d_jiu_dian_guan_li_xi_tong_xiao_cheng_xu/">http://jzjsfx.gitee.io/jzjsfx/year/11/28/d_jiu_dian_guan_li_xi_tong_xiao_cheng_xu/</a>
+                    <a href="http://jzjsfx.gitee.io/jzjsfx/year/04/04/n/">http://jzjsfx.gitee.io/jzjsfx/year/04/04/n/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1102,8 +1224,8 @@ public class HotelMgtSystem &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/jzjsfx/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
+                                <a href="/jzjsfx/tags/html-css/">
+                                    <span class="chip bg-color">html css</span>
                                 </a>
                             
                         </div>
@@ -1584,30 +1706,30 @@ public class HotelMgtSystem &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/jzjsfx/year/11/28/f_ji_suan_qi_xiao_cheng_xu/">
+                <a href="/jzjsfx/year/04/04/o/">
                     <div class="card-image">
                         
-                        <img src="/jzjsfx/medias/featureimages/9.jpg" class="responsive-img" alt="计算器小程序">
+                        <img src="/jzjsfx/medias/featureimages/21.jpg" class="responsive-img" alt="css动画案例-西游记">
                         
-                        <span class="card-title">计算器小程序</span>
+                        <span class="card-title">css动画案例-西游记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            计算器小程序
+                            css动画
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-04
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/jzjsfx/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/jzjsfx/categories/css%E5%8A%A8%E7%94%BB/" class="post-category">
+                                    css动画
                                 </a>
                             
                             
@@ -1617,8 +1739,8 @@ public class HotelMgtSystem &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/jzjsfx/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/jzjsfx/tags/html-css/">
+                        <span class="chip bg-color">html css</span>
                     </a>
                     
                 </div>
@@ -1632,30 +1754,30 @@ public class HotelMgtSystem &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/jzjsfx/year/10/29/a_re_ai_sheng_ming/">
+                <a href="/jzjsfx/year/03/30/m/">
                     <div class="card-image">
                         
-                        <img src="/jzjsfx/medias/featureimages/32.jpg" class="responsive-img" alt="既然选择了远方,便只顾风雨兼程">
+                        <img src="/jzjsfx/medias/featureimages/18.jpg" class="responsive-img" alt="css动画案例-吃豆人和火星圆环">
                         
-                        <span class="card-title">既然选择了远方,便只顾风雨兼程</span>
+                        <span class="card-title">css动画案例-吃豆人和火星圆环</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            既然钟情于玫瑰，就勇敢地吐露真诚
+                            css动画
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/jzjsfx/categories/%E8%AF%97%E6%AD%8C/" class="post-category">
-                                    诗歌
+                            <a href="/jzjsfx/categories/css%E5%8A%A8%E7%94%BB/" class="post-category">
+                                    css动画
                                 </a>
                             
                             
@@ -1665,12 +1787,8 @@ public class HotelMgtSystem &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/jzjsfx/tags/%E7%BB%8F%E5%85%B8%E8%AF%AD%E5%8F%A5/">
-                        <span class="chip bg-color">经典语句</span>
-                    </a>
-                    
-                    <a href="/jzjsfx/tags/%E8%AF%97%E6%AD%8C/">
-                        <span class="chip bg-color">诗歌</span>
+                    <a href="/jzjsfx/tags/html-css/">
+                        <span class="chip bg-color">html css</span>
                     </a>
                     
                 </div>
