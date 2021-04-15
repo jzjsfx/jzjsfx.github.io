@@ -5,7 +5,7 @@
 <head>
     <script src="//code.tidio.co/fcmvyqcsy3bvzzrgbvwttjy0toizj18a.js" async></script>
     <meta charset="utf-8">
-    <meta name="keywords" content="贪吃蛇游戏, Junzheng">
+    <meta name="keywords" content="css动画案例-大风车、芝麻开门、桃心, Junzheng">
     <meta name="description" content="分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>贪吃蛇游戏 | Junzheng</title>
+    <title>css动画案例-大风车、芝麻开门、桃心 | Junzheng</title>
     <link rel="icon" type="image/png" href="/jzjsfx/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/jzjsfx/libs/awesome/css/all.css">
@@ -799,12 +799,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/jzjsfx/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/jzjsfx/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">贪吃蛇游戏</h1>
+                    <h1 class="description center-align post-title">css动画案例-大风车、芝麻开门、桃心</h1>
                 </div>
             </div>
         </div>
@@ -826,8 +826,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/jzjsfx/tags/Java/">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/jzjsfx/tags/html-css/">
+                                <span class="chip bg-color">html css</span>
                             </a>
                         
                     </div>
@@ -838,8 +838,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/jzjsfx/categories/Java/" class="post-category">
-                                Java
+                            <a href="/jzjsfx/categories/css%E5%8A%A8%E7%94%BB/" class="post-category">
+                                css动画
                             </a>
                         
                     </div>
@@ -851,28 +851,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2021-04-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-07
+                    2021-04-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    6 分
                 </div>
                 
 
@@ -887,385 +887,284 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>使用 Java 语言编写一个贪吃蛇游戏，代码如下：</p>
-<p>GreedSnake .java</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">package jzjsfx;
+                <h3 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h3><h4 id="素材准备"><a href="#素材准备" class="headerlink" title="素材准备"></a>素材准备</h4><p>本次项目无需素材准备</p>
+<h4 id="技术准备"><a href="#技术准备" class="headerlink" title="技术准备"></a>技术准备</h4><ol>
+<li>使用到了第一次到第三次周末班的技术点，变换transform,使用到了动画及阶段型动画</li>
+<li>使用到了“子绝父相”</li>
+<li>动画的状态的改变以及伪类<code>:hover</code>的应用</li>
+</ol>
+<h4 id="开发工具的准备"><a href="#开发工具的准备" class="headerlink" title="开发工具的准备"></a>开发工具的准备</h4><p>本次项目，我们使用的是<code>HbuilderX</code>来完成的</p>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>前端项目的创建非常简单</p>
+<ol>
+<li>直接在桌面上创建一个文件夹，命名为”bgg_dfc”</li>
+<li>将刚刚创建好的文件夹插入到<code>HbuilderX</code>的开发工具里面</li>
+<li>在刚刚创建的项目里面，点击鼠标右键 ，选择新建一个<code>html</code>文件，我们命名为<code>01.html</code></li>
+</ol>
+<p>最终结果如下</p>
+<p><img src="01.png"></p>
+<p> 上面的代码，我们说明一下</p>
+<p><code>&lt;head&gt;&lt;/head&gt;</code>代表的是浏览器的头部信息</p>
+<p><code>&lt;title&gt;&lt;/title&gt;</code>代表网页的标题</p>
+<p><code>&lt;body&gt;&lt;/body&gt;</code>代表浏览器的网页的主体部分</p>
+<h3 id="大风车案例"><a href="#大风车案例" class="headerlink" title="大风车案例"></a>大风车案例</h3><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>标哥哥的大风车<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+		<span class="token comment">&lt;!-- 样式 --></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+			<span class="token selector">.big-box</span><span class="token punctuation">&#123;</span>
+				<span class="token property">width</span><span class="token punctuation">:</span> 450px<span class="token punctuation">;</span>
+				<span class="token property">height</span><span class="token punctuation">:</span> 450px<span class="token punctuation">;</span>
+				<span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+				<span class="token property">background-color</span><span class="token punctuation">:</span> yellow<span class="token punctuation">;</span>
+				<span class="token comment">/* 设置圆角边框 ，变成一个圆 */</span>
+				<span class="token property">border-radius</span><span class="token punctuation">:</span> 225px<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			
+			<span class="token comment">/* .box 相当于class="box" */</span>
+			<span class="token selector">.box</span><span class="token punctuation">&#123;</span>
+				<span class="token property">width</span><span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
+				<span class="token property">height</span><span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
+				<span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+				<span class="token property">right</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+				<span class="token property">bottom</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+				<span class="token property">background-color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+				<span class="token property">border-radius</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+				<span class="token property">animation-name</span><span class="token punctuation">:</span> box_ani<span class="token punctuation">;</span> <span class="token comment">/*动画的名称*/</span>
+				<span class="token property">animation-duration</span><span class="token punctuation">:</span> 5s<span class="token punctuation">;</span>  <span class="token comment">/*动画播放一次的时间*/</span>
+				<span class="token property">animation-iteration-count</span><span class="token punctuation">:</span> infinite<span class="token punctuation">;</span> <span class="token comment">/*动画执行无穷次*/</span>
+				<span class="token property">animation-timing-function</span><span class="token punctuation">:</span> linear<span class="token punctuation">;</span>  <span class="token comment">/*动画匀速执行*/</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token comment">/* 分组 */</span>
+			<span class="token selector">.one,.two,.three,.four</span><span class="token punctuation">&#123;</span>
+				<span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+				<span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+				<span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+				<span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+				<span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+				<span class="token property">transform-origin</span><span class="token punctuation">:</span> left top<span class="token punctuation">;</span>
+				<span class="token property">border-bottom-left-radius</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+				<span class="token property">border-bottom-right-radius</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token selector">.one</span><span class="token punctuation">&#123;</span>
+				<span class="token property">background-color</span><span class="token punctuation">:</span> deeppink<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token selector">.two</span><span class="token punctuation">&#123;</span>
+				<span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateZ</span><span class="token punctuation">(</span>90deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token selector">.three</span><span class="token punctuation">&#123;</span>
+				<span class="token property">background-color</span><span class="token punctuation">:</span> aqua<span class="token punctuation">;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateZ</span><span class="token punctuation">(</span>180deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token selector">.four</span><span class="token punctuation">&#123;</span>
+				<span class="token property">background-color</span><span class="token punctuation">:</span> lightseagreen<span class="token punctuation">;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateZ</span><span class="token punctuation">(</span>270deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token comment">/* 定义动画使用 */</span>
+			<span class="token atrule"><span class="token rule">@keyframes</span> box_ani</span><span class="token punctuation">&#123;</span>
+				<span class="token selector">0%</span><span class="token punctuation">&#123;</span>
+					<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateZ</span><span class="token punctuation">(</span>0deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span>
+				<span class="token selector">100%</span><span class="token punctuation">&#123;</span>
+					<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateZ</span><span class="token punctuation">(</span>360deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span>
+			<span class="token punctuation">&#125;</span>
+		</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>big-box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>one<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>two<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>three<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>four<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+		
 
-public class GreedSnake &#123;
-	public static void main(String[] args) &#123;
-		SnakeModel model &#x3D; new SnakeModel(20, 30);
-		SnakeControl control &#x3D; new SnakeControl(model);
-		SnakeView view &#x3D; new SnakeView(model, control);
-		&#x2F;&#x2F; 添加一个观察者，让view成为model的观察者
-		model.addObserver(view);
-		new Thread(model).start();
-	&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>SnakeControl.java</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">package jzjsfx;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+<p>上面是最基本的大风车案例，我们现在希望做一次扩展</p>
+<ol>
+<li>风车默认是没有转的，我的鼠标如果放上去以后，才开始转</li>
+<li>鼠标如果在购车上面按住鼠标不松开的时候，风车转的速度要快一些</li>
+</ol>
+<p>要完成上面的点有2人个问题需要克服</p>
+<ol>
+<li>鼠标放在某一个元素上面的效果我们应该怎么办</li>
+<li>鼠标按下去的效果我们应该怎么办</li>
+</ol>
+<p>要实现上面的东西，我们就要接解新的知识点，这个知识是属于CSS的<strong>伪类</strong>环节</p>
+<p><img src="02.png"></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* 鼠标放在box上面以后，它要开始动画 */</span>
+<span class="token selector">.box:hover</span><span class="token punctuation">&#123;</span>
+    <span class="token property">animation-play-state</span><span class="token punctuation">:</span> running<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">/* 鼠标按下去以后，播放速度要加快 */</span>
+<span class="token selector">.box:active</span><span class="token punctuation">&#123;</span>
+    <span class="token property">animation-duration</span><span class="token punctuation">:</span> 1s<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-public class SnakeControl  implements KeyListener&#123;
-    SnakeModel model;
+<h3 id="芝麻开门案例"><a href="#芝麻开门案例" class="headerlink" title="芝麻开门案例"></a>芝麻开门案例</h3><p><img src="03.png"></p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>开门大吉<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+			<span class="token selector">.door</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">width</span><span class="token punctuation">:</span> 500px<span class="token punctuation">;</span>
+				<span class="token property">height</span><span class="token punctuation">:</span> 700px<span class="token punctuation">;</span>
+				<span class="token property">border</span><span class="token punctuation">:</span> 5px solid black<span class="token punctuation">;</span>
+				<span class="token property">font-size</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+				<span class="token property">perspective</span><span class="token punctuation">:</span> 700px<span class="token punctuation">;</span>
+				<span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+				<span class="token comment">/* 鼠标光标变成手的形状 */</span>
+				<span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-    public SnakeControl(SnakeModel model)&#123;
-        this.model &#x3D; model;
-    &#125;
+			<span class="token selector">.left-door</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">width</span><span class="token punctuation">:</span> 250px<span class="token punctuation">;</span>
+				<span class="token property">height</span><span class="token punctuation">:</span> 700px<span class="token punctuation">;</span>
+				<span class="token property">background-color</span><span class="token punctuation">:</span> deeppink<span class="token punctuation">;</span>
+				<span class="token comment">/* 转为行内块级元素 */</span>
+				<span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+				<span class="token property">transform-origin</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+				<span class="token comment">/* 添加一个过渡 */</span>
+				<span class="token property">transition</span><span class="token punctuation">:</span> all 1s linear<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
 
-    public void keyPressed(KeyEvent e) &#123;
-        int keyCode &#x3D; e.getKeyCode();
-        if (model.running)&#123;                &#x2F;&#x2F; 运行状态下，处理的按键
-            switch (keyCode) &#123;
-                case KeyEvent.VK_UP:
-                    model.changeDirection(SnakeModel.UP);
-                    break;
-                case KeyEvent.VK_DOWN:
-                    model.changeDirection(SnakeModel.DOWN);
-                    break;
-                case KeyEvent.VK_LEFT:
-                    model.changeDirection(SnakeModel.LEFT);
-                    break;
-                case KeyEvent.VK_RIGHT:
-                    model.changeDirection(SnakeModel.RIGHT);
-                    break;
-                case KeyEvent.VK_ADD:
-                case KeyEvent.VK_PAGE_UP:
-                    model.speedUp();
-                    break;
-                case KeyEvent.VK_SUBTRACT:
-                case KeyEvent.VK_PAGE_DOWN:
-                    model.speedDown();
-                    break;
-                case KeyEvent.VK_SPACE:
-                case KeyEvent.VK_P:
-                    model.changePauseState();
-                    break;
-                default:
-            &#125;
-        &#125;
-
-        &#x2F;&#x2F; 任何情况下处理的按键，按键导致重新启动游戏
-        if (keyCode &#x3D;&#x3D; KeyEvent.VK_R ||
-                keyCode &#x3D;&#x3D; KeyEvent.VK_S ||
-                keyCode &#x3D;&#x3D; KeyEvent.VK_ENTER) &#123;
-            model.reset();
-        &#125;
-    &#125;
-
-    public void keyReleased(KeyEvent e) &#123;
-    &#125;
-
-    public void keyTyped(KeyEvent e) &#123;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>SnakeModel.java</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">package jzjsfx;
-
-import javax.swing.*;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Observable;
-import java.util.Random;
-class SnakeModel extends Observable implements Runnable &#123;
-    boolean[][] matrix;                         &#x2F;&#x2F; 指示位置上有没蛇体或食物
-    LinkedList nodeArray &#x3D; new LinkedList();    &#x2F;&#x2F; 蛇体
-    Node food;
-    int maxX;									&#x2F;&#x2F;横列
-    int maxY;									&#x2F;&#x2F;纵列
-    int direction &#x3D; 2;                          &#x2F;&#x2F; 蛇运行的方向
-    boolean running &#x3D; false;                    &#x2F;&#x2F; 运行状态
-
-    int timeInterval &#x3D; 200;                     &#x2F;&#x2F; 时间间隔，毫秒
-    double speedChangeRate &#x3D; 0.75;              &#x2F;&#x2F; 每次得速度变化率
-    boolean paused &#x3D; false;                     &#x2F;&#x2F; 暂停标志
-
-    int score &#x3D; 0;                              &#x2F;&#x2F; 得分
-    int countMove &#x3D; 0;                          &#x2F;&#x2F; 吃到食物前移动的次数
-
-    &#x2F;&#x2F; UP and DOWN should be even
-    &#x2F;&#x2F; RIGHT and LEFT should be odd
-    public static final int UP &#x3D; 2;
-    public static final int DOWN &#x3D; 4;
-    public static final int LEFT &#x3D; 1;
-    public static final int RIGHT &#x3D; 3;
-
-    public SnakeModel( int maxX, int maxY) &#123;
-        this.maxX &#x3D; maxX;
-        this.maxY &#x3D; maxY;
-        reset();
-    &#125;
-
-    public void reset()&#123;
-        direction &#x3D; SnakeModel.UP;              &#x2F;&#x2F; 蛇运行的方向
-        timeInterval &#x3D; 200;                     &#x2F;&#x2F; 时间间隔，毫秒
-        paused &#x3D; false;                         &#x2F;&#x2F; 暂停标志
-        score &#x3D; 0;                              &#x2F;&#x2F; 得分
-        countMove &#x3D; 0;                          &#x2F;&#x2F; 吃到食物前移动的次数
-
-        &#x2F;&#x2F; initial matirx, 全部清0
-        matrix &#x3D; new boolean[maxX][];
-        for (int i &#x3D; 0; i &lt; maxX; ++i) &#123;
-            matrix[i] &#x3D; new boolean[maxY];
-            Arrays.fill(matrix[i], false);
-        &#125;
-
-        &#x2F;&#x2F; initial the snake
-        &#x2F;&#x2F; 初始化蛇体，如果横向位置超过20个，长度为10，否则为横向位置的一半
-        int initArrayLength &#x3D; maxX &gt; 20 ? 10 : maxX &#x2F; 2;
-        nodeArray.clear();
-        for (int i &#x3D; 0; i &lt; initArrayLength; ++i) &#123;
-            int x &#x3D; maxX &#x2F; 2 + i;&#x2F;&#x2F;maxX被初始化为20
-            int y &#x3D; maxY &#x2F; 2;    &#x2F;&#x2F;maxY被初始化为30
-            &#x2F;&#x2F;nodeArray[x,y]: [10,15]-[11,15]-[12，15]~~[20,15]
-            &#x2F;&#x2F;默认的运行方向向上，所以游戏一开始nodeArray就变为：
-            &#x2F;&#x2F;       [10，14]-[10，15]-[11，15]-[12，15]~~[19，15]
-            nodeArray.addLast(new Node(x, y));
-            matrix[x][y] &#x3D; true;
-        &#125;
-
-        &#x2F;&#x2F; 创建食物
-        food &#x3D; createFood();
-        matrix[food.x][food.y] &#x3D; true;
-    &#125;
-
-    public void changeDirection(int newDirection) &#123;
-        &#x2F;&#x2F; 改变的方向不能与原来方向同向或反向
-        if (direction % 2 !&#x3D; newDirection % 2) &#123;
-            direction &#x3D; newDirection;
-        &#125;
-    &#125;
-   
-    public boolean moveOn() &#123;
-        Node n &#x3D; (Node) nodeArray.getFirst();
-        int x &#x3D; n.x;
-        int y &#x3D; n.y;
-
-        &#x2F;&#x2F; 根据方向增减坐标值
-        switch (direction) &#123;
-            case UP:
-                y--;
-                break;
-            case DOWN:
-                y++;
-                break;
-            case LEFT:
-                x--;
-                break;
-            case RIGHT:
-                x++;
-                break;
-        &#125;
-
-        &#x2F;&#x2F; 如果新坐标落在有效范围内，则进行处理
-        if ((0 &lt;&#x3D; x &amp;&amp; x &lt; maxX) &amp;&amp; (0 &lt;&#x3D; y &amp;&amp; y &lt; maxY)) &#123;
-        
-            if (matrix[x][y]) &#123;        &#x2F;&#x2F; 如果新坐标的点上有东西（蛇体或者食物）
-                if (x &#x3D;&#x3D; food.x &amp;&amp; y &#x3D;&#x3D; food.y) &#123;       &#x2F;&#x2F; 吃到食物，成功
-                    nodeArray.addFirst(food);           &#x2F;&#x2F; 从蛇头赠长
-
-                    &#x2F;&#x2F; 分数规则，与移动改变方向的次数和速度两个元素有关
-                    int scoreGet &#x3D; (10000 - 200 * countMove) &#x2F; timeInterval;
-                    score +&#x3D; scoreGet &gt; 0 ? scoreGet : 10;
-                    countMove &#x3D; 0;
-
-                    food &#x3D; createFood();                &#x2F;&#x2F; 创建新的食物
-                    matrix[food.x][food.y] &#x3D; true;      &#x2F;&#x2F; 设置食物所在位置
-                    return true;
-                &#125; else                                  &#x2F;&#x2F; 吃到蛇体自身，失败
-                    return false;
-               
-            &#125; else &#123;                 &#x2F;&#x2F; 如果新坐标的点上没有东西（蛇体），移动蛇体
-                nodeArray.addFirst(new Node(x, y));
-                matrix[x][y] &#x3D; true;
-                n &#x3D; (Node) nodeArray.removeLast();
-                matrix[n.x][n.y] &#x3D; false;
-                countMove++;
-                return true;
-            &#125;
-        &#125;
-        return false;                                   &#x2F;&#x2F; 触到边线，失败
-    &#125;
-
-    public void run() &#123;
-        running &#x3D; true;
-        while (running) &#123;
-            try &#123;
-                Thread.sleep(timeInterval);
-            &#125; catch (Exception e) &#123;
-                break;
-            &#125;
-
-            if (!paused) &#123;
-                if (moveOn()) &#123;
-                    setChanged();           &#x2F;&#x2F; Model通知View数据已经更新
-                    notifyObservers();
-                &#125; else &#123;
-                    JOptionPane.showMessageDialog(null,
-                            &quot;you failed&quot;,
-                            &quot;Game Over&quot;,
-                            JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                &#125;
-            &#125;
-        &#125;
-        running &#x3D; false;
-    &#125;
-
-    private Node createFood() &#123;
-        int x &#x3D; 0;
-        int y &#x3D; 0;
-        &#x2F;&#x2F; 随机获取一个有效区域内的与蛇体和食物不重叠的位置
-        do &#123;
-            Random r &#x3D; new Random();
-            x &#x3D; r.nextInt(maxX);
-            y &#x3D; r.nextInt(maxY);
-        &#125; while (matrix[x][y]);
-
-        return new Node(x, y);
-    &#125;
-
-    public void speedUp() &#123;
-        timeInterval *&#x3D; speedChangeRate;
-    &#125;
-
-    public void speedDown() &#123;
-        timeInterval &#x2F;&#x3D; speedChangeRate;
-    &#125;
-
-    public void changePauseState() &#123;
-        paused &#x3D; !paused;
-    &#125;
-
-    public String toString() &#123;
-        String result &#x3D; &quot;&quot;;
-        for (int i &#x3D; 0; i &lt; nodeArray.size(); ++i) &#123;
-            Node n &#x3D; (Node) nodeArray.get(i);
-            result +&#x3D; &quot;[&quot; + n.x + &quot;,&quot; + n.y + &quot;]&quot;;
-        &#125;
-        return result;
-    &#125;
-&#125;
-
-class Node &#123;
-    int x;
-    int y;
-
-    Node(int x, int y) &#123;
-        this.x &#x3D; x;
-        this.y &#x3D; y;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>SnakeView.java</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">package jzjsfx;
-
-import javax.swing.*;
-import java.awt.*;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Observable;
-import java.util.Observer;
-
-public class SnakeView implements Observer &#123;
-	SnakeControl control &#x3D; null;
-	SnakeModel model &#x3D; null;
-
-	JFrame mainFrame;
-	Canvas paintCanvas;
-	JLabel labelScore;
-
-	public static final int canvasWidth &#x3D; 200;
-	public static final int canvasHeight &#x3D; 300;
-
-	public static final int nodeWidth &#x3D; 10;
-	public static final int nodeHeight &#x3D; 10;
-
-	public SnakeView(SnakeModel model, SnakeControl control) &#123;
-		this.model &#x3D; model;
-		this.control &#x3D; control;
-
-		mainFrame &#x3D; new JFrame(&quot;贪吃蛇&quot;);
-
-		Container cp &#x3D; mainFrame.getContentPane();
-
-		&#x2F;&#x2F; 创建顶部的分数显示
-		labelScore &#x3D; new JLabel(&quot;Score:&quot;);
-		cp.add(labelScore, BorderLayout.NORTH);
-
-		&#x2F;&#x2F; 创建中间的游戏显示区域
-		paintCanvas &#x3D; new Canvas();
-		paintCanvas.setSize(canvasWidth + 1, canvasHeight + 1);
-		paintCanvas.addKeyListener(control);
-		cp.add(paintCanvas, BorderLayout.CENTER);
-
-		&#x2F;&#x2F; 创建底下的帮助栏
-		JPanel panelButtom &#x3D; new JPanel();
-		panelButtom.setLayout(new BorderLayout());
-		JLabel labelHelp;
-		labelHelp &#x3D; new JLabel(&quot;PageUp, PageDown for speed;&quot;, JLabel.CENTER);
-		panelButtom.add(labelHelp, BorderLayout.NORTH);
-		labelHelp &#x3D; new JLabel(&quot;ENTER or R or S for restart;&quot;, JLabel.CENTER);
-		panelButtom.add(labelHelp, BorderLayout.CENTER);
-		labelHelp &#x3D; new JLabel(&quot;SPACE or P for pause&quot;, JLabel.CENTER);
-		panelButtom.add(labelHelp, BorderLayout.SOUTH);
-		cp.add(panelButtom, BorderLayout.SOUTH);
-
-		mainFrame.addKeyListener(control);
-		mainFrame.pack();
-		mainFrame.setResizable(false);
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.setVisible(true);
-	&#125;
-
-	void repaint() &#123;
-		Graphics g &#x3D; paintCanvas.getGraphics();
-
-		&#x2F;&#x2F; draw background
-		g.setColor(Color.WHITE);
-		g.fillRect(0, 0, canvasWidth, canvasHeight);
-
-		&#x2F;&#x2F; draw the snake
-		g.setColor(Color.BLACK);
-		LinkedList na &#x3D; model.nodeArray;
-		Iterator it &#x3D; na.iterator();
-		while (it.hasNext()) &#123;
-			Node n &#x3D; (Node) it.next();
-			drawNode(g, n);
-		&#125;
-
-		&#x2F;&#x2F; draw the food
-		g.setColor(Color.RED);
-		Node n &#x3D; model.food;
-		drawNode(g, n);
-
-		updateScore();
-	&#125;
-
-	private void drawNode(Graphics g, Node n) &#123;
-		g.fillRect(n.x * nodeWidth, n.y * nodeHeight, nodeWidth - 1,
-				nodeHeight - 1);
-	&#125;
-
-	public void updateScore() &#123;
-		String s &#x3D; &quot;Score: &quot; + model.score;
-		labelScore.setText(s);
-	&#125;
-
-	public void update(Observable o, Object arg) &#123;
-		repaint();
-	&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+			<span class="token comment">/* 右边的门设置为蓝色 */</span>
+			<span class="token selector">.right-door</span> <span class="token punctuation">&#123;</span>
+				<span class="token property">width</span><span class="token punctuation">:</span> 250px<span class="token punctuation">;</span>
+				<span class="token property">height</span><span class="token punctuation">:</span> 700px<span class="token punctuation">;</span>
+				<span class="token property">background-color</span><span class="token punctuation">:</span> lightseagreen<span class="token punctuation">;</span>
+				<span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+				<span class="token property">transform-origin</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span>
+				<span class="token property">transition</span><span class="token punctuation">:</span> all 1s linear<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token comment">/* #aaa代表的就是id="aaa"
+				+代表兄弟元素,>代表子元素
+			 */</span>
+			<span class="token selector">#aaa:checked+.door>.left-door</span><span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>30deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token selector">#aaa:checked+.door>.right-door</span><span class="token punctuation">&#123;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateY</span><span class="token punctuation">(</span>-30deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token selector">#aaa</span><span class="token punctuation">&#123;</span>
+				<span class="token comment">/* 隐藏某一个元素 */</span>
+				<span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aaa<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>door<span class="token punctuation">"</span></span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aaa<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>left-door<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>right-door<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<p>运行结果如下：</p>
-<p><img src="1.png"></p>
-<p><img src="2.png"></p>
-<p>更多知识关注微信公众号“IT互联网科技知识分享”</p>
-<p><img src="3.jpg"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h4 id="css样式总结"><a href="#css样式总结" class="headerlink" title="css样式总结"></a>css样式总结</h4><ol>
+<li><code>class</code>代表在CSS里面使用<code>.</code>来表示 ，如<code>.box</code>就相当于<code>class=&quot;box&quot;</code></li>
+<li><code>width</code>与<code>height</code>分别用于设置宽度与高度</li>
+<li><code>border</code>是用于设置边框的，<code>border:2px solid black</code>代表的是2个像素的实线的黑色边框</li>
+<li>变换使用<code>transorm</code>,<code>rotate</code>是旋转</li>
+<li><code>transform-origin</code>设置变换的起点位置</li>
+<li><code>border-radius</code>用于设置圆角边框 </li>
+<li><code>border-bottom-left-radius</code>左下角的圆角边框</li>
+<li><code>:hover</code>代表鼠标放上去以后的特殊状态效果</li>
+<li><code>:active</code>代表鼠标按下以后的特殊状态效果</li>
+<li><code>animation-play-state</code>代表动画播放的状态，<code>running</code>代表正常播放，<code>paused</code>代表动画暂停</li>
+<li><code>transition</code>过渡，指元素的样式 由一个状态变成另一个状态的过渡效果【与动画很相似】</li>
+<li><code>display:none</code>隐藏元素</li>
+<li><code>:checked</code>复选框选中以后的状态</li>
+<li><code>cursor:pointer</code>鼠标光标变成手的形状</li>
+</ol>
+<h3 id="桃心案例"><a href="#桃心案例" class="headerlink" title="桃心案例"></a>桃心案例</h3><p><img src="04.png"></p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>桃心<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+			<span class="token selector">.box</span><span class="token punctuation">&#123;</span>
+				<span class="token property">width</span><span class="token punctuation">:</span> 480px<span class="token punctuation">;</span>
+				<span class="token property">height</span><span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
+				<span class="token property">border</span><span class="token punctuation">:</span> 2px solid black<span class="token punctuation">;</span>
+				<span class="token property">font-size</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token comment">/* 左边的心宽度240，高度400，背景blue */</span>
+			<span class="token comment">/* 右边的心宽度240，高度400，背景red */</span>
+			<span class="token comment">/* 左右两个盒子排在一行 */</span>
+			<span class="token selector">.left</span><span class="token punctuation">&#123;</span>
+				<span class="token property">width</span><span class="token punctuation">:</span> 240px<span class="token punctuation">;</span>
+				<span class="token property">height</span><span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
+				<span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+				<span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+				<span class="token property">border-top-left-radius</span><span class="token punctuation">:</span> 120px<span class="token punctuation">;</span>
+				<span class="token property">border-top-right-radius</span><span class="token punctuation">:</span> 120px<span class="token punctuation">;</span>
+				<span class="token comment">/* 设置变化的起点 */</span>
+				<span class="token property">transform-origin</span><span class="token punctuation">:</span> right bottom<span class="token punctuation">;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateZ</span><span class="token punctuation">(</span>45deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token selector">.right</span><span class="token punctuation">&#123;</span>
+				<span class="token property">width</span><span class="token punctuation">:</span> 240px<span class="token punctuation">;</span>
+				<span class="token property">height</span><span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
+				<span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+				<span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+				<span class="token property">border-top-left-radius</span><span class="token punctuation">:</span> 120px<span class="token punctuation">;</span>
+				<span class="token property">border-top-right-radius</span><span class="token punctuation">:</span> 120px<span class="token punctuation">;</span>
+				<span class="token comment">/* 设置变化的起点 */</span>
+				<span class="token property">transform-origin</span><span class="token punctuation">:</span> left bottom<span class="token punctuation">;</span>
+				<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateZ</span><span class="token punctuation">(</span>-45deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>right<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ol>
+<li><p>子绝父相：当一个元素如果要以另一个元素为标准进行位置设置的时候，最好的办法就是“子绝父相”</p>
+<p>子绝父相就是子级元素使用绝对定位（<code>position:absolute</code>），父级元素使用相对定位（<code>position:relative</code>）</p>
+</li>
+<li><p>分组选择器：当几个元素的样式相同的时候，我们可以使用分组选择器来简化我们的代码 </p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.one,.two,.three,.four</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">/*代码*/</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>动画的定义我们仍然使用<code>@keyframes</code></p>
+</li>
+<li><p>元素如果想排在一行，可以把元素转换为行内块级元素<code>display:inline-block</code></p>
+</li>
+<li><p>如果转换元素以后中间的缝隙，则在父级元素上面添加<code>font-size:0px</code></p>
+</li>
+<li><p>选择器当中，<code>.</code>代表的是class，<code>#</code>代表的是id</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">#aaa</span><span class="token punctuation">&#123;</span>
+    
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.box</span><span class="token punctuation">&#123;</span>
+    
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> 教程来源：软帝标哥</p>
+</li>
+</ol>
 
             </div>
             <hr/>
@@ -1291,7 +1190,7 @@ public class SnakeView implements Observer &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jzjsfx.gitee.io/jzjsfx/year/11/30/g_tan_chi_she_you_xi/">http://jzjsfx.gitee.io/jzjsfx/year/11/30/g_tan_chi_she_you_xi/</a>
+                    <a href="http://jzjsfx.gitee.io/jzjsfx/year/04/15/q/">http://jzjsfx.gitee.io/jzjsfx/year/04/15/q/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1329,8 +1228,8 @@ public class SnakeView implements Observer &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/jzjsfx/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
+                                <a href="/jzjsfx/tags/html-css/">
+                                    <span class="chip bg-color">html css</span>
                                 </a>
                             
                         </div>
@@ -1807,49 +1706,47 @@ public class SnakeView implements Observer &#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/jzjsfx/year/11/30/h_spring_jian_jie/">
+                <a href="/jzjsfx/year/04/15/q/">
                     <div class="card-image">
                         
-                        <img src="/jzjsfx/medias/featureimages/12.jpg" class="responsive-img" alt="Spring简介">
+                        <img src="/jzjsfx/medias/featureimages/22.jpg" class="responsive-img" alt="css动画案例-大风车、芝麻开门、桃心">
                         
-                        <span class="card-title">Spring简介</span>
+                        <span class="card-title">css动画案例-大风车、芝麻开门、桃心</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            什么是Spring
+                            css动画
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/jzjsfx/categories/JavaEE/" class="post-category">
-                                    JavaEE
+                            <a href="/jzjsfx/categories/css%E5%8A%A8%E7%94%BB/" class="post-category">
+                                    css动画
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/jzjsfx/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/jzjsfx/tags/JavaEE/">
-                        <span class="chip bg-color">JavaEE</span>
+                    <a href="/jzjsfx/tags/html-css/">
+                        <span class="chip bg-color">html css</span>
                     </a>
                     
                 </div>
@@ -1863,30 +1760,30 @@ public class SnakeView implements Observer &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/jzjsfx/year/11/30/e_fang_windows_xia_ji_shi_ben_xiao_cheng_xu/">
+                <a href="/jzjsfx/year/04/04/o/">
                     <div class="card-image">
                         
-                        <img src="/jzjsfx/medias/featureimages/10.jpg" class="responsive-img" alt="仿Windows下的记事本程序">
+                        <img src="/jzjsfx/medias/featureimages/21.jpg" class="responsive-img" alt="css动画案例-西游记">
                         
-                        <span class="card-title">仿Windows下的记事本程序</span>
+                        <span class="card-title">css动画案例-西游记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            仿Windows下的记事本程序
+                            css动画
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/jzjsfx/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/jzjsfx/categories/css%E5%8A%A8%E7%94%BB/" class="post-category">
+                                    css动画
                                 </a>
                             
                             
@@ -1896,8 +1793,8 @@ public class SnakeView implements Observer &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/jzjsfx/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/jzjsfx/tags/html-css/">
+                        <span class="chip bg-color">html css</span>
                     </a>
                     
                 </div>
