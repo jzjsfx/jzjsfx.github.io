@@ -6,7 +6,7 @@
   <link href="http://jzjsfx.gitee.io/atom.xml" rel="self"/>
   
   <link href="http://jzjsfx.gitee.io/"/>
-  <updated>2021-04-15T12:42:29.579Z</updated>
+  <updated>2021-04-17T08:37:05.641Z</updated>
   <id>http://jzjsfx.gitee.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo博客搭建教程</title>
+    <link href="http://jzjsfx.gitee.io/year/04/17/p/"/>
+    <id>http://jzjsfx.gitee.io/year/04/17/p/</id>
+    <published>2021-04-17T08:26:20.000Z</published>
+    <updated>2021-04-17T08:37:05.641Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;hexo博客搭建教程：&lt;/p&gt;
+&lt;p&gt;1、作者主题仓库介绍 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="博客搭建教程" scheme="http://jzjsfx.gitee.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="博客搭建" scheme="http://jzjsfx.gitee.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>css动画案例-大风车、芝麻开门、桃心</title>
@@ -377,33 +403,6 @@
   </entry>
   
   <entry>
-    <title>我的梦想</title>
-    <link href="http://jzjsfx.gitee.io/year/10/26/b_wo_de_meng_xiang/"/>
-    <id>http://jzjsfx.gitee.io/year/10/26/b_wo_de_meng_xiang/</id>
-    <published>2020-10-26T11:02:34.000Z</published>
-    <updated>2021-03-01T15:00:14.584Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。—</summary>
-        
-      
-    
-    
-    
-    <category term="名言警句" scheme="http://jzjsfx.gitee.io/categories/%E5%90%8D%E8%A8%80%E8%AD%A6%E5%8F%A5/"/>
-    
-    
-    <category term="经典语句" scheme="http://jzjsfx.gitee.io/tags/%E7%BB%8F%E5%85%B8%E8%AF%AD%E5%8F%A5/"/>
-    
-    <category term="名人名言" scheme="http://jzjsfx.gitee.io/tags/%E5%90%8D%E4%BA%BA%E5%90%8D%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Idea的安装</title>
     <link href="http://jzjsfx.gitee.io/year/10/26/c_idea_de_an_zhuang_yu_shi_yong/"/>
     <id>http://jzjsfx.gitee.io/year/10/26/c_idea_de_an_zhuang_yu_shi_yong/</id>
@@ -427,6 +426,33 @@
     <category term="Java" scheme="http://jzjsfx.gitee.io/tags/Java/"/>
     
     <category term="idea" scheme="http://jzjsfx.gitee.io/tags/idea/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的梦想</title>
+    <link href="http://jzjsfx.gitee.io/year/10/26/b_wo_de_meng_xiang/"/>
+    <id>http://jzjsfx.gitee.io/year/10/26/b_wo_de_meng_xiang/</id>
+    <published>2020-10-26T11:02:34.000Z</published>
+    <updated>2021-03-01T15:00:14.584Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。—</summary>
+        
+      
+    
+    
+    
+    <category term="名言警句" scheme="http://jzjsfx.gitee.io/categories/%E5%90%8D%E8%A8%80%E8%AD%A6%E5%8F%A5/"/>
+    
+    
+    <category term="经典语句" scheme="http://jzjsfx.gitee.io/tags/%E7%BB%8F%E5%85%B8%E8%AF%AD%E5%8F%A5/"/>
+    
+    <category term="名人名言" scheme="http://jzjsfx.gitee.io/tags/%E5%90%8D%E4%BA%BA%E5%90%8D%E8%A8%80/"/>
     
   </entry>
   
