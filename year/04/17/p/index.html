@@ -858,14 +858,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-17
+                    2021-04-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    240
+                    390
                 </div>
                 
 
@@ -887,10 +887,16 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>hexo博客搭建教程：</p>
-<p>1、作者主题仓库介绍 <a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a> </p>
+                <h2 id="一、hexo博客搭建教程："><a href="#一、hexo博客搭建教程：" class="headerlink" title="一、hexo博客搭建教程："></a>一、hexo博客搭建教程：</h2><p>1、作者主题仓库介绍 <a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a> </p>
 <p>以及 Yafine大佬 Hexo+github搭建博客(超级详细版，精细入微)<a target="_blank" rel="noopener" href="https://yafine-blog.cn/posts/4ab2.html">https://yafine-blog.cn/posts/4ab2.html</a><br>鉴于有的小伙伴从主题作者的GitHub仓库下载速度慢，个人把作者的仓库同步到码云上了，不定期进行同步更新，地址：<a target="_blank" rel="noopener" href="https://gitee.com/yafine66/hexo-theme-matery">https://gitee.com/yafine66/hexo-theme-matery</a></p>
 <p>方便大家下载。<br>2、前者能解决大部分问题，还有问题请先百度/谷歌，也可以去主题github issues上搜搜看，尝试自己去解决问题，这对自己有好处。<br>3、上述已经解决90%的问题了，实在找不到办法，请把你的问题用最明了最清晰的语言表达（贴上代码及报错）发到群里，（QQ群：670694035）群友看到后，会试着帮你解决问题的。大佬可能会缺席，但不会迟到。</p>
+<h2 id="二、将hexo博客部署到腾讯云或者阿里云服务器上："><a href="#二、将hexo博客部署到腾讯云或者阿里云服务器上：" class="headerlink" title="二、将hexo博客部署到腾讯云或者阿里云服务器上："></a>二、将hexo博客部署到腾讯云或者阿里云服务器上：</h2><p>参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/120322118">https://zhuanlan.zhihu.com/p/120322118</a></p>
+<p>其中他的最后一步会出现错误，用他的方法解决不了，实际上我们应该在服务器里增加命令</p>
+<p>需要到服务器端将git-receive-pack和git-upload-pack链接到/usr/bin/中</p>
+<p>执行以下两条命令（切记！！！一定得去服务器端增加这两条命令）</p>
+<p>ln -s /usr/local/git/bin/git-receive-pack /usr/bin/git-receive-pack</p>
+<p>ln -s /usr/local/git/bin/git-upload-pack /usr/bin/git-upload-pack </p>
+<p>然后重新部署就可以了。</p>
 
             </div>
             <hr/>
@@ -1579,7 +1585,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">30.2k</span>&nbsp;字
+                class="white-color">30.4k</span>&nbsp;字
             
             
             
