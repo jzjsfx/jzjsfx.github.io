@@ -256,23 +256,46 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/friends" class="waves-effect waves-light">
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
       <span>友情链接</span>
     </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于作者</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/contact">
+          
+          <i class="fas fa-comments" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>留言</span>
+        </a>
+      </li>
+      
+    </ul>
     
   </li>
   
@@ -603,23 +626,47 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/friends" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-address-book"></i>
 			
 			友情链接
 		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:28px" ></i>
+			      
+		          <span>关于作者</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-comments" style="position: absolute;left:28px" ></i>
+			      
+		          <span>留言</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -1283,7 +1330,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"名言警句","value":1},{"name":"诗歌","value":1},{"name":"Java","value":5},{"name":"JavaEE","value":2},{"name":"Tomcat","value":1},{"name":"微信小程序开发","value":1},{"name":"css动画","value":4},{"name":"vue项目环境搭建","value":1},{"name":"博客搭建教程","value":1},{"name":"前端介绍","value":1},{"name":"hexo加入html页面","value":1}],
+                data: [{"name":"诗歌","value":1},{"name":"名言警句","value":1},{"name":"Java","value":5},{"name":"Tomcat","value":1},{"name":"JavaEE","value":2},{"name":"微信小程序开发","value":1},{"name":"vue项目环境搭建","value":1},{"name":"css动画","value":4},{"name":"博客搭建教程","value":1},{"name":"前端介绍","value":1},{"name":"hexo加入html页面","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -1307,7 +1354,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Java","html css","经典语句","名人名言","诗歌","idea","JavaEE","Java Web","Tomcat","vue"]
+                data: ["Java","html css","经典语句","诗歌","名人名言","idea","Java Web","Tomcat","JavaEE","vue"]
             }
         ],
         yAxis: [
@@ -1438,8 +1485,8 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/%E5%90%8D%E4%BA%BA%E5%90%8D%E8%A8%80/">
-                <span class="chip center-align waves-effect waves-light chip-default">名人名言</span>
+            <a href="/tags/%E8%AF%97%E6%AD%8C/">
+                <span class="chip center-align waves-effect waves-light chip-default">诗歌</span>
             </a>
             
             
@@ -1450,8 +1497,8 @@
             
             
             
-            <a href="/tags/%E8%AF%97%E6%AD%8C/">
-                <span class="chip center-align waves-effect waves-light chip-default">诗歌</span>
+            <a href="/tags/%E5%90%8D%E4%BA%BA%E5%90%8D%E8%A8%80/">
+                <span class="chip center-align waves-effect waves-light chip-default">名人名言</span>
             </a>
             
             
@@ -1460,12 +1507,6 @@
             
             <a href="/tags/idea/">
                 <span class="chip center-align waves-effect waves-light chip-default">idea</span>
-            </a>
-            
-            
-            
-            <a href="/tags/JavaEE/">
-                <span class="chip center-align waves-effect waves-light chip-default">JavaEE</span>
             </a>
             
             
@@ -1482,11 +1523,17 @@
             
             
             
-            <a href="/tags/html-css/">
-                <span class="chip center-align waves-effect waves-light chip-default">html css</span>
+            <a href="/tags/JavaEE/">
+                <span class="chip center-align waves-effect waves-light chip-default">JavaEE</span>
             </a>
             
             
+            
+            
+            
+            <a href="/tags/html-css/">
+                <span class="chip center-align waves-effect waves-light chip-default">html css</span>
+            </a>
             
             
             
