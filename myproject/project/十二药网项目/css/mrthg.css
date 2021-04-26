@@ -1,0 +1,40 @@
+.sub{
+	color: #999;
+	font-size: 12px;
+	margin-left: 5px;
+}
+.ulList li{
+	float: left;
+	margin-left: 0px;
+}
+
+
+
+
+
+
+.ulList li img:hover
+{
+	-webkit-animation:sucaijiayuan 1s;	
+}
+
+/*开始执行动画吧,从0-100%的一个过程*/
+@-webkit-keyframes sucaijiayuan
+{
+	0%
+	{
+		-webkit-transform: scale(1)
+	}
+	10%,20%
+	{
+		-webkit-transform: scale(0.8) rotate(-2deg)
+	}
+	30%,50%,70%,90%
+	{
+		-webkit-transform: scale(1.1) rotate(2deg)
+	}
+	40%,60%,80%
+	{
+		-webkit-transform: scale(1.1) rotate(-2deg)
+	}
+}

@@ -1,0 +1,17 @@
+.xwzx{
+	float: left;
+	margin-left: 90px;
+	margin-top: 20px;
+	font-size: 15px;
+}
+.xwzx li{
+	padding-top: 20px;
+	font-size: 13px;
+}
+.hr{
+	position: relative;
+	float: left;
+	border: 1px solid red;
+	width: 1100px;
+	margin-top: 5px;
+}

@@ -1,0 +1,50 @@
+.zcxiy{
+	position: absolute;
+	float: left
+	margin-top: 10px;
+	margin-left: 200px;
+}
+.zcxiy li{
+	margin-left: 20px;
+	margin-top: 30px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	zoom: 1;
+	margin-bottom: 30px;
+/*	margin: 0 0 10px;*/
+	color: #777;
+}
+.zcxiy  li label{
+	display: black;
+	height: 24px;
+	font-size: 14px;
+}
+label{
+	cursor: default;
+}
+.zcxiy  span{
+	float: left;
+	width: 120px;
+	margin-right: 20px;
+	text-align: right;
+}
+.zcxiy  .input_login{
+	float: left;
+	width: 322px;
+	height: 22px;
+	padding: 8px;
+	border: 1px solid #ddd;
+}
+.btn_submit{
+	width: 150px;
+	height: 40px;
+	color: white;
+	background-color: red;
+	margin-left: 200px;
+	text-align: center;
+	border: none;
+}
+.dlys{
+	margin-left: -75px;
+}

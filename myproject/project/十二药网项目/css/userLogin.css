@@ -1,0 +1,145 @@
+.userLogin{
+	/*display: flex;
+	flex-direction: row;
+	padding-left: 10px;*/
+	margin-top: 30px;
+	margin-bottom: 5px;
+}
+
+.g-wrap{
+	/*整体流式布局的宽度*/
+	width: 1400px;
+	/*与上下间距为0,左右自动适应*/
+	margin: 0 auto;
+	font-size: 14px;
+	position: relative;
+}
+
+.logoMid{
+	float: right;
+	margin-right: 1072px;
+	margin-top: 10px;
+}
+
+.logoRight{
+	float: right;
+	margin-top: -84px;
+	margin-right: 20px;
+}
+
+.login-bg{
+	margin-top: 35px;
+	float: right;
+	margin-right: -150px;
+	/*background-position: center 0;*/
+}
+
+.lg-box {
+    position: absolute;
+    float: right;
+    background: #fff;
+    margin-top: 55px;
+    margin-left: 1150px;
+    width: 310px;
+    height: 370px;
+    padding: 20px;
+}
+
+.lg-box .hd a {
+	color: #c00; 
+	font-size: 14px; 
+	text-decoration: none;
+	margin-left: 110px;
+}
+
+.lg-tip {
+    font-size: 12px;
+    background: #fff3f0;
+    border: 1px solid #ffcfc2;
+    color: #a3776c;
+    margin-bottom: 20px;
+    padding:  5px;
+    margin-top: 20px;
+}
+
+ul,li{list-style: none;}
+
+.lg-box li .zh{
+    width: 270px;
+    height: 38px;
+    padding-right: 38px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    margin-left: -40px;
+}
+
+.lg-box li .mm{
+    width: 270px;
+    height: 38px;
+    padding-right: 38px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    margin-left: -40px;
+    margin-top: 20px;
+}
+
+.lg-box .wj a {
+    float: left;
+    color: #333;
+    font-size: 12px;
+    text-decoration: none;
+    margin-left: -40px;
+    margin-top: 10px;
+}
+
+.lg-box .wj label {
+    float: left;
+    color: #333;
+    font-size: 12px;
+    text-decoration: none;
+    margin-left: 134px;
+    margin-top: 10px;
+}
+
+/*.btn_login .btn_submit {
+    width: 308px;
+    height: 40px;
+}*/
+
+.btn_submit{
+	width: 308px;
+    height: 40px;
+	background: #D90007;
+	/*float: left;*/
+	/*绝对定位*/
+	/*position: absolute;*/
+	color: #FFFFFF;
+	border: 0px;
+	font-size: 18px;
+	margin-top: 10px;
+}
+
+.login_open p {
+    margin-bottom: 6px;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.login_open .alipay{
+	margin-left: 6px;
+}
+
+.footer{
+	margin-left: 270px;
+	margin-top: 515px;
+}
+.footer p{
+	font-size: 14px;
+	color: #999999;
+}
+
+.footer a{
+	color: #666;
+	text-decoration: none;
+}

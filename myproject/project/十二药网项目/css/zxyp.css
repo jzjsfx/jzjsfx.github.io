@@ -1,0 +1,45 @@
+.zxyp{
+	float: left;
+	margin-left: 90px;
+	margin-top: 20px;
+	font-size: 15px;
+	color: red;
+}
+.sub{
+	color: #999;
+	font-size: 12px;
+	margin-left: 0px;
+}
+.zxypList{
+	float: left;
+	margin-top: 5px;
+}
+.zxypList li{
+	color: black;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.zxypImg{
+	padding-left: 250px;
+}
+.zxyp img:hover{
+	-webkit-animation: zxypImg 1s
+}
+
+
+/*开始执行动画吧,从0-100%的一个过程*/
+@-webkit-keyframes zxypImg
+{
+	0%
+	{
+		-webkit-transform: scale(0px,0px)
+	}
+	50%
+	{
+		-webkit-transform: translate(-25px,0px)
+	}
+	100%
+	{
+		-webkit-transform: scale(1) rotate(0)
+	}
+}

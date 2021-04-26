@@ -1,0 +1,22 @@
+.yqlj{
+	float: left;
+	margin-left: 90px;
+	margin-top: 20px;
+	font-size: 14px;
+}
+.yqlj ul{
+	float: left;
+	border: 1px solid #ddd;
+	background: white;
+	height: 30px;
+	width: 100px;
+	padding-top: 15px;
+	text-align: center;
+}
+.yqlj li{
+	padding-top: 0px;
+}
+.liwz{
+	margin-left: 100px;
+	margin-top: 20px;
+}

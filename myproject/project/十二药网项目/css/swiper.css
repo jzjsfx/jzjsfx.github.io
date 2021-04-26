@@ -1,0 +1,7 @@
+.imgList
+{
+	width: 99%;
+	height: 450px;
+	/*设置好宽度高度后,把多余部分隐藏掉*/
+	overflow: hidden;
+}

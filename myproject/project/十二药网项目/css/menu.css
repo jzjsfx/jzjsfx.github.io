@@ -1,0 +1,79 @@
+.menuAll
+{
+	background: red;
+	color: white;
+	text-align: center;
+	height: 34px;
+	line-height: 34px;
+	width: 190px;
+	float: left;
+}
+.menuList
+{
+	margin-left: 15px;
+}
+.menuList li
+{
+	float: left;
+	font-weight: 700;
+	font-size: 18px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-top: 6px;
+}
+i{
+    color: red;
+	font-size: 5px;
+}
+.xtMenu{
+	/*绝对定位,子绝父相*/
+	position: absolute;
+	/*浮动*/
+	float: left;
+	/*设置悬停的div优先级最高*/
+	z-index: 999;
+	margin-top: 35px;
+}
+.xtMenu li{
+	width: 170px;
+	background-color: white;
+	padding: 10px;
+	padding-top: 12.5px;
+}
+.xt{
+	float: left;
+	position: absolute;
+	z-index: 999;
+	margin-top: 35px;
+	margin-left: 200px;
+	width: 200px;
+	height: 60px;
+	background: white;
+}
+.xt li{
+	font-size: 12px;
+	width: 200px;
+	height: 60px;
+	background-color: white;
+	padding: 10px;
+}
+.imgList{
+	position: relative;
+	float: left;
+}
+.cdright{
+	position: absolute;
+	float: left;
+	border: 2px solid white;
+	background-color: white;
+	width: 180px;
+	height: 400px;
+	margin-left: 1300PX;
+	margin-top: 40PX;
+}
+/*.cdright .zp{
+	font-size: 80px;
+	width: 120px;
+	height: 110px;
+	text-align: center;
+}*/

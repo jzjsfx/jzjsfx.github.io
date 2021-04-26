@@ -1,0 +1,39 @@
+.ysbj{
+	float: left;
+	margin-left: 90px;
+	margin-top: 20px;
+	font-size: 14px;
+}
+.ysbj li{
+	font-size: 13px;
+	padding-top: 10px;
+}
+/*.ysbj ul{
+	border: 1px solid #e7e7e7;
+	background-color: red;
+}*/
+.ysbj img:hover{
+	-webkit-animation: ysbjImg 1s
+}
+
+
+/*开始执行动画吧,从0-100%的一个过程*/
+@-webkit-keyframes ysbjImg
+{
+	0%
+	{
+		-webkit-transform: scale(0px,0px)
+	}
+	50%
+	{
+		-webkit-transform: translate(-25px,0px)
+	}
+	100%
+	{
+		-webkit-transform: scale(1) rotate(0)
+	}
+}
+
+.ysbjImg{
+	padding-left: 250px;
+}

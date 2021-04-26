@@ -1,0 +1,24 @@
+.yfdq{
+	float: left;
+	margin-left: 90px;
+	margin-top: 10px;
+}
+.twhhList{
+	margin-top: 10px;
+	margin-left: 0px;
+	font-size: 12px;
+}
+.twhhListImg{
+	float: left;
+	border: 1px solid #e7e7e7;
+	width: 300px;
+	height: 80px;
+	padding: 10px;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.sub{
+	color: #999;
+	font-size: 12px;
+	margin-left: 0px;
+}
