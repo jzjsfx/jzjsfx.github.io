@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>51xcode</title>
   
-  <subtitle>以梦为马，不负韶华！</subtitle>
+  <subtitle>以梦为马，不负韶华!</subtitle>
   <link href="https://helloworld.pet/atom.xml" rel="self"/>
   
   <link href="https://helloworld.pet/"/>
-  <updated>2021-04-25T14:43:23.442Z</updated>
+  <updated>2021-05-07T14:23:33.119Z</updated>
   <id>https://helloworld.pet/</id>
   
   <author>
@@ -15,6 +15,312 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTML基础回顾</title>
+    <link href="https://helloworld.pet/year/05/07/a7/"/>
+    <id>https://helloworld.pet/year/05/07/a7/</id>
+    <published>2021-05-07T14:16:35.000Z</published>
+    <updated>2021-05-07T14:23:33.119Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;本文主要内容&quot;&gt;&lt;a href=&quot;#本文主要内容&quot; class=&quot;headerlink&quot; title=&quot;本文主要内容&quot;&gt;&lt;/a&gt;本文主要内容&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;html 的常见元素&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;html</summary>
+        
+      
+    
+    
+    
+    <category term="HTML基础回顾" scheme="https://helloworld.pet/categories/HTML%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/"/>
+    
+    
+    <category term="HTML基础回顾" scheme="https://helloworld.pet/tags/HTML%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5详解（三）</title>
+    <link href="https://helloworld.pet/year/05/07/a6/"/>
+    <id>https://helloworld.pet/year/05/07/a6/</id>
+    <published>2021-05-07T13:53:42.000Z</published>
+    <updated>2021-05-07T14:23:23.591Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Web-存储&quot;&gt;&lt;a href=&quot;#Web-存储&quot; class=&quot;headerlink&quot; title=&quot;Web 存储&quot;&gt;&lt;/a&gt;Web</summary>
+        
+      
+    
+    
+    
+    <category term="HTML5详解" scheme="https://helloworld.pet/categories/HTML5%E8%AF%A6%E8%A7%A3/"/>
+    
+    
+    <category term="HTML5详解" scheme="https://helloworld.pet/tags/HTML5%E8%AF%A6%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5详解（二）</title>
+    <link href="https://helloworld.pet/year/05/07/a5/"/>
+    <id>https://helloworld.pet/year/05/07/a5/</id>
+    <published>2021-05-07T13:53:25.000Z</published>
+    <updated>2021-05-07T14:23:15.314Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;本文主要内容&quot;&gt;&lt;a href=&quot;#本文主要内容&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="HTML5详解" scheme="https://helloworld.pet/categories/HTML5%E8%AF%A6%E8%A7%A3/"/>
+    
+    
+    <category term="HTML5详解" scheme="https://helloworld.pet/tags/HTML5%E8%AF%A6%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5-简单的视频播放器</title>
+    <link href="https://helloworld.pet/year/05/07/a4/"/>
+    <id>https://helloworld.pet/year/05/07/a4/</id>
+    <published>2021-05-07T13:53:04.000Z</published>
+    <updated>2021-05-07T14:23:05.697Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我们采用 Bootstrap 网站的图标字体，作为播放器的按钮图标。&lt;/p&gt;
+&lt;p&gt;index.html的代码如下：&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-html&quot; data-language=&quot;html&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="HTML5-简单的视频播放器" scheme="https://helloworld.pet/categories/HTML5-%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/"/>
+    
+    
+    <category term="HTML5-简单的视频播放器" scheme="https://helloworld.pet/tags/HTML5-%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5详解</title>
+    <link href="https://helloworld.pet/year/05/07/a3/"/>
+    <id>https://helloworld.pet/year/05/07/a3/</id>
+    <published>2021-05-07T13:33:53.000Z</published>
+    <updated>2021-05-07T14:22:57.136Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;HTML5的介绍&quot;&gt;&lt;a href=&quot;#HTML5的介绍&quot; class=&quot;headerlink&quot; title=&quot;HTML5的介绍&quot;&gt;&lt;/a&gt;HTML5的介绍&lt;/h2&gt;&lt;h3 id=&quot;Web-技术发展时间线&quot;&gt;&lt;a href=&quot;#Web-技术发展时间线&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="HTML5详解" scheme="https://helloworld.pet/categories/HTML5%E8%AF%A6%E8%A7%A3/"/>
+    
+    
+    <category term="HTML5详解" scheme="https://helloworld.pet/tags/HTML5%E8%AF%A6%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>html标签图文详解</title>
+    <link href="https://helloworld.pet/year/05/07/a2/"/>
+    <id>https://helloworld.pet/year/05/07/a2/</id>
+    <published>2021-05-07T13:32:57.000Z</published>
+    <updated>2021-05-07T14:22:45.948Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;本文主要内容&quot;&gt;&lt;a href=&quot;#本文主要内容&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="html标签图文详解" scheme="https://helloworld.pet/categories/html%E6%A0%87%E7%AD%BE%E5%9B%BE%E6%96%87%E8%AF%A6%E8%A7%A3/"/>
+    
+    
+    <category term="html标签图文详解" scheme="https://helloworld.pet/tags/html%E6%A0%87%E7%AD%BE%E5%9B%BE%E6%96%87%E8%AF%A6%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML标签-图片标签</title>
+    <link href="https://helloworld.pet/year/05/07/a1/"/>
+    <id>https://helloworld.pet/year/05/07/a1/</id>
+    <published>2021-05-07T13:30:20.000Z</published>
+    <updated>2021-05-07T14:22:36.602Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;img标签介绍&quot;&gt;&lt;a href=&quot;#img标签介绍&quot; class=&quot;headerlink&quot; title=&quot;img标签介绍&quot;&gt;&lt;/a&gt;img标签介绍&lt;/h2&gt;&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="HTML标签-图片标签" scheme="https://helloworld.pet/categories/HTML%E6%A0%87%E7%AD%BE-%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE/"/>
+    
+    
+    <category term="HTML标签-图片标签" scheme="https://helloworld.pet/tags/HTML%E6%A0%87%E7%AD%BE-%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML标签-字体标签和超链接</title>
+    <link href="https://helloworld.pet/year/05/07/z/"/>
+    <id>https://helloworld.pet/year/05/07/z/</id>
+    <published>2021-05-07T12:31:11.000Z</published>
+    <updated>2021-05-07T13:26:21.031Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;本文主要内容&quot;&gt;&lt;a href=&quot;#本文主要内容&quot; class=&quot;headerlink&quot; title=&quot;本文主要内容&quot;&gt;&lt;/a&gt;本文主要内容&lt;/h2&gt;&lt;p&gt;字体标签： &lt;code&gt;&amp;lt;font&amp;gt;&lt;/code&gt;、</summary>
+        
+      
+    
+    
+    
+    <category term="HTML标签-字体标签和超链接" scheme="https://helloworld.pet/categories/HTML%E6%A0%87%E7%AD%BE-%E5%AD%97%E4%BD%93%E6%A0%87%E7%AD%BE%E5%92%8C%E8%B6%85%E9%93%BE%E6%8E%A5/"/>
+    
+    
+    <category term="HTML标签-字体标签和超链接" scheme="https://helloworld.pet/tags/HTML%E6%A0%87%E7%AD%BE-%E5%AD%97%E4%BD%93%E6%A0%87%E7%AD%BE%E5%92%8C%E8%B6%85%E9%93%BE%E6%8E%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML标签-排版标签</title>
+    <link href="https://helloworld.pet/year/05/07/y/"/>
+    <id>https://helloworld.pet/year/05/07/y/</id>
+    <published>2021-05-07T12:30:50.000Z</published>
+    <updated>2021-05-07T13:20:51.722Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;本文主要内容&quot;&gt;&lt;a href=&quot;#本文主要内容&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="HTML标签-排版标签" scheme="https://helloworld.pet/categories/HTML%E6%A0%87%E7%AD%BE-%E6%8E%92%E7%89%88%E6%A0%87%E7%AD%BE/"/>
+    
+    
+    <category term="HTML标签-排版标签" scheme="https://helloworld.pet/tags/HTML%E6%A0%87%E7%AD%BE-%E6%8E%92%E7%89%88%E6%A0%87%E7%AD%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初识HTML</title>
+    <link href="https://helloworld.pet/year/05/07/x/"/>
+    <id>https://helloworld.pet/year/05/07/x/</id>
+    <published>2021-05-07T12:30:27.000Z</published>
+    <updated>2021-05-07T13:22:34.510Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;编辑器相关&quot;&gt;&lt;a href=&quot;#编辑器相关&quot; class=&quot;headerlink&quot; title=&quot;编辑器相关&quot;&gt;&lt;/a&gt;编辑器相关&lt;/h2&gt;&lt;p&gt;前端开发的编辑器软件，我首先推荐 VS Code，其次推荐Sublime Text。&lt;/p&gt;
+&lt;p&gt;有人说</summary>
+        
+      
+    
+    
+    
+    <category term="初识HTML" scheme="https://helloworld.pet/categories/%E5%88%9D%E8%AF%86HTML/"/>
+    
+    
+    <category term="初识HTML" scheme="https://helloworld.pet/tags/%E5%88%9D%E8%AF%86HTML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript简介</title>
+    <link href="https://helloworld.pet/year/05/07/w/"/>
+    <id>https://helloworld.pet/year/05/07/w/</id>
+    <published>2021-05-07T12:29:47.000Z</published>
+    <updated>2021-05-07T13:22:19.430Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;JavaScript背景&quot;&gt;&lt;a href=&quot;#JavaScript背景&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="JavaScript简介" scheme="https://helloworld.pet/categories/JavaScript%E7%AE%80%E4%BB%8B/"/>
+    
+    
+    <category term="JavaScript简介" scheme="https://helloworld.pet/tags/JavaScript%E7%AE%80%E4%BB%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编程语言</title>
+    <link href="https://helloworld.pet/year/05/07/v/"/>
+    <id>https://helloworld.pet/year/05/07/v/</id>
+    <published>2021-05-07T12:29:28.000Z</published>
+    <updated>2021-05-07T13:22:07.589Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;编程语言&quot;&gt;&lt;a href=&quot;#编程语言&quot; class=&quot;headerlink&quot; title=&quot;编程语言&quot;&gt;&lt;/a&gt;编程语言&lt;/h2&gt;&lt;h3 id=&quot;编程&quot;&gt;&lt;a href=&quot;#编程&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="编程语言" scheme="https://helloworld.pet/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="编程语言" scheme="https://helloworld.pet/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>前端学科独家面试宝典</title>
@@ -210,318 +516,6 @@
     
     
     <category term="html css" scheme="https://helloworld.pet/tags/html-css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css动画案例-吃豆人和火星圆环</title>
-    <link href="https://helloworld.pet/year/03/30/m/"/>
-    <id>https://helloworld.pet/year/03/30/m/</id>
-    <published>2021-03-30T09:31:51.000Z</published>
-    <updated>2021-04-25T14:58:45.078Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;吃豆人和火星圆环案例&quot;&gt;&lt;a href=&quot;#吃豆人和火星圆环案例&quot; class=&quot;headerlink&quot; title=&quot;吃豆人和火星圆环案例&quot;&gt;&lt;/a&gt;吃豆人和火星圆环案例&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;chi.gif&quot;&gt;&lt;/p&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="css动画" scheme="https://helloworld.pet/categories/css%E5%8A%A8%E7%94%BB/"/>
-    
-    
-    <category term="html css" scheme="https://helloworld.pet/tags/html-css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue项目环境搭建</title>
-    <link href="https://helloworld.pet/year/03/30/l/"/>
-    <id>https://helloworld.pet/year/03/30/l/</id>
-    <published>2021-03-30T09:30:49.000Z</published>
-    <updated>2021-04-23T14:31:32.255Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;项目环境安装&quot;&gt;&lt;a href=&quot;#项目环境安装&quot; class=&quot;headerlink&quot; title=&quot;项目环境安装&quot;&gt;&lt;/a&gt;项目环境安装&lt;/h1&gt;&lt;h4 id=&quot;一、技术选型&quot;&gt;&lt;a href=&quot;#一、技术选型&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="vue项目环境搭建" scheme="https://helloworld.pet/categories/vue%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="vue" scheme="https://helloworld.pet/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>豆瓣电影微信小程序开发教程</title>
-    <link href="https://helloworld.pet/year/03/09/k_dou_ban_dian_ying_wei_xin_xiao_cheng_xu/"/>
-    <id>https://helloworld.pet/year/03/09/k_dou_ban_dian_ying_wei_xin_xiao_cheng_xu/</id>
-    <published>2021-03-09T13:33:40.000Z</published>
-    <updated>2021-04-23T14:29:15.586Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;豆瓣电影微信小程序开发教程&quot;&gt;&lt;a href=&quot;#豆瓣电影微信小程序开发教程&quot; class=&quot;headerlink&quot; title=&quot;豆瓣电影微信小程序开发教程&quot;&gt;&lt;/a&gt;豆瓣电影微信小程序开发教程&lt;/h1&gt;&lt;h5 id=&quot;一、程序安装&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="微信小程序开发" scheme="https://helloworld.pet/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Java Web服务器的介绍</title>
-    <link href="https://helloworld.pet/year/03/07/j_javaweb_fu_wu_qi_jie_shao/"/>
-    <id>https://helloworld.pet/year/03/07/j_javaweb_fu_wu_qi_jie_shao/</id>
-    <published>2021-03-07T09:42:06.000Z</published>
-    <updated>2021-04-25T15:24:13.732Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;strong&gt;一、Java</summary>
-        
-      
-    
-    
-    
-    <category term="Tomcat" scheme="https://helloworld.pet/categories/Tomcat/"/>
-    
-    
-    <category term="Java Web" scheme="https://helloworld.pet/tags/Java-Web/"/>
-    
-    <category term="Tomcat" scheme="https://helloworld.pet/tags/Tomcat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java学习路线</title>
-    <link href="https://helloworld.pet/year/01/28/i_java_xue_xi_xian_lu/"/>
-    <id>https://helloworld.pet/year/01/28/i_java_xue_xi_xian_lu/</id>
-    <published>2021-01-28T09:41:11.000Z</published>
-    <updated>2021-04-23T14:27:24.680Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt; &lt;strong&gt;阶段一 （夯实基础）&lt;/strong&gt; &lt;/p&gt;
-&lt;p&gt; &lt;strong&gt;Java基础语法&lt;/strong&gt; &lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-java&quot; data-language=&quot;java&quot;&gt;&lt;code</summary>
-        
-      
-    
-    
-    
-    <category term="JavaEE" scheme="https://helloworld.pet/categories/JavaEE/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring简介</title>
-    <link href="https://helloworld.pet/year/11/30/h_spring_jian_jie/"/>
-    <id>https://helloworld.pet/year/11/30/h_spring_jian_jie/</id>
-    <published>2020-11-30T06:00:46.000Z</published>
-    <updated>2021-04-25T15:17:26.609Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="JavaEE" scheme="https://helloworld.pet/categories/JavaEE/"/>
-    
-    
-    <category term="Java" scheme="https://helloworld.pet/tags/Java/"/>
-    
-    <category term="JavaEE" scheme="https://helloworld.pet/tags/JavaEE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>贪吃蛇游戏</title>
-    <link href="https://helloworld.pet/year/11/30/g_tan_chi_she_you_xi/"/>
-    <id>https://helloworld.pet/year/11/30/g_tan_chi_she_you_xi/</id>
-    <published>2020-11-30T05:43:47.000Z</published>
-    <updated>2021-04-25T15:17:43.985Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;使用 Java 语言编写一个贪吃蛇游戏，代码如下：&lt;/p&gt;
-&lt;p&gt;GreedSnake .java&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-java&quot; data-language=&quot;java&quot;&gt;&lt;code</summary>
-        
-      
-    
-    
-    
-    <category term="Java" scheme="https://helloworld.pet/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://helloworld.pet/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>仿Windows下的记事本程序</title>
-    <link href="https://helloworld.pet/year/11/30/e_fang_windows_xia_ji_shi_ben_xiao_cheng_xu/"/>
-    <id>https://helloworld.pet/year/11/30/e_fang_windows_xia_ji_shi_ben_xiao_cheng_xu/</id>
-    <published>2020-11-30T04:29:00.000Z</published>
-    <updated>2021-04-25T15:15:03.490Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在 Windows 操作系统中，记事本是一个小的应用程序，采用一个简单的文本编辑器进行文字信息的记 &lt;/p&gt;
-&lt;p&gt;录和存储。请仿照 Windows 的记事本，开发一个属于自己的记事本（Notepad）功能&lt;/p&gt;
-&lt;p&gt;记事本的应该具备的功能，基本要求如下：</summary>
-        
-      
-    
-    
-    
-    <category term="Java" scheme="https://helloworld.pet/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://helloworld.pet/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算器小程序</title>
-    <link href="https://helloworld.pet/year/11/28/f_ji_suan_qi_xiao_cheng_xu/"/>
-    <id>https://helloworld.pet/year/11/28/f_ji_suan_qi_xiao_cheng_xu/</id>
-    <published>2020-11-28T10:11:29.000Z</published>
-    <updated>2021-04-25T15:18:01.953Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;  该程序是一个图形界面的简单 Java 计算器，具有良好的界面，使用人员能快捷简单的进行加、减、 乘、除、操作。其程序要求为设计一个图形界面（GUI）的计算器应用程序，完成简单的加法、减法、乘</summary>
-        
-      
-    
-    
-    
-    <category term="Java" scheme="https://helloworld.pet/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://helloworld.pet/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>酒店管理系统</title>
-    <link href="https://helloworld.pet/year/11/28/d_jiu_dian_guan_li_xi_tong_xiao_cheng_xu/"/>
-    <id>https://helloworld.pet/year/11/28/d_jiu_dian_guan_li_xi_tong_xiao_cheng_xu/</id>
-    <published>2020-11-28T09:50:43.000Z</published>
-    <updated>2021-04-25T15:14:28.840Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;编写一个Java项目：&lt;/p&gt;
-&lt;p&gt;为某个酒店编写程序：酒店管理系统，模拟订房、退房、打印所有房间状态等功能。&lt;br&gt;问题描述：&lt;br&gt;为某个酒店编写程序：酒店管理系统，模拟订房、退房、打印所有房间状态等功能。&lt;br&gt;1、该系统的用户是：酒店前台。&lt;br&gt;2、酒店使用一个</summary>
-        
-      
-    
-    
-    
-    <category term="Java" scheme="https://helloworld.pet/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://helloworld.pet/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>既然选择了远方,便只顾风雨兼程</title>
-    <link href="https://helloworld.pet/year/10/29/a_re_ai_sheng_ming/"/>
-    <id>https://helloworld.pet/year/10/29/a_re_ai_sheng_ming/</id>
-    <published>2020-10-29T06:14:18.655Z</published>
-    <updated>2021-04-29T05:05:05.381Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;热爱生命&quot;&gt;&lt;a href=&quot;#热爱生命&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="诗歌" scheme="https://helloworld.pet/categories/%E8%AF%97%E6%AD%8C/"/>
-    
-    
-    <category term="诗歌" scheme="https://helloworld.pet/tags/%E8%AF%97%E6%AD%8C/"/>
-    
-    <category term="经典语句" scheme="https://helloworld.pet/tags/%E7%BB%8F%E5%85%B8%E8%AF%AD%E5%8F%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>www.51xcode.com</title>
-    <link href="https://helloworld.pet/year/10/26/b_wo_de_meng_xiang/"/>
-    <id>https://helloworld.pet/year/10/26/b_wo_de_meng_xiang/</id>
-    <published>2020-10-26T11:02:34.000Z</published>
-    <updated>2021-04-22T09:24:46.767Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。—</summary>
-        
-      
-    
-    
-    
-    <category term="名言警句" scheme="https://helloworld.pet/categories/%E5%90%8D%E8%A8%80%E8%AD%A6%E5%8F%A5/"/>
-    
-    
-    <category term="经典语句" scheme="https://helloworld.pet/tags/%E7%BB%8F%E5%85%B8%E8%AF%AD%E5%8F%A5/"/>
-    
-    <category term="名人名言" scheme="https://helloworld.pet/tags/%E5%90%8D%E4%BA%BA%E5%90%8D%E8%A8%80/"/>
     
   </entry>
   
