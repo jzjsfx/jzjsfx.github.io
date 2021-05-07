@@ -3,11 +3,11 @@
   <title>51xcode</title>
   
   <subtitle>以梦为马，不负韶华!</subtitle>
-  <link href="https://helloworld.pet/atom.xml" rel="self"/>
+  <link href="http://www.51xcode.com/atom.xml" rel="self"/>
   
-  <link href="https://helloworld.pet/"/>
+  <link href="http://www.51xcode.com/"/>
   <updated>2021-05-07T14:23:33.119Z</updated>
-  <id>https://helloworld.pet/</id>
+  <id>http://www.51xcode.com/</id>
   
   <author>
     <name>Junzheng</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>HTML基础回顾</title>
-    <link href="https://helloworld.pet/year/05/07/a7/"/>
-    <id>https://helloworld.pet/year/05/07/a7/</id>
+    <link href="http://www.51xcode.com/year/05/07/a7/"/>
+    <id>http://www.51xcode.com/year/05/07/a7/</id>
     <published>2021-05-07T14:16:35.000Z</published>
     <updated>2021-05-07T14:23:33.119Z</updated>
     
@@ -37,17 +37,17 @@
     
     
     
-    <category term="HTML基础回顾" scheme="https://helloworld.pet/categories/HTML%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/"/>
+    <category term="HTML基础回顾" scheme="http://www.51xcode.com/categories/HTML%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/"/>
     
     
-    <category term="HTML基础回顾" scheme="https://helloworld.pet/tags/HTML%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/"/>
+    <category term="HTML基础回顾" scheme="http://www.51xcode.com/tags/HTML%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/"/>
     
   </entry>
   
   <entry>
     <title>HTML5详解（三）</title>
-    <link href="https://helloworld.pet/year/05/07/a6/"/>
-    <id>https://helloworld.pet/year/05/07/a6/</id>
+    <link href="http://www.51xcode.com/year/05/07/a6/"/>
+    <id>http://www.51xcode.com/year/05/07/a6/</id>
     <published>2021-05-07T13:53:42.000Z</published>
     <updated>2021-05-07T14:23:23.591Z</updated>
     
@@ -62,17 +62,17 @@
     
     
     
-    <category term="HTML5详解" scheme="https://helloworld.pet/categories/HTML5%E8%AF%A6%E8%A7%A3/"/>
+    <category term="HTML5详解" scheme="http://www.51xcode.com/categories/HTML5%E8%AF%A6%E8%A7%A3/"/>
     
     
-    <category term="HTML5详解" scheme="https://helloworld.pet/tags/HTML5%E8%AF%A6%E8%A7%A3/"/>
+    <category term="HTML5详解" scheme="http://www.51xcode.com/tags/HTML5%E8%AF%A6%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>HTML5详解（二）</title>
-    <link href="https://helloworld.pet/year/05/07/a5/"/>
-    <id>https://helloworld.pet/year/05/07/a5/</id>
+    <link href="http://www.51xcode.com/year/05/07/a5/"/>
+    <id>http://www.51xcode.com/year/05/07/a5/</id>
     <published>2021-05-07T13:53:25.000Z</published>
     <updated>2021-05-07T14:23:15.314Z</updated>
     
@@ -87,17 +87,17 @@
     
     
     
-    <category term="HTML5详解" scheme="https://helloworld.pet/categories/HTML5%E8%AF%A6%E8%A7%A3/"/>
+    <category term="HTML5详解" scheme="http://www.51xcode.com/categories/HTML5%E8%AF%A6%E8%A7%A3/"/>
     
     
-    <category term="HTML5详解" scheme="https://helloworld.pet/tags/HTML5%E8%AF%A6%E8%A7%A3/"/>
+    <category term="HTML5详解" scheme="http://www.51xcode.com/tags/HTML5%E8%AF%A6%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>HTML5-简单的视频播放器</title>
-    <link href="https://helloworld.pet/year/05/07/a4/"/>
-    <id>https://helloworld.pet/year/05/07/a4/</id>
+    <link href="http://www.51xcode.com/year/05/07/a4/"/>
+    <id>http://www.51xcode.com/year/05/07/a4/</id>
     <published>2021-05-07T13:53:04.000Z</published>
     <updated>2021-05-07T14:23:05.697Z</updated>
     
@@ -114,17 +114,17 @@
     
     
     
-    <category term="HTML5-简单的视频播放器" scheme="https://helloworld.pet/categories/HTML5-%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/"/>
+    <category term="HTML5-简单的视频播放器" scheme="http://www.51xcode.com/categories/HTML5-%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/"/>
     
     
-    <category term="HTML5-简单的视频播放器" scheme="https://helloworld.pet/tags/HTML5-%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/"/>
+    <category term="HTML5-简单的视频播放器" scheme="http://www.51xcode.com/tags/HTML5-%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>HTML5详解</title>
-    <link href="https://helloworld.pet/year/05/07/a3/"/>
-    <id>https://helloworld.pet/year/05/07/a3/</id>
+    <link href="http://www.51xcode.com/year/05/07/a3/"/>
+    <id>http://www.51xcode.com/year/05/07/a3/</id>
     <published>2021-05-07T13:33:53.000Z</published>
     <updated>2021-05-07T14:22:57.136Z</updated>
     
@@ -139,17 +139,17 @@
     
     
     
-    <category term="HTML5详解" scheme="https://helloworld.pet/categories/HTML5%E8%AF%A6%E8%A7%A3/"/>
+    <category term="HTML5详解" scheme="http://www.51xcode.com/categories/HTML5%E8%AF%A6%E8%A7%A3/"/>
     
     
-    <category term="HTML5详解" scheme="https://helloworld.pet/tags/HTML5%E8%AF%A6%E8%A7%A3/"/>
+    <category term="HTML5详解" scheme="http://www.51xcode.com/tags/HTML5%E8%AF%A6%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>html标签图文详解</title>
-    <link href="https://helloworld.pet/year/05/07/a2/"/>
-    <id>https://helloworld.pet/year/05/07/a2/</id>
+    <link href="http://www.51xcode.com/year/05/07/a2/"/>
+    <id>http://www.51xcode.com/year/05/07/a2/</id>
     <published>2021-05-07T13:32:57.000Z</published>
     <updated>2021-05-07T14:22:45.948Z</updated>
     
@@ -164,17 +164,17 @@
     
     
     
-    <category term="html标签图文详解" scheme="https://helloworld.pet/categories/html%E6%A0%87%E7%AD%BE%E5%9B%BE%E6%96%87%E8%AF%A6%E8%A7%A3/"/>
+    <category term="html标签图文详解" scheme="http://www.51xcode.com/categories/html%E6%A0%87%E7%AD%BE%E5%9B%BE%E6%96%87%E8%AF%A6%E8%A7%A3/"/>
     
     
-    <category term="html标签图文详解" scheme="https://helloworld.pet/tags/html%E6%A0%87%E7%AD%BE%E5%9B%BE%E6%96%87%E8%AF%A6%E8%A7%A3/"/>
+    <category term="html标签图文详解" scheme="http://www.51xcode.com/tags/html%E6%A0%87%E7%AD%BE%E5%9B%BE%E6%96%87%E8%AF%A6%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>HTML标签-图片标签</title>
-    <link href="https://helloworld.pet/year/05/07/a1/"/>
-    <id>https://helloworld.pet/year/05/07/a1/</id>
+    <link href="http://www.51xcode.com/year/05/07/a1/"/>
+    <id>http://www.51xcode.com/year/05/07/a1/</id>
     <published>2021-05-07T13:30:20.000Z</published>
     <updated>2021-05-07T14:22:36.602Z</updated>
     
@@ -189,17 +189,17 @@
     
     
     
-    <category term="HTML标签-图片标签" scheme="https://helloworld.pet/categories/HTML%E6%A0%87%E7%AD%BE-%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE/"/>
+    <category term="HTML标签-图片标签" scheme="http://www.51xcode.com/categories/HTML%E6%A0%87%E7%AD%BE-%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE/"/>
     
     
-    <category term="HTML标签-图片标签" scheme="https://helloworld.pet/tags/HTML%E6%A0%87%E7%AD%BE-%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE/"/>
+    <category term="HTML标签-图片标签" scheme="http://www.51xcode.com/tags/HTML%E6%A0%87%E7%AD%BE-%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE/"/>
     
   </entry>
   
   <entry>
     <title>HTML标签-字体标签和超链接</title>
-    <link href="https://helloworld.pet/year/05/07/z/"/>
-    <id>https://helloworld.pet/year/05/07/z/</id>
+    <link href="http://www.51xcode.com/year/05/07/z/"/>
+    <id>http://www.51xcode.com/year/05/07/z/</id>
     <published>2021-05-07T12:31:11.000Z</published>
     <updated>2021-05-07T13:26:21.031Z</updated>
     
@@ -214,17 +214,17 @@
     
     
     
-    <category term="HTML标签-字体标签和超链接" scheme="https://helloworld.pet/categories/HTML%E6%A0%87%E7%AD%BE-%E5%AD%97%E4%BD%93%E6%A0%87%E7%AD%BE%E5%92%8C%E8%B6%85%E9%93%BE%E6%8E%A5/"/>
+    <category term="HTML标签-字体标签和超链接" scheme="http://www.51xcode.com/categories/HTML%E6%A0%87%E7%AD%BE-%E5%AD%97%E4%BD%93%E6%A0%87%E7%AD%BE%E5%92%8C%E8%B6%85%E9%93%BE%E6%8E%A5/"/>
     
     
-    <category term="HTML标签-字体标签和超链接" scheme="https://helloworld.pet/tags/HTML%E6%A0%87%E7%AD%BE-%E5%AD%97%E4%BD%93%E6%A0%87%E7%AD%BE%E5%92%8C%E8%B6%85%E9%93%BE%E6%8E%A5/"/>
+    <category term="HTML标签-字体标签和超链接" scheme="http://www.51xcode.com/tags/HTML%E6%A0%87%E7%AD%BE-%E5%AD%97%E4%BD%93%E6%A0%87%E7%AD%BE%E5%92%8C%E8%B6%85%E9%93%BE%E6%8E%A5/"/>
     
   </entry>
   
   <entry>
     <title>HTML标签-排版标签</title>
-    <link href="https://helloworld.pet/year/05/07/y/"/>
-    <id>https://helloworld.pet/year/05/07/y/</id>
+    <link href="http://www.51xcode.com/year/05/07/y/"/>
+    <id>http://www.51xcode.com/year/05/07/y/</id>
     <published>2021-05-07T12:30:50.000Z</published>
     <updated>2021-05-07T13:20:51.722Z</updated>
     
@@ -239,17 +239,17 @@
     
     
     
-    <category term="HTML标签-排版标签" scheme="https://helloworld.pet/categories/HTML%E6%A0%87%E7%AD%BE-%E6%8E%92%E7%89%88%E6%A0%87%E7%AD%BE/"/>
+    <category term="HTML标签-排版标签" scheme="http://www.51xcode.com/categories/HTML%E6%A0%87%E7%AD%BE-%E6%8E%92%E7%89%88%E6%A0%87%E7%AD%BE/"/>
     
     
-    <category term="HTML标签-排版标签" scheme="https://helloworld.pet/tags/HTML%E6%A0%87%E7%AD%BE-%E6%8E%92%E7%89%88%E6%A0%87%E7%AD%BE/"/>
+    <category term="HTML标签-排版标签" scheme="http://www.51xcode.com/tags/HTML%E6%A0%87%E7%AD%BE-%E6%8E%92%E7%89%88%E6%A0%87%E7%AD%BE/"/>
     
   </entry>
   
   <entry>
     <title>初识HTML</title>
-    <link href="https://helloworld.pet/year/05/07/x/"/>
-    <id>https://helloworld.pet/year/05/07/x/</id>
+    <link href="http://www.51xcode.com/year/05/07/x/"/>
+    <id>http://www.51xcode.com/year/05/07/x/</id>
     <published>2021-05-07T12:30:27.000Z</published>
     <updated>2021-05-07T13:22:34.510Z</updated>
     
@@ -265,17 +265,17 @@
     
     
     
-    <category term="初识HTML" scheme="https://helloworld.pet/categories/%E5%88%9D%E8%AF%86HTML/"/>
+    <category term="初识HTML" scheme="http://www.51xcode.com/categories/%E5%88%9D%E8%AF%86HTML/"/>
     
     
-    <category term="初识HTML" scheme="https://helloworld.pet/tags/%E5%88%9D%E8%AF%86HTML/"/>
+    <category term="初识HTML" scheme="http://www.51xcode.com/tags/%E5%88%9D%E8%AF%86HTML/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript简介</title>
-    <link href="https://helloworld.pet/year/05/07/w/"/>
-    <id>https://helloworld.pet/year/05/07/w/</id>
+    <link href="http://www.51xcode.com/year/05/07/w/"/>
+    <id>http://www.51xcode.com/year/05/07/w/</id>
     <published>2021-05-07T12:29:47.000Z</published>
     <updated>2021-05-07T13:22:19.430Z</updated>
     
@@ -290,17 +290,17 @@
     
     
     
-    <category term="JavaScript简介" scheme="https://helloworld.pet/categories/JavaScript%E7%AE%80%E4%BB%8B/"/>
+    <category term="JavaScript简介" scheme="http://www.51xcode.com/categories/JavaScript%E7%AE%80%E4%BB%8B/"/>
     
     
-    <category term="JavaScript简介" scheme="https://helloworld.pet/tags/JavaScript%E7%AE%80%E4%BB%8B/"/>
+    <category term="JavaScript简介" scheme="http://www.51xcode.com/tags/JavaScript%E7%AE%80%E4%BB%8B/"/>
     
   </entry>
   
   <entry>
     <title>编程语言</title>
-    <link href="https://helloworld.pet/year/05/07/v/"/>
-    <id>https://helloworld.pet/year/05/07/v/</id>
+    <link href="http://www.51xcode.com/year/05/07/v/"/>
+    <id>http://www.51xcode.com/year/05/07/v/</id>
     <published>2021-05-07T12:29:28.000Z</published>
     <updated>2021-05-07T13:22:07.589Z</updated>
     
@@ -315,17 +315,17 @@
     
     
     
-    <category term="编程语言" scheme="https://helloworld.pet/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    <category term="编程语言" scheme="http://www.51xcode.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
     
-    <category term="编程语言" scheme="https://helloworld.pet/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    <category term="编程语言" scheme="http://www.51xcode.com/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
   <entry>
     <title>前端学科独家面试宝典</title>
-    <link href="https://helloworld.pet/year/04/25/u/"/>
-    <id>https://helloworld.pet/year/04/25/u/</id>
+    <link href="http://www.51xcode.com/year/04/25/u/"/>
+    <id>http://www.51xcode.com/year/04/25/u/</id>
     <published>2021-04-25T14:20:11.000Z</published>
     <updated>2021-04-25T14:43:23.442Z</updated>
     
@@ -340,17 +340,17 @@
     
     
     
-    <category term="前端面试宝典" scheme="https://helloworld.pet/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/"/>
+    <category term="前端面试宝典" scheme="http://www.51xcode.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/"/>
     
     
-    <category term="前端面试宝典" scheme="https://helloworld.pet/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/"/>
+    <category term="前端面试宝典" scheme="http://www.51xcode.com/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/"/>
     
   </entry>
   
   <entry>
     <title>如何下载魔镜壁纸中的图片</title>
-    <link href="https://helloworld.pet/year/04/22/t/"/>
-    <id>https://helloworld.pet/year/04/22/t/</id>
+    <link href="http://www.51xcode.com/year/04/22/t/"/>
+    <id>http://www.51xcode.com/year/04/22/t/</id>
     <published>2021-04-22T09:26:20.000Z</published>
     <updated>2021-04-25T15:22:10.457Z</updated>
     
@@ -365,15 +365,15 @@
     
     
     
-    <category term="如何下载魔镜壁纸中的图片" scheme="https://helloworld.pet/categories/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E9%AD%94%E9%95%9C%E5%A3%81%E7%BA%B8%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87/"/>
+    <category term="如何下载魔镜壁纸中的图片" scheme="http://www.51xcode.com/categories/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E9%AD%94%E9%95%9C%E5%A3%81%E7%BA%B8%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87/"/>
     
     
   </entry>
   
   <entry>
     <title>Hexo博客添加HTML页面</title>
-    <link href="https://helloworld.pet/year/04/20/s/"/>
-    <id>https://helloworld.pet/year/04/20/s/</id>
+    <link href="http://www.51xcode.com/year/04/20/s/"/>
+    <id>http://www.51xcode.com/year/04/20/s/</id>
     <published>2021-04-20T08:01:13.000Z</published>
     <updated>2021-04-25T15:07:51.909Z</updated>
     
@@ -388,17 +388,17 @@
     
     
     
-    <category term="hexo加入html页面" scheme="https://helloworld.pet/categories/hexo%E5%8A%A0%E5%85%A5html%E9%A1%B5%E9%9D%A2/"/>
+    <category term="hexo加入html页面" scheme="http://www.51xcode.com/categories/hexo%E5%8A%A0%E5%85%A5html%E9%A1%B5%E9%9D%A2/"/>
     
     
-    <category term="hexo加入html页面" scheme="https://helloworld.pet/tags/hexo%E5%8A%A0%E5%85%A5html%E9%A1%B5%E9%9D%A2/"/>
+    <category term="hexo加入html页面" scheme="http://www.51xcode.com/tags/hexo%E5%8A%A0%E5%85%A5html%E9%A1%B5%E9%9D%A2/"/>
     
   </entry>
   
   <entry>
     <title>Web前端概述</title>
-    <link href="https://helloworld.pet/year/04/20/r/"/>
-    <id>https://helloworld.pet/year/04/20/r/</id>
+    <link href="http://www.51xcode.com/year/04/20/r/"/>
+    <id>http://www.51xcode.com/year/04/20/r/</id>
     <published>2021-04-20T06:14:39.000Z</published>
     <updated>2021-04-25T15:08:09.646Z</updated>
     
@@ -414,15 +414,15 @@
     
     
     
-    <category term="前端概述" scheme="https://helloworld.pet/categories/%E5%89%8D%E7%AB%AF%E6%A6%82%E8%BF%B0/"/>
+    <category term="前端概述" scheme="http://www.51xcode.com/categories/%E5%89%8D%E7%AB%AF%E6%A6%82%E8%BF%B0/"/>
     
     
   </entry>
   
   <entry>
     <title>Hexo博客搭建教程</title>
-    <link href="https://helloworld.pet/year/04/17/p/"/>
-    <id>https://helloworld.pet/year/04/17/p/</id>
+    <link href="http://www.51xcode.com/year/04/17/p/"/>
+    <id>http://www.51xcode.com/year/04/17/p/</id>
     <published>2021-04-17T08:26:20.000Z</published>
     <updated>2021-04-25T15:20:38.900Z</updated>
     
@@ -437,17 +437,17 @@
     
     
     
-    <category term="博客搭建教程" scheme="https://helloworld.pet/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
+    <category term="博客搭建教程" scheme="http://www.51xcode.com/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="博客搭建" scheme="https://helloworld.pet/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <category term="博客搭建" scheme="http://www.51xcode.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
   <entry>
     <title>css动画案例-大风车、芝麻开门、桃心</title>
-    <link href="https://helloworld.pet/year/04/15/q/"/>
-    <id>https://helloworld.pet/year/04/15/q/</id>
+    <link href="http://www.51xcode.com/year/04/15/q/"/>
+    <id>http://www.51xcode.com/year/04/15/q/</id>
     <published>2021-04-15T11:30:29.000Z</published>
     <updated>2021-04-25T14:56:21.019Z</updated>
     
@@ -462,17 +462,17 @@
     
     
     
-    <category term="css动画" scheme="https://helloworld.pet/categories/css%E5%8A%A8%E7%94%BB/"/>
+    <category term="css动画" scheme="http://www.51xcode.com/categories/css%E5%8A%A8%E7%94%BB/"/>
     
     
-    <category term="html css" scheme="https://helloworld.pet/tags/html-css/"/>
+    <category term="html css" scheme="http://www.51xcode.com/tags/html-css/"/>
     
   </entry>
   
   <entry>
     <title>css动画案例-西游记</title>
-    <link href="https://helloworld.pet/year/04/04/o/"/>
-    <id>https://helloworld.pet/year/04/04/o/</id>
+    <link href="http://www.51xcode.com/year/04/04/o/"/>
+    <id>http://www.51xcode.com/year/04/04/o/</id>
     <published>2021-04-04T06:17:10.000Z</published>
     <updated>2021-04-25T14:58:08.783Z</updated>
     
@@ -487,17 +487,17 @@
     
     
     
-    <category term="css动画" scheme="https://helloworld.pet/categories/css%E5%8A%A8%E7%94%BB/"/>
+    <category term="css动画" scheme="http://www.51xcode.com/categories/css%E5%8A%A8%E7%94%BB/"/>
     
     
-    <category term="html css" scheme="https://helloworld.pet/tags/html-css/"/>
+    <category term="html css" scheme="http://www.51xcode.com/tags/html-css/"/>
     
   </entry>
   
   <entry>
     <title>css动画案例-3D相册</title>
-    <link href="https://helloworld.pet/year/04/04/n/"/>
-    <id>https://helloworld.pet/year/04/04/n/</id>
+    <link href="http://www.51xcode.com/year/04/04/n/"/>
+    <id>http://www.51xcode.com/year/04/04/n/</id>
     <published>2021-04-04T06:16:47.000Z</published>
     <updated>2021-04-25T14:57:39.296Z</updated>
     
@@ -512,10 +512,10 @@
     
     
     
-    <category term="css动画" scheme="https://helloworld.pet/categories/css%E5%8A%A8%E7%94%BB/"/>
+    <category term="css动画" scheme="http://www.51xcode.com/categories/css%E5%8A%A8%E7%94%BB/"/>
     
     
-    <category term="html css" scheme="https://helloworld.pet/tags/html-css/"/>
+    <category term="html css" scheme="http://www.51xcode.com/tags/html-css/"/>
     
   </entry>
   
