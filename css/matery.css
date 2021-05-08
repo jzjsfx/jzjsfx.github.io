@@ -25,7 +25,7 @@
     body.dark article .article-content .summary,
     body.dark .card .card-image .card-title,
     body.dark .fa-moon-o:before,
-    body.dark .fa-lightbulb-o:before,
+    body.dark .fa-heart:before,
     body.dark article .article-tags .chip,
     body.dark .chip-container .tag-title,
     body.dark div.jqcloud a,
@@ -89,12 +89,14 @@
         position: absolute;
         right: 8px;
         bottom: 8px;
+        color:yellow;
         font-size: 1.48rem!important;
     }
-    #sma .fa-lightbulb-o  {
+    #sma .fa-heart  {
         position: absolute;
-        right: 13px;
-        bottom: 8px;
+        right: 8px;
+        bottom: 6px;
+        color: red;
         font-size: 1.5rem!important;
     }
 
