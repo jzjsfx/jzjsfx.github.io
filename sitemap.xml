@@ -305,13 +305,6 @@
   </url>
   
   <url>
-    <loc>http://www.51xcode.com/tags/HTML%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/</loc>
-    <lastmod>2021-05-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.51xcode.com/tags/%E8%AF%97%E6%AD%8C/</loc>
     <lastmod>2021-05-09</lastmod>
     <changefreq>daily</changefreq>
@@ -320,6 +313,13 @@
   
   <url>
     <loc>http://www.51xcode.com/tags/%E7%BB%8F%E5%85%B8%E8%AF%AD%E5%8F%A5/</loc>
+    <lastmod>2021-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.51xcode.com/tags/HTML%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/</loc>
     <lastmod>2021-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -468,14 +468,14 @@
   </url>
   
   <url>
-    <loc>http://www.51xcode.com/categories/HTML%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/</loc>
+    <loc>http://www.51xcode.com/categories/%E8%AF%97%E6%AD%8C/</loc>
     <lastmod>2021-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.51xcode.com/categories/%E8%AF%97%E6%AD%8C/</loc>
+    <loc>http://www.51xcode.com/categories/HTML%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/</loc>
     <lastmod>2021-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -503,14 +503,14 @@
   </url>
   
   <url>
-    <loc>http://www.51xcode.com/categories/Tomcat/</loc>
+    <loc>http://www.51xcode.com/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2021-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.51xcode.com/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</loc>
+    <loc>http://www.51xcode.com/categories/Tomcat/</loc>
     <lastmod>2021-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
