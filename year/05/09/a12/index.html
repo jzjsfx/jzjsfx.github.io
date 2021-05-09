@@ -1,0 +1,2383 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <script src="//code.tidio.co/fcmvyqcsy3bvzzrgbvwttjy0toizj18a.js" async></script>
+    <meta charset="utf-8">
+    <meta name="keywords" content="页面渲染性能优化, 51xcode">
+    <meta name="description" content="51xcode.com(我要学代码)，一个专注于自学代码的小站，分享、学习编程技术。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>页面渲染性能优化 | 51xcode</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+    
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+    
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+    
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+    
+   
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="51xcode" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+ <div id="loading-container">
+     <p class="loading-text">请稍等...正在玩命加载中...... </p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
+    <script>
+        if (localStorage.getItem('dark') === '1') {
+        document.body.classList.add('dark');
+        }
+        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+        document.body.classList.add('dark');
+        } 
+        else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+        }
+    </script>
+    <a onclick="switchNightMode()" id="sma">
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i>
+    </a>
+    
+
+
+
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">51xcode</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于作者</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/myproject/project">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>我的项目</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/contact">
+          
+          <i class="fas fa-comments" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>留言</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-laptop" style="zoom: 0.6;"></i>
+      
+      <span>去学习</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.51zxw.net/">
+          
+          <i class="fas fa-laptop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>我要自学网</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.runoob.com/">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>菜鸟教程</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://www.manongjc.com/">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>码农教程</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://jsrun.net/">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>JSRUN</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.helloworld.net/">
+          
+          <i class="fas fa-desktop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Helloworld社区</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://how2j.cn/">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>学习Java</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/">
+          
+          <i class="fas fa-star" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>W3school</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.csdn.net/">
+          
+          <i class="fas fa-car" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>CSDN</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://github.com/">
+          
+          <i class="fas fa-rocket" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Github</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://gitee.com/">
+          
+          <i class="fas fa-train" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>码云</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.icourse163.org/">
+          
+          <i class="fas fa-graduation-cap" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>中国大学Mooc</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://tool.lu/?fr=moulem.com">
+          
+          <i class="fas fa-wrench" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>程序员工具</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://silingsi.com/">
+          
+          <i class="fas fa-heart" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>资源下载</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-location-arrow" style="zoom: 0.6;"></i>
+      
+      <span>快速导航</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://www.frontendjs.com/">
+          
+          <i class="fas fa-plane" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>前站导航</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.moulem.com/">
+          
+          <i class="fas fa-rocket" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>在线导航</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://weibodang.cn/">
+          
+          <i class="fas fa-heart" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视频下载-微博党</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.administrator5.com/">
+          
+          <i class="fas fa-heart" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视频解析</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.uupoop.com/">
+          
+          <i class="fas fa-laptop" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>在线PS</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/">
+          
+          <i class="fas fa-life-ring" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>字体图标</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://www.gjw123.com/">
+          
+          <i class="fas fa-wrench" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>工具123</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://www.yunpangou.com/">
+          
+          <i class="fas fa-clone" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>云盘狗</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <span>实验室</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/love">
+          
+          <i class="fas fa-heart" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>表白</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/xiangce">
+          
+          <span>女朋友相册</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/youxi1">
+          
+          <span>射击鸭子小游戏</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/youxi2">
+          
+          <span>圣诞老人过悬崖</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/youxi3">
+          
+          <span>维京战争小游戏</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">51xcode</div>
+        <div class="logo-desc">
+            
+            51xcode.com(我要学代码)，一个专注于自学代码的小站，分享、学习编程技术。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:28px" ></i>
+			      
+		          <span>关于作者</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/myproject/project " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>我的项目</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-comments" style="position: absolute;left:28px" ></i>
+			      
+		          <span>留言</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-laptop"></i>
+			
+			去学习
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://www.51zxw.net/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-laptop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>我要自学网</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://www.runoob.com/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>菜鸟教程</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://www.manongjc.com/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>码农教程</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://jsrun.net/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>JSRUN</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://www.helloworld.net/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-desktop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Helloworld社区</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://how2j.cn/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>学习Java</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-star" style="position: absolute;left:28px" ></i>
+			      
+		          <span>W3school</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://www.csdn.net/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-car" style="position: absolute;left:28px" ></i>
+			      
+		          <span>CSDN</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://github.com/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-rocket" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Github</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://gitee.com/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-train" style="position: absolute;left:28px" ></i>
+			      
+		          <span>码云</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://www.icourse163.org/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-graduation-cap" style="position: absolute;left:28px" ></i>
+			      
+		          <span>中国大学Mooc</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://tool.lu/?fr=moulem.com " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-wrench" style="position: absolute;left:28px" ></i>
+			      
+		          <span>程序员工具</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://silingsi.com/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-heart" style="position: absolute;left:28px" ></i>
+			      
+		          <span>资源下载</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-location-arrow"></i>
+			
+			快速导航
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://www.frontendjs.com/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-plane" style="position: absolute;left:28px" ></i>
+			      
+		          <span>前站导航</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://www.moulem.com/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-rocket" style="position: absolute;left:28px" ></i>
+			      
+		          <span>在线导航</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://weibodang.cn/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-heart" style="position: absolute;left:28px" ></i>
+			      
+		          <span>视频下载-微博党</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://www.administrator5.com/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-heart" style="position: absolute;left:28px" ></i>
+			      
+		          <span>视频解析</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://www.uupoop.com/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-laptop" style="position: absolute;left:28px" ></i>
+			      
+		          <span>在线PS</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-life-ring" style="position: absolute;left:28px" ></i>
+			      
+		          <span>字体图标</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://www.gjw123.com/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-wrench" style="position: absolute;left:28px" ></i>
+			      
+		          <span>工具123</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://www.yunpangou.com/ " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-clone" style="position: absolute;left:28px" ></i>
+			      
+		          <span>云盘狗</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			实验室
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/love " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-heart" style="position: absolute;left:28px" ></i>
+			      
+		          <span>表白</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/xiangce " style="margin-left:50px">
+				  
+		          <span>女朋友相册</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/youxi1 " style="margin-left:50px">
+				  
+		          <span>射击鸭子小游戏</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/youxi2 " style="margin-left:50px">
+				  
+		          <span>圣诞老人过悬崖</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/youxi3 " style="margin-left:50px">
+				  
+		          <span>维京战争小游戏</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="http://jzjsfx.gitee.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #F062A7;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="http://jzjsfx.gitee.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/38.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">页面渲染性能优化</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                                <span class="chip bg-color">前端</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="post-category">
+                                页面渲染性能优化
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-05-09
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-05-09
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    12 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="浏览器渲染过程"><a href="#浏览器渲染过程" class="headerlink" title="浏览器渲染过程"></a>浏览器渲染过程</h2><p><img src="https://img.smyhvae.com/20210114_2115.png"></p>
+<ol>
+<li><p>浏览器解析 HTML，生成 DOM Tree（Parse HTML）。</p>
+</li>
+<li><p>浏览器解析 CSS，生成 CSSOM（CSS Object Model）Tree。</p>
+</li>
+<li><p>JavaScript 会通过 DOM API 和 CSSOM API 来操作 DOM Tree 和 CSS Rule Tree，浏览器将 DOM Tree 和 CSSOM Tree 合成渲染树（Render Tree）。</p>
+</li>
+<li><p>布局（Layout）：根据生成的 Render Tree，进行回流，以计算每个节点的几何信息（位置、大小、字体样式等等）。</p>
+</li>
+<li><p>绘制（Painting）：根据渲染树和回流得到的几何信息，得到每个节点的绝对像素。</p>
+</li>
+<li><p>展示（Display）：将像素发送给图形处理器（GPU），展示在页面上。</p>
+</li>
+</ol>
+<h2 id="页面渲染技术方案总览"><a href="#页面渲染技术方案总览" class="headerlink" title="页面渲染技术方案总览"></a>页面渲染技术方案总览</h2><p><strong>服务端渲染</strong>：</p>
+<ul>
+<li>  后端同步渲染、同构直出、BigPipe。</li>
+</ul>
+<p><strong>客户端渲染</strong>：</p>
+<ul>
+<li><p>  JavaScript 渲染：静态化、前后端分离、单页面应用</p>
+</li>
+<li><p>  Web App：React、Vue、PWA</p>
+</li>
+<li><p>  Hybrid App：PhoneGap 、AppCan 等</p>
+</li>
+<li><p>  跨平台开发：RN 、Flutter 、小程序等。</p>
+</li>
+<li><p>  原生 App：iOS 、Android</p>
+</li>
+</ul>
+<p>建议：</p>
+<ul>
+<li>  依赖业务形式、依赖团队规模、依赖技术水平。</li>
+</ul>
+<h2 id="静态化技术方案"><a href="#静态化技术方案" class="headerlink" title="静态化技术方案"></a>静态化技术方案</h2><p>静态化是使动态化的网站生成静态 HTML 页面以供用户更好访问的技术，一般分为纯动态化和伪动态化。</p>
+<p>技术优势：</p>
+<ul>
+<li><p>  提高了页面访问速度，降低了服务器的负担，因为访问页面时不需要每次去访问数据库。</p>
+</li>
+<li><p>  提高网站内容被搜索引擎搜索到的几率，因为搜索引擎更喜欢静态页面。</p>
+</li>
+<li><p>  网站更稳定，如果后端程序、数据库出现问题，会直接影响网站的正常访问，而静态化页面有缓存，更不容易出现问题。</p>
+</li>
+</ul>
+<p>技术不足：</p>
+<ul>
+<li><p>  服务器存储占用问题，因为页面量级在增加，要占用大量硬盘空间。</p>
+</li>
+<li><p>  静态页面中的链接更新问题会有死链或者错误链接问题。</p>
+</li>
+</ul>
+<p>技术实现：</p>
+<ul>
+<li><p>  跑定时任务，将已有的动态内容进行重定，生成静态的 HTML 页面。</p>
+</li>
+<li><p>  利用模板技术，将模板引擎中模板字符替换为从数据库字段中取出来的值， 同时生成 HTML 文件。</p>
+</li>
+</ul>
+<p>协作方式：</p>
+<ul>
+<li><p>  前端统一写好带有交互的完整静态页面。</p>
+</li>
+<li><p>  后端拆分出静态页面文件，并嵌套在后端模板文件中。</p>
+</li>
+</ul>
+<p>选型建议：后端研发人员充分，又需要考虑用户体验、服务器负载的业务。</p>
+<h2 id="前后端分离技术与实现"><a href="#前后端分离技术与实现" class="headerlink" title="前后端分离技术与实现"></a>前后端分离技术与实现</h2><p>前后端分离是指研发人员分离、业务代码分离、后端实现业务接口，前端渲染页面。</p>
+<p>技术实现：</p>
+<ul>
+<li><p>  后端只负责功能接口实现，提供按照约定的数据格式并封装好的 API 接口。</p>
+</li>
+<li><p>  前端负责业务具体实现，获取到 API 接口数据后，进行页面模板拼接和渲染，独立上线。</p>
+</li>
+</ul>
+<p>协作方式：</p>
+<ul>
+<li><p>  前端负责实现页面前端交互，根据后端 API 接口拼装前端模板。</p>
+</li>
+<li><p>  后端专注于业务功能实现和 API 接口封装。</p>
+</li>
+</ul>
+<p>技术优势：</p>
+<ul>
+<li><p>  团队更加专注</p>
+</li>
+<li><p>  提升了开发效率</p>
+</li>
+<li><p>  增加代码可维护性</p>
+</li>
+</ul>
+<p>技术架构：</p>
+<ul>
+<li><p>  后端架构：Java、C++、PHP、 + Nginx，使用微服务（比如 Dubbo 等）等实现业务的解耦，所有的服务使用某种协议提供不同的服务（比如 JSF 等） 。</p>
+</li>
+<li><p>  前端架构：使用 Angular、React、Vue 前端框架并部署页面至 CDN。</p>
+</li>
+<li><p>  前端架构 2：使用 Angular、React、Vue 前端框架并部署在 Node Server。</p>
+</li>
+</ul>
+<p>技术不足：</p>
+<ul>
+<li><p>  因为前端需要负责一大部分业务逻辑实现，和服务端同步、静态化，需要前端人力非常多。</p>
+</li>
+<li><p>  页面数据异步渲染，不利于 SEO，搜索引擎更喜欢纯静态页面。</p>
+</li>
+</ul>
+<p>选型建议：</p>
+<ul>
+<li>  这是大型互联网公司正在采用的开发模式，一句话，如果考虑用户体验，以及前端人力够用，就可以积极采用。</li>
+</ul>
+<h2 id="单页面应用技术方案"><a href="#单页面应用技术方案" class="headerlink" title="单页面应用技术方案"></a>单页面应用技术方案</h2><p>单页应用（single-page application，缩写 SPA），通过动态重写当前页面，来与用户交互，而非传统的从服务器重新加载整个新页面。这种方法在使用过程中不需要重新加载页面，避免了页面之间切换打断用户体验，使应用程序更像一个桌面应用程序。</p>
+<p>技术优点：</p>
+<ul>
+<li><p>  不错的加载速度：用户往往感觉页面加载非常快，因为一进入页面就能看到页面元素；</p>
+</li>
+<li><p>  良好的交互体验：进行局部渲染，避免不必要的页面间跳转和重复渲染；</p>
+</li>
+<li><p>  前后端职责分离：前端进行页面交互逻辑，后端负责业务逻辑；</p>
+</li>
+<li><p>  减轻服务器负载：服务器只处理数据接口输出，不用考虑页面模板渲染和 HTML 展示。</p>
+</li>
+</ul>
+<p>技术缺点：</p>
+<ul>
+<li><p>  开发成本相对较高</p>
+</li>
+<li><p>  首次页面加载时间过多</p>
+</li>
+<li><p>  SEO 难度比较大</p>
+</li>
+</ul>
+<p>技术实现：</p>
+<ul>
+<li>  使用 React、Vue 框架可以很好的。</li>
+</ul>
+<h2 id="BigPipe-简介和工作模式"><a href="#BigPipe-简介和工作模式" class="headerlink" title="BigPipe 简介和工作模式"></a>BigPipe 简介和工作模式</h2><p>BigPipe 通过将页面加载到称为 Pagelet 的小部件中，来加快页面渲染速度，并允许浏览器在 PHB 服务器呈现页面的同时，一直请求页面不同区块的结构，类似一个“流”传输管道。</p>
+<p><strong>技术实现</strong>：</p>
+<ol>
+<li><p>浏览器从服务器请求页面。</p>
+</li>
+<li><p>Server 迅速呈现一个包含 <head> 标记的页面框架，以及一个包含空 div 元素的主体，这些元素充当 Pagelet 的容器。由于该页面尚未完成，因此与浏览器的 HTTP 连接保持打开状态。</p>
+</li>
+<li><p>浏览器将开始下载 bigpipe.js 文件，然后它将开始呈现页面。</p>
+</li>
+<li><p>PHP 服务器进程仍在执行，并且一次构建每个 Pagelet 。Pagelet 完成后，其结果将在<code>&lt;script&gt; BigPipe.onArrive（…）&lt;/ script&gt;</code> 标记内发送到浏览器。</p>
+</li>
+<li><p>浏览器将收到的 html 代码注入正确的位置。如果小页面需要任何 CSS 资源，则也将下载这些 CSS 资源。</p>
+</li>
+<li><p>接收完所有的页面集之后，浏览器将开始加载那些页面集所需的所有外部 JavaScript 文件。</p>
+</li>
+<li><p>下载 JavaScript 后，浏览器将执行所有内联 JavaScript。</p>
+</li>
+</ol>
+<h2 id="同构直出技术方案"><a href="#同构直出技术方案" class="headerlink" title="同构直出技术方案"></a>同构直出技术方案</h2><p>一套代码既可以在服务端运行又可以在客户端运行，这就是同构（Universal）。</p>
+<p>技术优势：</p>
+<ul>
+<li><p>  性能: 降低首屏渲染时间</p>
+</li>
+<li><p>  SEO: 服务端渲染对搜索引擎的爬取有着天然的优势</p>
+</li>
+<li><p>  兼容性: 有效规避客户端兼容性问题，比如白屏</p>
+</li>
+<li><p>  代码同构：直接上线两个版本，利于灾备。</p>
+</li>
+</ul>
+<p>技术实现：</p>
+<ul>
+<li><p>  next.js：服务器端渲染 React 组件框架（参考查看：<a target="_blank" rel="noopener" href="https://nextjs.org/%EF%BC%89">https://nextjs.org/）</a>, React 采用 ReactDOMServer 调用 renderToString() 方法。</p>
+</li>
+<li><p>  gatsbyjs：服务端 React 渲染框架（参考查看： <a target="_blank" rel="noopener" href="https://www.gatsbyjs.org/%EF%BC%89%E3%80%82">https://www.gatsbyjs.org/）。</a></p>
+</li>
+<li><p>  nuxt.js：服务器端渲染 Vue 组件框架（参考查看：<a target="_blank" rel="noopener" href="https://nuxtjs.org/%EF%BC%89">https://nuxtjs.org/）</a>, Vue 采用 vue-server-renderer 调用 renderToString() 方法。</p>
+</li>
+</ul>
+<p>协作方式：</p>
+<ul>
+<li><p>  后端专注于业务功能实现和 API 接口封装。</p>
+</li>
+<li><p>  前端负责实现页面前端交互，根据后端 API 接口拼装前端模板，页面渲染，以及服务器维护。</p>
+</li>
+</ul>
+<p>选型建议：</p>
+<ul>
+<li><p>  前端要处理 Node server 的机器环境、代码部署、日志、容灾、监控等以往后端人员需要具备运维知识，前端人员的综合能力要求会比以往要高。</p>
+</li>
+<li><p>  前端项目开发周期变长了，需要事先和产品、运营沟通排期问题。</p>
+</li>
+</ul>
+<h2 id="PWA-技术方案和实现思路"><a href="#PWA-技术方案和实现思路" class="headerlink" title="PWA 技术方案和实现思路"></a>PWA 技术方案和实现思路</h2><p>Progressive Web App，简称 PWA，PWA 应用是使用特定技术和标准模式来开发的 Web 应用，这将同时赋予它们 Web 应用和原生应用的特性。</p>
+<p>技术优势：</p>
+<ul>
+<li><p>  用户可以用手机屏幕启动应用，即使在离线状态或者弱网下，通过事先缓存的资源，也可正常加载运行当前应用，可以完全消除对网络的依赖，从而给用户非常可靠的体验。</p>
+</li>
+<li><p>  因为预先缓存了资源，部分资源无须经过网络，即秒开页面。</p>
+</li>
+<li><p>  和移动设备上的原生应用一样，具有沉浸式的用户体验。</p>
+</li>
+<li><p>  可以给用户发送离线推送消息。</p>
+</li>
+</ul>
+<p>技术实现：</p>
+<ul>
+<li><p>  全站改造成 HTTPS，没有 HTTPS 就没有 Service Worker。</p>
+</li>
+<li><p>  应用 Service Worker 技术提升性能，离线提供静态资源文件，提升首屏用户体验。</p>
+</li>
+<li><p>  使用 App Manifest。</p>
+</li>
+<li><p>  最后可以考虑离线消息推送等功能。</p>
+</li>
+</ul>
+<p>浏览器兼容性：</p>
+<ul>
+<li><p>  ServiceWorkerGlobalScope API：88%</p>
+</li>
+<li><p>  Web App Manifest 83%</p>
+</li>
+</ul>
+<h2 id="页面加载策略优化"><a href="#页面加载策略优化" class="headerlink" title="页面加载策略优化"></a>页面加载策略优化</h2><ul>
+<li><p>  懒加载</p>
+</li>
+<li><p>  预加载</p>
+</li>
+<li><p>  预渲染</p>
+</li>
+<li><p>  按需加载</p>
+</li>
+</ul>
+<p>下面具体展开讲讲。</p>
+<h3 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h3><p>懒加载也叫延迟加载，指的是长网页中延迟加载特定元素（可以是图片，也可以是 JS/CSS 文件，当然也可以是 JavaScript 的特定函数和方法，以下简称“懒加载元素”）。</p>
+<p>好处：可以减少当前屏无效资源的加载。</p>
+<p>技术实现举例：把页面上“懒加载元素”src 属性设置为空字符，把真实的 src 属性写在 data-lazy 属性中，当页面滚动的时候监听 scroll 事件，如果“懒加载元素”在可视区域内，就把图片的 src 属性或者文件 URL 路径设置成 data-lazy 属性值。</p>
+<h3 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h3><p>可以使用预加载让浏览器来预先加载某些资源（比如图片、JS/CSS/模板），而这些资源是在将来才会被使用到的。简单来说，就是将所需资源提前加载到浏览器本地，这样后面在需要使用的时候就可以直接从浏览器缓存中取了，而不用再重新开始加载。</p>
+<p>使用场景：如果你希望这个资源能尽快显示给用户，就可以使用预加载。</p>
+<p>好处：减少用户后续加载资源等待的时间。</p>
+<p><strong>技术实现举例</strong>：</p>
+<ol>
+<li>HTML 标签：</li>
+</ol>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://xxx.jpg<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">display</span><span class="token punctuation">:</span> none</span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2、使用 Image 对象：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> image <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+image<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'https://xxx.jpg'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>3、使用 preload、prefetch 和 preconnect：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>“preload”</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>“src/style.css”</span> <span class="token attr-name">as</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>“style”</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>prefetch<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>scr/image.png<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dns-prefetch<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://my.com<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>preconnect<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://my.com<span class="token punctuation">"</span></span> <span class="token attr-name">crossorigin</span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="预渲染"><a href="#预渲染" class="headerlink" title="预渲染"></a>预渲染</h3><p>有一种预加载组件的方式就是提前渲染它。在页面中渲染组件，但是并不在页面中展示。也就是渲染完成后，先隐藏起来，用的时候再展示。</p>
+<p>实现举例：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>prerender<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://my.com<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="按需加载"><a href="#按需加载" class="headerlink" title="按需加载"></a>按需加载</h3><ul>
+<li><p>  常规按需加载（如 JS 原生、jQuery）</p>
+</li>
+<li><p>  不同 App 按需加载（如 JS-SDK 脚本文件）</p>
+</li>
+<li><p>  不同设备按需加载（如 PC 端和 HTML5 端样式文件）</p>
+</li>
+<li><p>  不同分辨率按需加载（CSS Media Query）</p>
+</li>
+</ul>
+<p>React 异步加载举例：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">componentA</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">location<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span>
+        <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token parameter">require</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+            <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'modules/componentA'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token string">'componentA'</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">componentB</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">location<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span>
+        <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token parameter">require</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+            <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'modules/componentB'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token string">'componentB'</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span>Router history<span class="token operator">=</span><span class="token punctuation">&#123;</span>history<span class="token punctuation">&#125;</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/"</span> component<span class="token operator">=</span><span class="token punctuation">&#123;</span>App<span class="token punctuation">&#125;</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"componentA"</span> getComponent<span class="token operator">=</span><span class="token punctuation">&#123;</span>componentA<span class="token punctuation">&#125;</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"componentB"</span> getComponent<span class="token operator">=</span><span class="token punctuation">&#123;</span>componentB<span class="token punctuation">&#125;</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>Router<span class="token operator">></span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Vue 异步加载举例：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> VueRouter <span class="token keyword">from</span> <span class="token string">'vue-router'</span><span class="token punctuation">;</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueRouter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">componentA</span> <span class="token operator">=</span> <span class="token parameter">resolve</span> <span class="token operator">=></span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'src/a.vue'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> resolve<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">componentB</span> <span class="token operator">=</span> <span class="token parameter">resolve</span> <span class="token operator">=></span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'src/b.vue'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> resolve<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    routes<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>path<span class="token operator">:</span><span class="token string">"a”,name:"</span><span class="token operator">/</span>a”<span class="token punctuation">,</span>component<span class="token operator">:</span>componentA<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+     <span class="token punctuation">&#123;</span>path<span class="token operator">:</span><span class="token string">"b”,name:"</span><span class="token operator">/</span>b”<span class="token punctuation">,</span>component<span class="token operator">:</span>componentB<span class="token punctuation">&#125;</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    el<span class="token operator">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+    router<span class="token operator">:</span> router<span class="token punctuation">,</span>
+    <span class="token function-variable function">render</span><span class="token operator">:</span> <span class="token parameter">h</span> <span class="token operator">=></span> <span class="token function">h</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="接口服务调用优化"><a href="#接口服务调用优化" class="headerlink" title="接口服务调用优化"></a>接口服务调用优化</h2><p>1、接口合并：一个页面的众多业务接口和依赖的第三方接口，合并为一个部署在集群的接口统一调用，以减少页面接口请求数。</p>
+<p>2、接口上 CDN：主要基于接口性能考虑，我们可以把<strong>不需要实时更新的接口同步至 CDN</strong>，等此接口内容变更之后自动同步至 CDN 集群上。如果一定时间内未请求到数据，会用源站接口再次请求。</p>
+<p>3、接口域名上 CDN：增强可用性、稳定性。</p>
+<p>4、接口降级：核心接口进行降级用基础接口进行业务实现，比如千人千面的推荐接口，在大促时间点可以直接运营编辑的数据。另外如果接口无访问，建议使用兜底数据。</p>
+<p>5、接口监控：监控接口成功率，不只是常说的 TP99，也包括弱网、超时、网络异常、网络切换等一段情况的监控情况。排查出来问题后，需要联合后端、运维、网络岗位人员一并解决。</p>
+<h2 id="接口缓存策略优化"><a href="#接口缓存策略优化" class="headerlink" title="接口缓存策略优化"></a>接口缓存策略优化</h2><p>1、Ajax/fetch 缓存：前端请求时候带上 cache，依赖浏览器本身缓存机制。</p>
+<p>2、本地缓存：异步接口数据优先使用本地 localStorage 中的缓存数据。</p>
+<p>3、多次请求：接口数据本地无 localStorage 缓存数据，重新再次发出 ajax 请求。</p>
+<p>免责声明：资料来源：千古壹号，仅供学习使用</p>
+<p>更多知识欢迎关注微信公众号“ 51 学代码 ”</p>
+<p><img src="1.png"></p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Junzheng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://www.51xcode.com/year/05/09/a12/">http://www.51xcode.com/year/05/09/a12/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Junzheng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                                    <span class="chip bg-color">前端</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/pinglun.gif") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'tCGArsD0oC7jvgaVPTkhxQEk-gzGzoHsz',
+        appKey: 'dSgrMdJejKONaYyCdlphI1Wd',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+        <style>
+    .mvaline-card {
+        margin: 1.5rem auto;
+    }
+
+    .mvaline-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+</style>
+
+<div class="card mvaline-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="mvcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/minivaline/dist/MiniValine.min.js"></script>
+<script>
+    new MiniValine({
+        el: '#mvcomments',
+        appId: 'tCGArsD0oC7jvgaVPTkhxQEk-gzGzoHsz',
+        appKey: 'dSgrMdJejKONaYyCdlphI1Wd',
+        mode: 'DesertsP',
+        placeholder: 'Write a Comment',
+        pathname: window.location.pathname,
+        lang: '',
+        adminEmailMd5: 'de8a7aa53d07e6b6bceb45c64027763d',
+        tagMeta: ["管理员", "小伙伴", "访客"],
+        master: ["de8a7aa53d07e6b6bceb45c64027763d"],
+        friends: ["b5bd5d836c7a0091aa8473e79ed4c25e", "adb7d1cd192658a55c0ad22a3309cecf", "3ce1e6c77b4910f1871106cb30dc62b0", "cfce8dc43725cc14ffcd9fb4892d5bfc"],
+        math: true,
+        md: true,
+        enableQQ: true,
+        NoRecordIP: true,
+        visitor: true,
+        maxNest: 6,
+        pageSize: 6,
+        serverURLs: '',
+        emoticonUrl: ["https://cdn.jsdelivr.net/npm/alus@latest", "https://cdn.jsdelivr.net/gh/MiniValine/qq@latest", "https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@latest", "https://cdn.jsdelivr.net/gh/MiniValine/tieba@latest", "https://cdn.jsdelivr.net/gh/MiniValine/twemoji@latest", "https://cdn.jsdelivr.net/gh/MiniValine/weibo@latest"],
+    });
+</script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/year/05/09/a13/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="Vue的介绍和vue-cli">
+                        
+                        <span class="card-title">Vue的介绍和vue-cli</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Vue的介绍
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Vue%E7%9A%84%E4%BB%8B%E7%BB%8D/" class="post-category">
+                                    Vue的介绍
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/year/05/09/a11/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="静态资源优化">
+                        
+                        <span class="card-title">静态资源优化</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            静态资源优化
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BC%98%E5%8C%96/" class="post-category">
+                                    静态资源优化
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BC%98%E5%8C%96/">
+                        <span class="chip bg-color">静态资源优化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Junzheng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">113.5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "27";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">豫ICP备2021011259号-1</a>
+            </span>
+            
+
+    
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1823782755@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1823782755" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1823782755" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="Junzheng68668" class="tooltipped" target="_blank" data-tooltip="关注我的微博: Junzheng68668" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

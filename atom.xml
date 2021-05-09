@@ -6,7 +6,7 @@
   <link href="http://www.51xcode.com/atom.xml" rel="self"/>
   
   <link href="http://www.51xcode.com/"/>
-  <updated>2021-05-07T14:23:33.119Z</updated>
+  <updated>2021-05-09T10:54:53.433Z</updated>
   <id>http://www.51xcode.com/</id>
   
   <author>
@@ -15,6 +15,156 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue的介绍和vue-cli</title>
+    <link href="http://www.51xcode.com/year/05/09/a13/"/>
+    <id>http://www.51xcode.com/year/05/09/a13/</id>
+    <published>2021-05-09T09:32:03.000Z</published>
+    <updated>2021-05-09T10:54:53.433Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;MVVM模式&quot;&gt;&lt;a href=&quot;#MVVM模式&quot; class=&quot;headerlink&quot; title=&quot;MVVM模式&quot;&gt;&lt;/a&gt;MVVM模式&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Vue的介绍" scheme="http://www.51xcode.com/categories/Vue%E7%9A%84%E4%BB%8B%E7%BB%8D/"/>
+    
+    
+    <category term="vue" scheme="http://www.51xcode.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>页面渲染性能优化</title>
+    <link href="http://www.51xcode.com/year/05/09/a12/"/>
+    <id>http://www.51xcode.com/year/05/09/a12/</id>
+    <published>2021-05-09T09:31:45.000Z</published>
+    <updated>2021-05-09T09:39:33.296Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;浏览器渲染过程&quot;&gt;&lt;a href=&quot;#浏览器渲染过程&quot; class=&quot;headerlink&quot; title=&quot;浏览器渲染过程&quot;&gt;&lt;/a&gt;浏览器渲染过程&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="页面渲染性能优化" scheme="http://www.51xcode.com/categories/%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+    
+    <category term="前端" scheme="http://www.51xcode.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>静态资源优化</title>
+    <link href="http://www.51xcode.com/year/05/09/a11/"/>
+    <id>http://www.51xcode.com/year/05/09/a11/</id>
+    <published>2021-05-09T09:31:30.000Z</published>
+    <updated>2021-05-09T09:37:28.448Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;图片格式和应用场景&quot;&gt;&lt;a href=&quot;#图片格式和应用场景&quot; class=&quot;headerlink&quot; title=&quot;图片格式和应用场景&quot;&gt;&lt;/a&gt;图片格式和应用场景&lt;/h2&gt;&lt;h3 id=&quot;JPEG-格式&quot;&gt;&lt;a href=&quot;#JPEG-格式&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="静态资源优化" scheme="http://www.51xcode.com/categories/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BC%98%E5%8C%96/"/>
+    
+    
+    <category term="静态资源优化" scheme="http://www.51xcode.com/tags/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浏览器渲染机制</title>
+    <link href="http://www.51xcode.com/year/05/09/a10/"/>
+    <id>http://www.51xcode.com/year/05/09/a10/</id>
+    <published>2021-05-09T09:18:58.000Z</published>
+    <updated>2021-05-09T09:30:12.650Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="浏览器渲染机制" scheme="http://www.51xcode.com/categories/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6/"/>
+    
+    
+    <category term="浏览器渲染机制" scheme="http://www.51xcode.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端性能分析工具和指标</title>
+    <link href="http://www.51xcode.com/year/05/09/a9/"/>
+    <id>http://www.51xcode.com/year/05/09/a9/</id>
+    <published>2021-05-09T09:18:37.000Z</published>
+    <updated>2021-05-09T09:26:35.022Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;性能指标和优化目标之：加载&quot;&gt;&lt;a href=&quot;#性能指标和优化目标之：加载&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端性能分析" scheme="http://www.51xcode.com/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/"/>
+    
+    
+    <category term="前端性能分析" scheme="http://www.51xcode.com/tags/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端性能优化认知</title>
+    <link href="http://www.51xcode.com/year/05/09/a8/"/>
+    <id>http://www.51xcode.com/year/05/09/a8/</id>
+    <published>2021-05-09T09:18:16.000Z</published>
+    <updated>2021-05-09T09:22:55.809Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前端性能优化认知&quot;&gt;&lt;a href=&quot;#前端性能优化认知&quot; class=&quot;headerlink&quot; title=&quot;前端性能优化认知&quot;&gt;&lt;/a&gt;前端性能优化认知&lt;/h2&gt;&lt;h3 id=&quot;什么是前端性能优化&quot;&gt;&lt;a href=&quot;#什么是前端性能优化&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端性能优化" scheme="http://www.51xcode.com/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+    
+    <category term="前端性能优化" scheme="http://www.51xcode.com/tags/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>HTML基础回顾</title>
@@ -367,155 +517,6 @@
     
     <category term="如何下载魔镜壁纸中的图片" scheme="http://www.51xcode.com/categories/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E9%AD%94%E9%95%9C%E5%A3%81%E7%BA%B8%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo博客添加HTML页面</title>
-    <link href="http://www.51xcode.com/year/04/20/s/"/>
-    <id>http://www.51xcode.com/year/04/20/s/</id>
-    <published>2021-04-20T08:01:13.000Z</published>
-    <updated>2021-04-25T15:07:51.909Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;第一步，在博客根目录的source文件夹下，新建文件夹用于存放HTML文件&quot;&gt;&lt;a href=&quot;#第一步，在博客根目录的source文件夹下，新建文件夹用于存放HTML文件&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="hexo加入html页面" scheme="http://www.51xcode.com/categories/hexo%E5%8A%A0%E5%85%A5html%E9%A1%B5%E9%9D%A2/"/>
-    
-    
-    <category term="hexo加入html页面" scheme="http://www.51xcode.com/tags/hexo%E5%8A%A0%E5%85%A5html%E9%A1%B5%E9%9D%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Web前端概述</title>
-    <link href="http://www.51xcode.com/year/04/20/r/"/>
-    <id>http://www.51xcode.com/year/04/20/r/</id>
-    <published>2021-04-20T06:14:39.000Z</published>
-    <updated>2021-04-25T15:08:09.646Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;hr&gt;
-&lt;h3 id=&quot;Web前端工程师技术点概述&quot;&gt;&lt;a href=&quot;#Web前端工程师技术点概述&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="前端概述" scheme="http://www.51xcode.com/categories/%E5%89%8D%E7%AB%AF%E6%A6%82%E8%BF%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo博客搭建教程</title>
-    <link href="http://www.51xcode.com/year/04/17/p/"/>
-    <id>http://www.51xcode.com/year/04/17/p/</id>
-    <published>2021-04-17T08:26:20.000Z</published>
-    <updated>2021-04-25T15:20:38.900Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;一、hexo博客搭建教程：&quot;&gt;&lt;a href=&quot;#一、hexo博客搭建教程：&quot; class=&quot;headerlink&quot; title=&quot;一、hexo博客搭建教程：&quot;&gt;&lt;/a&gt;一、hexo博客搭建教程：&lt;/h2&gt;&lt;p&gt;1、作者主题仓库介绍 &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="博客搭建教程" scheme="http://www.51xcode.com/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="博客搭建" scheme="http://www.51xcode.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css动画案例-大风车、芝麻开门、桃心</title>
-    <link href="http://www.51xcode.com/year/04/15/q/"/>
-    <id>http://www.51xcode.com/year/04/15/q/</id>
-    <published>2021-04-15T11:30:29.000Z</published>
-    <updated>2021-04-25T14:56:21.019Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;项目准备&quot;&gt;&lt;a href=&quot;#项目准备&quot; class=&quot;headerlink&quot; title=&quot;项目准备&quot;&gt;&lt;/a&gt;项目准备&lt;/h3&gt;&lt;h4 id=&quot;素材准备&quot;&gt;&lt;a href=&quot;#素材准备&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="css动画" scheme="http://www.51xcode.com/categories/css%E5%8A%A8%E7%94%BB/"/>
-    
-    
-    <category term="html css" scheme="http://www.51xcode.com/tags/html-css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css动画案例-西游记</title>
-    <link href="http://www.51xcode.com/year/04/04/o/"/>
-    <id>http://www.51xcode.com/year/04/04/o/</id>
-    <published>2021-04-04T06:17:10.000Z</published>
-    <updated>2021-04-25T14:58:08.783Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;项目准备&quot;&gt;&lt;a href=&quot;#项目准备&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="css动画" scheme="http://www.51xcode.com/categories/css%E5%8A%A8%E7%94%BB/"/>
-    
-    
-    <category term="html css" scheme="http://www.51xcode.com/tags/html-css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css动画案例-3D相册</title>
-    <link href="http://www.51xcode.com/year/04/04/n/"/>
-    <id>http://www.51xcode.com/year/04/04/n/</id>
-    <published>2021-04-04T06:16:47.000Z</published>
-    <updated>2021-04-25T14:57:39.296Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="css动画" scheme="http://www.51xcode.com/categories/css%E5%8A%A8%E7%94%BB/"/>
-    
-    
-    <category term="html css" scheme="http://www.51xcode.com/tags/html-css/"/>
     
   </entry>
   
