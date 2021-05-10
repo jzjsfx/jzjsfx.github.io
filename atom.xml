@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>51xcode</title>
+  <title>51学代码</title>
   
   <subtitle>以梦为马，不负韶华!</subtitle>
   <link href="http://www.51xcode.com/atom.xml" rel="self"/>
   
   <link href="http://www.51xcode.com/"/>
-  <updated>2021-05-09T11:39:32.447Z</updated>
+  <updated>2021-05-10T13:14:37.555Z</updated>
   <id>http://www.51xcode.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java学习路线</title>
+    <link href="http://www.51xcode.com/year/05/10/i/"/>
+    <id>http://www.51xcode.com/year/05/10/i/</id>
+    <published>2021-05-10T13:09:52.000Z</published>
+    <updated>2021-05-10T13:14:37.555Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;阶段一 （夯实基础）&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt; &lt;strong&gt;Java基础语法&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;学习目标:&lt;br&gt;    1.熟悉Java等基本概念&lt;br&gt;   </summary>
+        
+      
+    
+    
+    
+    <category term="Tomcat" scheme="http://www.51xcode.com/categories/Tomcat/"/>
+    
+    
+    <category term="Java" scheme="http://www.51xcode.com/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue的介绍和vue-cli</title>
@@ -494,29 +521,6 @@
     
     
     <category term="前端面试宝典" scheme="http://www.51xcode.com/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何下载魔镜壁纸中的图片</title>
-    <link href="http://www.51xcode.com/year/04/22/t/"/>
-    <id>http://www.51xcode.com/year/04/22/t/</id>
-    <published>2021-04-22T09:26:20.000Z</published>
-    <updated>2021-04-25T15:22:10.457Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;如何下载魔镜壁纸中的图片&quot;&gt;&lt;a href=&quot;#如何下载魔镜壁纸中的图片&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="如何下载魔镜壁纸中的图片" scheme="http://www.51xcode.com/categories/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E9%AD%94%E9%95%9C%E5%A3%81%E7%BA%B8%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87/"/>
-    
     
   </entry>
   
