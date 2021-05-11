@@ -160,8 +160,7 @@
     };
     loaded();
 })()
- </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="51学代码" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+ </script><meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -1222,8 +1221,8 @@
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zyskr/p/10609288.html">https://www.cnblogs.com/zyskr/p/10609288.html</a></p>
 <h4 id="四、安装饿了么UI前端框架"><a href="#四、安装饿了么UI前端框架" class="headerlink" title="四、安装饿了么UI前端框架"></a>四、安装饿了么UI前端框架</h4><p>cnpm i element-ui -S</p>
 <p><img src="%E5%AE%89%E8%A3%85%E9%A5%BF%E4%BA%86UI.png"></p>
-<h4 id="五、安装less和sass预处理"><a href="#五、安装less和sass预处理" class="headerlink" title="五、安装less和sass预处理"></a>五、安装less和sass预处理</h4><p>（1）：cnpm install <a href="mailto:&#108;&#101;&#x73;&#115;&#x40;&#x33;&#46;&#x39;&#46;&#48;">&#108;&#101;&#x73;&#115;&#x40;&#x33;&#46;&#x39;&#46;&#48;</a> -s  </p>
-<p>（2）：cnpm install <a href="mailto:&#x6c;&#101;&#115;&#x73;&#45;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#64;&#x35;&#x2e;&#x30;&#46;&#x30;">&#x6c;&#101;&#115;&#x73;&#45;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#64;&#x35;&#x2e;&#x30;&#46;&#x30;</a> -s</p>
+<h4 id="五、安装less和sass预处理"><a href="#五、安装less和sass预处理" class="headerlink" title="五、安装less和sass预处理"></a>五、安装less和sass预处理</h4><p>（1）：cnpm install <a href="mailto:&#x6c;&#x65;&#x73;&#115;&#64;&#x33;&#46;&#57;&#46;&#x30;">&#x6c;&#x65;&#x73;&#115;&#64;&#x33;&#46;&#57;&#46;&#x30;</a> -s  </p>
+<p>（2）：cnpm install <a href="mailto:&#x6c;&#101;&#115;&#x73;&#45;&#108;&#111;&#97;&#100;&#101;&#114;&#64;&#x35;&#x2e;&#x30;&#x2e;&#x30;">&#x6c;&#101;&#115;&#x73;&#45;&#108;&#111;&#97;&#100;&#101;&#114;&#64;&#x35;&#x2e;&#x30;&#x2e;&#x30;</a> -s</p>
 <p>  <span style="color:red">注意：一定要写版本号，否则less自动安装最新版本，会和vue-cli不兼容一直报错。</span></p>
 <p>  <span style="color:red">解决报错的话使用cnpm install重新安装一遍！</span></p>
 <p>六、安装axios</p>
@@ -2261,10 +2260,95 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/search.xml", 'searchInput', 'searchResult');
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
