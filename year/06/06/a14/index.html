@@ -6,7 +6,7 @@
     <script src="//code.tidio.co/fcmvyqcsy3bvzzrgbvwttjy0toizj18a.js" async></script>
     <meta charset="utf-8">
     <meta name="keywords" content="机器学习, 51学代码">
-    <meta name="description" content="51xcode.com(我要学代码)，一个专注于自学代码的小站，分享、学习编程技术。">
+    <meta name="description" content="www.51xcode.com(我要学代码)，一个专注于自学代码的小站，分享、学习编程技术。微信公众号“51学代码”，分享编程技术。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -710,7 +710,7 @@
         <div class="logo-name">51学代码</div>
         <div class="logo-desc">
             
-            51xcode.com(我要学代码)，一个专注于自学代码的小站，分享、学习编程技术。
+            www.51xcode.com(我要学代码)，一个专注于自学代码的小站，分享、学习编程技术。微信公众号“51学代码”，分享编程技术。
             
         </div>
     </div>
@@ -1339,10 +1339,105 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -1383,7 +1478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-07
+                    2021-07-14
                 </div>
                 
 
@@ -1412,8 +1507,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="随机森林算法在泰坦尼克号数据中分类"><a href="#随机森林算法在泰坦尼克号数据中分类" class="headerlink" title="随机森林算法在泰坦尼克号数据中分类"></a>随机森林算法在泰坦尼克号数据中分类</h2><p>1<strong>、获取数据并查看数据结构，导入相关的库，并利用</strong> read.csv <strong>从本地读取</strong> csv <strong>格式数据集</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">import pandas as pd
+                <h1 id="随机森林算法在泰坦尼克号数据中分类"><a href="#随机森林算法在泰坦尼克号数据中分类" class="headerlink" title="随机森林算法在泰坦尼克号数据中分类"></a>随机森林算法在泰坦尼克号数据中分类</h1><h2 id="1、获取数据并查看数据结构，导入相关的库，并利用-read-csv-从本地读取-csv-格式数据集"><a href="#1、获取数据并查看数据结构，导入相关的库，并利用-read-csv-从本地读取-csv-格式数据集" class="headerlink" title="1、获取数据并查看数据结构，导入相关的库，并利用 read.csv 从本地读取 csv 格式数据集"></a>1<strong>、获取数据并查看数据结构，导入相关的库，并利用</strong> read.csv <strong>从本地读取</strong> csv <strong>格式数据集</strong></h2><pre class="line-numbers language-none"><code class="language-none">import pandas as pd
 from sklearn.tree import Decis ionTreeClassifier
 from sklearn.model_ selection import train_ test_ split
 from sklearn.model_ selection import GridSearchcV
@@ -1427,8 +1521,7 @@ data.info()<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <p>从图中可以看出整个数据集有 891 个样本，11 列，其中第 0 列是标签，第 1-10 列是特征，共计 10 个特征。</p>
 <p>其中特征列 Age,Cabin,Embarked 的非空值不是 889 个，说明这三列存在缺失值；特征列 Name，Sex，Cabin，</p>
 <p>Embarked 的数据类型为 object，不能直接作为特征数据带入模型进行处理，需要进行特征编码。</p>
-<p>2<strong>、数据的预处理</strong></p>
-<p> 1.通过理解业务特征之间的关系，先删除跟标签完全无关的列</p>
+<h2 id="2、数据的预处理"><a href="#2、数据的预处理" class="headerlink" title="2、数据的预处理"></a>2<strong>、数据的预处理</strong></h2><p> 1.通过理解业务特征之间的关系，先删除跟标签完全无关的列</p>
 <pre class="line-numbers language-none"><code class="language-none">#删除缺失值过多的列，和观察判断来说和预测的y没有关系的列
 data.drop( [&quot;Cabin&quot;, &quot;Name&quot;,&quot;Ticket&quot;], inplace&#x3D; True ,axis&#x3D;1)
 data.info( )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -1461,8 +1554,7 @@ data.head(20)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="image-20210606231321396.png" alt="image-20210606231321396"></p>
-<p>3<strong>、划分数据集</strong></p>
-<p> 1.按列名提取标签和特征矩阵，分别将特征矩阵命名为 x，标签命名为 y</p>
+<h2 id="3、划分数据集"><a href="#3、划分数据集" class="headerlink" title="3、划分数据集"></a>3<strong>、划分数据集</strong></h2><p> 1.按列名提取标签和特征矩阵，分别将特征矩阵命名为 x，标签命名为 y</p>
 <pre class="line-numbers language-none"><code class="language-none">X&#x3D;data.iloc[:,data.columns!&#x3D;&quot;Survived&quot;]
 
 У&#x3D;data.iloc[:,data.columns&#x3D;&#x3D;&quot;Survived&quot;]
@@ -1485,8 +1577,7 @@ Xtrain<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 
 <p><img src="image-20210606232110235.png" alt="image-20210606232110235"></p>
 <p>修正好之后的数据索引则是按顺序从 0-621，共 622 个训练样本。</p>
-<p>4<strong>、建立初始模型：分别建立决策树和随机森林的两个初始模型，将模型的准确率分别命名为</strong></p>
-<p>Score_c0, Score_r0</p>
+<h2 id="4、建立初始模型：分别建立决策树和随机森林的两个初始模型，将模型的准确率分别命名为"><a href="#4、建立初始模型：分别建立决策树和随机森林的两个初始模型，将模型的准确率分别命名为" class="headerlink" title="4、建立初始模型：分别建立决策树和随机森林的两个初始模型，将模型的准确率分别命名为"></a>4<strong>、建立初始模型：分别建立决策树和随机森林的两个初始模型，将模型的准确率分别命名为</strong></h2><p>Score_c0, Score_r0</p>
 <pre class="line-numbers language-none"><code class="language-none">clf &#x3D; DecisionTreeClassifier( random_ state&#x3D;0)
 rfc&#x3D; RandomForestclassifier (random_ state&#x3D;0)
 clf&#x3D; clf.fit(Xtrain,Ytrain)
@@ -1504,8 +1595,7 @@ warnings.filterwarnings(&quot;ignore&quot; )
 
 <p><img src="image-20210606232551474.png" alt="image-20210606232551474"></p>
 <p>初始状态下，随机森林算法的准确率比决策树高一点点。</p>
-<p>5<strong>、分别对决策树算法，随机森林算法模型进行调参</strong></p>
-<p> 1.调整决策树算法的 max_depth 参数,画出对应学习曲线</p>
+<h2 id="5、分别对决策树算法，随机森林算法模型进行调参"><a href="#5、分别对决策树算法，随机森林算法模型进行调参" class="headerlink" title="5、分别对决策树算法，随机森林算法模型进行调参"></a>5<strong>、分别对决策树算法，随机森林算法模型进行调参</strong></h2><p> 1.调整决策树算法的 max_depth 参数,画出对应学习曲线</p>
 <pre class="line-numbers language-none"><code class="language-none">import matplotlib.pyplot as plt
 score_c&#x3D;[]
 for i in range(10):
@@ -1557,8 +1647,7 @@ plt.show()
 
 <p><img src="image-20210606233724379.png" alt="image-20210606233724379"></p>
 <p>通过学习曲线调参方法，随机森林 n_estimators=144 时，准确率最高</p>
-<p><strong>6．实验结果</strong></p>
-<p>通过以上模型调参结果，总结出模型的最佳参数如下，通过交叉验证得出模型最终的结果：</p>
+<h2 id="6．实验结果"><a href="#6．实验结果" class="headerlink" title="6．实验结果"></a><strong>6．实验结果</strong></h2><p>通过以上模型调参结果，总结出模型的最佳参数如下，通过交叉验证得出模型最终的结果：</p>
 <pre class="line-numbers language-none"><code class="language-none">clf &#x3D; DecisionTreeClassifier(max_ depth&#x3D;3, random_state&#x3D;90)
 score &#x3D; cross_ _val_ score(clf,X,y, cv&#x3D;10).mean()
 score<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -2120,7 +2209,7 @@ score<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
                 <a href="/year/06/13/a15/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/48.jpg" class="responsive-img" alt="hexo部署到云服务器上(使用的宝塔面板)">
+                        <img src="/medias/featureimages/56.jpg" class="responsive-img" alt="hexo部署到云服务器上(使用的宝塔面板)">
                         
                         <span class="card-title">hexo部署到云服务器上(使用的宝塔面板)</span>
                     </div>
@@ -2168,7 +2257,7 @@ score<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
                 <a href="/year/05/10/i/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/48.jpg" class="responsive-img" alt="Java学习路线">
+                        <img src="/medias/featureimages/56.jpg" class="responsive-img" alt="Java学习路线">
                         
                         <span class="card-title">Java学习路线</span>
                     </div>
@@ -2239,6 +2328,100 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </style>
 
 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
     
 
 </main>
@@ -2258,7 +2441,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">117.5k</span>&nbsp;字
+                class="white-color">136.6k</span>&nbsp;字
             
             
             
