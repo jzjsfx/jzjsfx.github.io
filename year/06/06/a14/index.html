@@ -1324,7 +1324,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/56.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1478,7 +1478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-14
+                    2021-10-23
                 </div>
                 
 
@@ -1507,7 +1507,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="随机森林算法在泰坦尼克号数据中分类"><a href="#随机森林算法在泰坦尼克号数据中分类" class="headerlink" title="随机森林算法在泰坦尼克号数据中分类"></a>随机森林算法在泰坦尼克号数据中分类</h1><h2 id="1、获取数据并查看数据结构，导入相关的库，并利用-read-csv-从本地读取-csv-格式数据集"><a href="#1、获取数据并查看数据结构，导入相关的库，并利用-read-csv-从本地读取-csv-格式数据集" class="headerlink" title="1、获取数据并查看数据结构，导入相关的库，并利用 read.csv 从本地读取 csv 格式数据集"></a>1<strong>、获取数据并查看数据结构，导入相关的库，并利用</strong> read.csv <strong>从本地读取</strong> csv <strong>格式数据集</strong></h2><pre class="line-numbers language-none"><code class="language-none">import pandas as pd
+                <h3 id="随机森林算法在泰坦尼克号数据中分类"><a href="#随机森林算法在泰坦尼克号数据中分类" class="headerlink" title="随机森林算法在泰坦尼克号数据中分类"></a>随机森林算法在泰坦尼克号数据中分类</h3><h4 id="1、获取数据并查看数据结构，导入相关的库，并利用-read-csv-从本地读取-csv-格式数据集"><a href="#1、获取数据并查看数据结构，导入相关的库，并利用-read-csv-从本地读取-csv-格式数据集" class="headerlink" title="1、获取数据并查看数据结构，导入相关的库，并利用 read.csv 从本地读取 csv 格式数据集"></a>1<strong>、获取数据并查看数据结构，导入相关的库，并利用</strong> read.csv <strong>从本地读取</strong> csv <strong>格式数据集</strong></h4><pre class="line-numbers language-none"><code class="language-none">import pandas as pd
 from sklearn.tree import Decis ionTreeClassifier
 from sklearn.model_ selection import train_ test_ split
 from sklearn.model_ selection import GridSearchcV
@@ -1521,7 +1521,7 @@ data.info()<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <p>从图中可以看出整个数据集有 891 个样本，11 列，其中第 0 列是标签，第 1-10 列是特征，共计 10 个特征。</p>
 <p>其中特征列 Age,Cabin,Embarked 的非空值不是 889 个，说明这三列存在缺失值；特征列 Name，Sex，Cabin，</p>
 <p>Embarked 的数据类型为 object，不能直接作为特征数据带入模型进行处理，需要进行特征编码。</p>
-<h2 id="2、数据的预处理"><a href="#2、数据的预处理" class="headerlink" title="2、数据的预处理"></a>2<strong>、数据的预处理</strong></h2><p> 1.通过理解业务特征之间的关系，先删除跟标签完全无关的列</p>
+<h4 id="2、数据的预处理"><a href="#2、数据的预处理" class="headerlink" title="2、数据的预处理"></a>2<strong>、数据的预处理</strong></h4><p> 1.通过理解业务特征之间的关系，先删除跟标签完全无关的列</p>
 <pre class="line-numbers language-none"><code class="language-none">#删除缺失值过多的列，和观察判断来说和预测的y没有关系的列
 data.drop( [&quot;Cabin&quot;, &quot;Name&quot;,&quot;Ticket&quot;], inplace&#x3D; True ,axis&#x3D;1)
 data.info( )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -1554,7 +1554,7 @@ data.head(20)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="image-20210606231321396.png" alt="image-20210606231321396"></p>
-<h2 id="3、划分数据集"><a href="#3、划分数据集" class="headerlink" title="3、划分数据集"></a>3<strong>、划分数据集</strong></h2><p> 1.按列名提取标签和特征矩阵，分别将特征矩阵命名为 x，标签命名为 y</p>
+<h4 id="3、划分数据集"><a href="#3、划分数据集" class="headerlink" title="3、划分数据集"></a>3<strong>、划分数据集</strong></h4><p> 1.按列名提取标签和特征矩阵，分别将特征矩阵命名为 x，标签命名为 y</p>
 <pre class="line-numbers language-none"><code class="language-none">X&#x3D;data.iloc[:,data.columns!&#x3D;&quot;Survived&quot;]
 
 У&#x3D;data.iloc[:,data.columns&#x3D;&#x3D;&quot;Survived&quot;]
@@ -1577,7 +1577,7 @@ Xtrain<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 
 <p><img src="image-20210606232110235.png" alt="image-20210606232110235"></p>
 <p>修正好之后的数据索引则是按顺序从 0-621，共 622 个训练样本。</p>
-<h2 id="4、建立初始模型：分别建立决策树和随机森林的两个初始模型，将模型的准确率分别命名为"><a href="#4、建立初始模型：分别建立决策树和随机森林的两个初始模型，将模型的准确率分别命名为" class="headerlink" title="4、建立初始模型：分别建立决策树和随机森林的两个初始模型，将模型的准确率分别命名为"></a>4<strong>、建立初始模型：分别建立决策树和随机森林的两个初始模型，将模型的准确率分别命名为</strong></h2><p>Score_c0, Score_r0</p>
+<h4 id="4、建立初始模型：分别建立决策树和随机森林的两个初始模型，将模型的准确率分别命名为"><a href="#4、建立初始模型：分别建立决策树和随机森林的两个初始模型，将模型的准确率分别命名为" class="headerlink" title="4、建立初始模型：分别建立决策树和随机森林的两个初始模型，将模型的准确率分别命名为"></a>4<strong>、建立初始模型：分别建立决策树和随机森林的两个初始模型，将模型的准确率分别命名为</strong></h4><p>Score_c0, Score_r0</p>
 <pre class="line-numbers language-none"><code class="language-none">clf &#x3D; DecisionTreeClassifier( random_ state&#x3D;0)
 rfc&#x3D; RandomForestclassifier (random_ state&#x3D;0)
 clf&#x3D; clf.fit(Xtrain,Ytrain)
@@ -1595,7 +1595,7 @@ warnings.filterwarnings(&quot;ignore&quot; )
 
 <p><img src="image-20210606232551474.png" alt="image-20210606232551474"></p>
 <p>初始状态下，随机森林算法的准确率比决策树高一点点。</p>
-<h2 id="5、分别对决策树算法，随机森林算法模型进行调参"><a href="#5、分别对决策树算法，随机森林算法模型进行调参" class="headerlink" title="5、分别对决策树算法，随机森林算法模型进行调参"></a>5<strong>、分别对决策树算法，随机森林算法模型进行调参</strong></h2><p> 1.调整决策树算法的 max_depth 参数,画出对应学习曲线</p>
+<h4 id="5、分别对决策树算法，随机森林算法模型进行调参"><a href="#5、分别对决策树算法，随机森林算法模型进行调参" class="headerlink" title="5、分别对决策树算法，随机森林算法模型进行调参"></a>5<strong>、分别对决策树算法，随机森林算法模型进行调参</strong></h4><p> 1.调整决策树算法的 max_depth 参数,画出对应学习曲线</p>
 <pre class="line-numbers language-none"><code class="language-none">import matplotlib.pyplot as plt
 score_c&#x3D;[]
 for i in range(10):
@@ -1647,7 +1647,7 @@ plt.show()
 
 <p><img src="image-20210606233724379.png" alt="image-20210606233724379"></p>
 <p>通过学习曲线调参方法，随机森林 n_estimators=144 时，准确率最高</p>
-<h2 id="6．实验结果"><a href="#6．实验结果" class="headerlink" title="6．实验结果"></a><strong>6．实验结果</strong></h2><p>通过以上模型调参结果，总结出模型的最佳参数如下，通过交叉验证得出模型最终的结果：</p>
+<h4 id="6．实验结果"><a href="#6．实验结果" class="headerlink" title="6．实验结果"></a><strong>6．实验结果</strong></h4><p>通过以上模型调参结果，总结出模型的最佳参数如下，通过交叉验证得出模型最终的结果：</p>
 <pre class="line-numbers language-none"><code class="language-none">clf &#x3D; DecisionTreeClassifier(max_ depth&#x3D;3, random_state&#x3D;90)
 score &#x3D; cross_ _val_ score(clf,X,y, cv&#x3D;10).mean()
 score<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -2441,7 +2441,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">159k</span>&nbsp;字 -->
+                class="white-color">165.7k</span>&nbsp;字 -->
             
             
             
