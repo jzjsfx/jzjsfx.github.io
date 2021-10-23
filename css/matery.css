@@ -150,7 +150,7 @@
 }
 
 body {
-    background-color: #eaeaea;
+    background-color: #4295b9;
     margin: 0;
     color: #34495e;
     overflow-x: hidden;
@@ -384,11 +384,11 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right,rgb(84 133 183) 0%, #f97794 100%);
+    background-image: linear-gradient(to right,rgb(84 133 183) 0%, #4295b9 100%);
 }
 
 .text-color {
-    color: #0f9d58 !important;
+    color: #fff !important;
 }
 
 .white-color {
@@ -2047,7 +2047,7 @@ footer .copy-right {
 }
 
 .top-scroll .btn-floating {
-    background: linear-gradient(to bottom right, #FF5E3A 0%, #FF2A68 100%);
+    background: linear-gradient(to bottom right, #4295b9 0%, #4295b9 100%);
     width: 48px;
     height: 48px;
 }
